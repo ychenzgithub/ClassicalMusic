@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Classical music</title>
+  <meta name="author" content="Yang Chen">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" rev="stylesheet" href="http://www.w3schools.com/lib/w3.css" type="text/css" media="all"  />
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <style>
+  a{text-decoration: none;}
+  h3{padding-left:10px;font-size: 18px;}
+  .w3-card-2:hover{padding:10px !important;}
+  a:hover p{color:red;}
+  a:hover h3{font-weight:bold;}
+  hr{border-color:teal;}
+  .ctr{text-align:center;}
+  h2{color:teal;}
+  .w3-name {
+  font-family: "Comic Sans MS", cursive, sans-serif;}
+ </style>
+</head>
+
+<body style="background-color:#e2e2e2">
+<div style="max-width:1100px; margin: 0px auto; background-color: white">
+<header class="w3-container w3-teal ctr" >
+	<h1>Classical music</h1>
+</header>
+<div class="w3-topnav w3-medium w3-teal">
+  <a href="./index.html"><i class="fa fa-home w3-xlarge"></i></a>
+  <a href="#Masterpiece">Masterpiece</a>
+ </div>
+
+
+<!-- System -->
+<div class="w3-row w3-padding-medium w3-margin-12">
+	<h2 id="Masterpiece"><a href="./index.html"><i class="fa fa-home w3-xlarge"></i></a> Masterpiece </h2>
+	<hr>
+</div>
+<!-- row 1 -->
+<div class="w3-row w3-margin-12">
+	<div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=GRxofEmo3HA&t" target="_blank">
+			<img src="https://cdn.shopify.com/s/files/1/1377/6983/products/b0dd9c09706c9051b5567467600929bd25b692cb.jpg" style="width:100%">
+			<h3 class="w3-blue">四季 (Le quattro stagioni)</h3>
+			<p class="w3-name">安东尼奥·维瓦尔第 (Antonio Lucio Vivaldi)</p>
+			<p >《四季》是意大利音乐家安东尼奥·维瓦尔第在1723年创作的小提琴协奏曲。这也是他最著名的作品之一。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=l6kqu2mk-Kw" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/51L-EPHQQ3L._SS500.jpg" style="width:100%">
+			<h3 class="w3-blue">伏尔塔瓦河 (Vltava)</h3>
+			<p class="w3-name">贝多伊齐·斯美塔那 (Bedřich Smetana)</p>
+			<p >《我的祖国》是捷克作曲家贝多伊齐·斯美塔那在1874年－1879年间完成的交响诗作品，是由六首色彩缤纷而富戏剧性的管弦乐曲所组成。《伏尔塔瓦河》为最著名的一首。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=NlprozGcs80" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/41Z1057hhPL._SY355_.jpg" style="width:100%">
+			<h3 class="w3-blue">D大调卡农 (Canon in D major)</h3>
+			<p class="w3-name">约翰·帕赫贝尔 (Johann Pachelbel)</p>
+			<p >《D大调卡农与吉格》是德国作曲家约翰·帕赫贝尔最著名的作品。因为它是最著名的卡农乐曲，有时也常以“卡农”代指。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=iOD2tvNuzig" target="_blank">
+			<img src="https://www.tradebit.com/usr/markbogd/pub/9002/105501586_DIGITAL-PRINT-1600x1600-The-blue-Danube.jpg" style="width:100%">
+			<h3 class="w3-blue">蓝色多瑙河 (An der schönen blauen Donau op. 314)</h3>
+			<p class="w3-name">小约翰斯特劳斯 (Johann Strauss II)</p>
+			<p >蓝色多瑙河是奥地利作曲家小约翰·施特劳斯于1867年所创作的一首圆舞曲。这首歌与《维也纳森林的故事》、《皇帝圆舞曲》并称为施特劳斯的三大圆舞曲。</p>
+		</a>
+		</div>
+	</div>
+</div>
+<!-- row 2 -->
+<div class="w3-row w3-margin-12">
+	<div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="http://www.youtube.com/watch?v=u5yr-r3GkW4" target="_blank">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tritsch_tratsch_polka_214.jpg/640px-Tritsch_tratsch_polka_214.jpg" style="width:100%">
+			<h3 class="w3-blue">闲聊波尔卡 (Tritsch-Tratsch-Polka)</h3>
+			<p class="w3-name">小约翰斯特劳斯 (Johann Strauss II)</p>
+			<p >闲聊波尔卡是一首舞曲小品，有声有色地表现了妇女们嚷着笑着和愉快地闲聊的情景。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=FHFf7NIwOHQ" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/61SLMkrD3YL._SY355_.jpg" style="width:100%">
+			<h3 class="w3-blue">拉德斯基进行曲 (Radetzky March)</h3>
+			<p class="w3-name">老约翰斯特劳斯 (Johann Strauss I)</p>
+			<p >《拉德茨基进行曲》是奥地利作曲家老约翰·施特劳斯于1848年写成，是为表扬奥地利伯爵约瑟夫·冯·拉德茨基对国家建战功而作的。现在是一个在军队中相当流行的进行曲。。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=tUe-clNbnBE" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/710EmOlGjHL._SX355_.jpg" style="width:100%">
+			<h3 class="w3-blue">匈牙利圆舞曲 (Hungarian Dances)</h3>
+			<p class="w3-name">约翰内斯·勃拉姆斯 (Johannes Brahms)</p>
+			<p >《匈牙利舞曲》是由约翰内斯·勃拉姆斯（WoO 1[1]）创作的一组21首主要以匈牙利主题为基础的的欢快舞曲，完成于1869年。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=rIM5cWB2wmM" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/51zVtExetrL._SS500.jpg" style="width:100%">
+			<h3 class="w3-blue">结婚进行曲 (Wedding March)</h3>
+			<p class="w3-name">费利克斯·门德尔松 (Felix Mendelssohn)</p>
+			<p >门德尔松的C大调《结婚进行曲》是其中一首因时常用于婚礼而著名的乐曲，一般以管风琴演奏。它是为莎士比亚的作品《仲夏夜之梦》所做的配乐。</p>
+		</a>
+		</div>
+	</div>
+</div>
+<!-- row 3 -->
+<div class="w3-row w3-margin-12">
+	<div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=hbQORqkStpk" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/81-txT7n%2BhL._SL1500_.jpg" style="width:100%">
+			<h3 class="w3-blue">勃兰登堡协奏曲 (Brandenburg concertos)</h3>
+			<p class="w3-name">约翰·塞巴斯蒂安·巴赫(Johann Sebastian Bach)</p>
+			<p >《勃兰登堡协奏曲》是德国作曲家巴赫的一套管弦乐组曲，属于当时流行的大协奏曲体裁，一共六首。是作曲家最负盛名的管弦乐作品之一。。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=0WDQL_X7Euk" target="_blank">
+			<img src="https://resources.wimpmusic.com/images/acee9b78/0a79/4291/b866/ef59d4de4d45/640x640.jpg" style="width:100%">
+			<h3 class="w3-blue">六首乐兴之时 (Six moments musicaux)</h3>
+			<p class="w3-name">弗朗茨·舒伯特 (Franz Schubert)</p>
+			<p >六首乐兴之时为浪漫乐派作曲家弗朗茨·舒伯特于1823至1828年创作的一系列音乐小品。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=B9jieJySSho" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/51I6drYlSbL._SS500.jpg" style="width:100%">
+			<h3 class="w3-blue">童年即景 (Kinderszenen)</h3>
+			<p class="w3-name">罗伯特·舒曼 (Robert Schumann)</p>
+			<p >童年即景是德国作曲家罗伯特·舒曼创作的一部钢琴套曲，由十三首曲目组成，提供了他成年后的童年回忆。</p>
+		</a>
+		</div>
+	</div>
+  <div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=Lkcvrxj0eLY" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/51K0iYx5UXL._SS500.jpg" style="width:100%">
+			<h3 class="w3-blue">致爱丽丝 (Für Elise)</h3>
+			<p class="w3-name">路德维希·范·贝多芬 (Ludwig van Beethoven)</p>
+			<p >致爱丽丝是路德维希·范·贝多芬作曲的一首钢琴曲。创作于1810年4月27日。此曲为A小调回旋曲。</p>
+		</a>
+		</div>
+	</div>
+</div>
+
+<!-- row 3 -->
+<div class="w3-row w3-margin-12">
+	<div class="w3-container w3-quarter w3-padding-small">
+		<div class="w3-card-2 w3-white w3-padding-small">
+		<a href="https://www.youtube.com/watch?v=ea2WoUtbzuw" target="_blank">
+			<img src="https://images-na.ssl-images-amazon.com/images/I/51JlXk3liGL._SY355_.jpg" style="width:100%">
+			<h3 class="w3-blue">月光 (Clair de lune)</h3>
+			<p class="w3-name">阿希尔-克洛德·德彪西 (Achille-Claude Debussy)</p>
+			<p >《贝加马斯克组曲》是法国作曲家阿希尔-克洛德·德彪西创作的钢琴组曲。月光为当中最出名的乐章。</p>
+		</a>
+		</div>
+	</div>
+</div>
+
+<footer class="w3-container w3-teal ctr">
+<p>© 2018 <a href="http://www.ess.uci.edu/~ychen17">Yang Chen | ALL RIGHTS RESERVED</a></p>
+</footer>
+
+</div>
+</body>
+</html>

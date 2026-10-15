@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <title>Classical Music · Timeless Masterpieces</title>
+  <meta name="author" content="Yang Chen">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A curated collection of timeless classical music masterpieces.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       CSS Variables & Themes
+       ========================================================================== */
+    :root {
+      --font-display: 'Cinzel', 'Songti SC', 'STSong', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0b0f19;
+      --bg-surface: #141c2e;
+      --bg-surface-elevated: #1a243b;
+      --bg-surface-glass: rgba(20, 28, 46, 0.85);
+      --bg-input: #101626;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: #c5a059;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #64748b;
+      --accent-gold: #d4af37;
+      --accent-gold-light: #f3cf7a;
+      --accent-gold-glow: rgba(212, 175, 55, 0.25);
+      --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+      --shadow-hover: 0 20px 35px -5px rgba(0, 0, 0, 0.7), 0 0 20px var(--accent-gold-glow);
+      --hero-overlay: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+      --badge-baroque: #3b82f6;
+      --badge-classical: #10b981;
+      --badge-romantic: #ec4899;
+      --badge-impressionist: #8b5cf6;
+      --badge-other: #f59e0b;
+    }
+
+    [data-theme="light"] {
+      --bg-body: #f8f6f0;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f4efe6;
+      --bg-surface-glass: rgba(255, 255, 255, 0.9);
+      --bg-input: #ffffff;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-focus: #9b722b;
+      --text-primary: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --accent-gold: #a67c2e;
+      --accent-gold-light: #845d15;
+      --accent-gold-glow: rgba(166, 124, 46, 0.2);
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 16px 30px -4px rgba(166, 124, 46, 0.15);
+      --hero-overlay: radial-gradient(circle at 50% 0%, rgba(166, 124, 46, 0.08) 0%, transparent 70%);
+      --badge-baroque: #2563eb;
+      --badge-classical: #059669;
+      --badge-romantic: #db2777;
+      --badge-impressionist: #7c3aed;
+      --badge-other: #d97706;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-image: var(--hero-overlay);
+      background-repeat: no-repeat;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--bg-surface-glass);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--accent-gold), #b3822a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px var(--accent-gold-glow);
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      background: linear-gradient(135deg, var(--text-primary), var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--accent-gold), #b8860b);
+      color: #111;
+      font-weight: 600;
+      border: none;
+      box-shadow: 0 2px 10px var(--accent-gold-glow);
+    }
+
+    .btn-gold:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px var(--accent-gold-glow);
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, #e50914, #b20710);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      box-shadow: 0 2px 10px rgba(229, 9, 20, 0.35);
+    }
+
+    .btn-red:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(229, 9, 20, 0.5);
+    }
+
+    .btn-outline {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-surface-elevated);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .btn-lang {
+      font-weight: 600;
+      padding: 7px 14px;
+      font-size: 0.8125rem;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-icon {
+      padding: 8px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-icon:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 48px 0 32px 0;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      color: var(--accent-gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    /* Controls */
+    .controls-wrapper {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 14px 10px 42px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--accent-gold-glow);
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: none;
+      padding: 4px;
+      font-size: 0.875rem;
+    }
+
+    .sort-select {
+      padding: 10px 16px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      outline: none;
+      cursor: pointer;
+      min-width: 170px;
+    }
+
+    .sort-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .period-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .tag-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--text-primary);
+    }
+
+    .tag-btn.active {
+      background: var(--accent-gold);
+      color: #111;
+      font-weight: 600;
+      border-color: var(--accent-gold);
+    }
+
+    .stats-info {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* Cards */
+    .pieces-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .piece-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .piece-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(212, 175, 55, 0.45);
+    }
+
+    .card-thumbnail-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #000;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .piece-card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .piece-card:hover .play-overlay {
+      opacity: 1;
+    }
+
+    .play-btn-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      color: #cc0000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      transform: scale(0.85);
+      transition: var(--transition);
+    }
+
+    .piece-card:hover .play-btn-circle {
+      transform: scale(1);
+    }
+
+    .play-btn-circle svg {
+      margin-left: 3px;
+    }
+
+    .period-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    .period-badge.baroque { background: var(--badge-baroque); }
+    .period-badge.classical { background: var(--badge-classical); }
+    .period-badge.romantic { background: var(--badge-romantic); }
+    .period-badge.impressionist { background: var(--badge-impressionist); }
+    .period-badge.other { background: var(--badge-other); }
+
+    .card-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title-group {
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    .card-original-title {
+      font-size: 0.8125rem;
+      color: var(--accent-gold);
+      font-style: italic;
+    }
+
+    .composer-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .composer-badge svg {
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .card-description {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .btn-direct-play {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #e50914, #b20710);
+      color: #ffffff;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(229, 9, 20, 0.3);
+    }
+
+    .btn-direct-play:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(229, 9, 20, 0.45);
+    }
+
+    .btn-details {
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+
+    .btn-details:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .btn-card-del {
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-card-del:hover {
+      color: #ef4444;
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    /* Fallback Cover */
+    .fallback-cover {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: var(--accent-gold);
+      gap: 8px;
+    }
+
+    .fallback-cover span {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--bg-surface);
+      border: 1px dashed var(--border-subtle);
+      border-radius: var(--radius-lg);
+    }
+
+    .empty-state svg {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-dialog {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      max-height: 92vh;
+    }
+
+    .modal-backdrop.active .modal-dialog {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .modal-close:hover {
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+    }
+
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    /* Modal Player Actions & Alerts */
+    .player-action-banner {
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.12), rgba(212, 175, 55, 0.12));
+      border: 1px solid rgba(229, 9, 20, 0.35);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .player-banner-text {
+      flex: 1;
+      min-width: 200px;
+      font-size: 0.84rem;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .player-banner-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .player-details h3 {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+
+    .player-details .player-composer {
+      color: var(--accent-gold);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .player-details p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-secondary);
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px var(--accent-gold-glow);
+    }
+
+    .form-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .thumb-preview-box {
+      margin-top: 8px;
+      height: 120px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--bg-input);
+      border: 1px dashed var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumb-preview-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .code-preview-area {
+      font-family: monospace;
+      font-size: 0.8125rem;
+      background: #090d16;
+      color: #9cdcfe;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      white-space: pre-wrap;
+      max-height: 220px;
+      overflow-y: auto;
+      user-select: all;
+    }
+
+    /* Curated external resources bar */
+    .resources-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 48px;
+    }
+
+    .resources-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-gold);
+    }
+
+    .resources-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .resource-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .resource-chip:hover {
+      border-color: var(--accent-gold);
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent-gold);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+      font-size: 0.8125rem;
+      flex-wrap: wrap;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--accent-gold);
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .header-inner { height: auto; padding: 14px 0; flex-wrap: wrap; }
+      .pieces-grid { grid-template-columns: 1fr; }
+      .hero { padding: 32px 0 20px; }
+      .card-actions { flex-wrap: wrap; }
+      .btn-direct-play { width: 100%; }
+      .player-action-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">𝄞</div>
+        <div class="brand-text">
+          <h1 id="i18n-brand-title">CLASSICAL MUSIC</h1>
+          <p id="i18n-brand-sub">Masterpieces & Symphonic Poetry</p>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Language Switcher (EN default <-> ZH) -->
+        <button class="btn btn-outline btn-lang" id="langToggleBtn" title="Switch Language / 切换语言">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <span id="langBtnText">中文</span>
+        </button>
+
+        <!-- Add Source Button -->
+        <button class="btn btn-gold" id="openAddModalBtn" title="Add a new music piece">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span id="i18n-add-btn">Add Piece</span>
+        </button>
+
+        <!-- Manage Data Button -->
+        <button class="btn btn-outline" id="openExportModalBtn" title="Manage & Export Data">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span id="i18n-manage-btn">Manage Data</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button class="btn-icon" id="themeToggleBtn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+          <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Hero Banner -->
+    <section class="hero">
+      <div class="hero-badge" id="i18n-hero-badge">Classical Heritage · Masterpieces Collection</div>
+      <h2 class="hero-title" id="i18n-hero-title">Timeless Masterpieces</h2>
+      <p class="hero-subtitle" id="i18n-hero-sub">Immerse yourself in centuries of classical symphonies, concertos, and solo masterworks from Baroque, Classical, Romantic, and Impressionist masters.</p>
+    </section>
+
+    <!-- Search & Filter Controls -->
+    <section class="controls-wrapper" aria-label="Filter Controls">
+      <div class="search-row">
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search piece title, composer (e.g., Beethoven, Vivaldi)..." autocomplete="off">
+          <button id="searchClearBtn" class="search-clear" title="Clear Search" aria-label="Clear Search">✕</button>
+        </div>
+
+        <select id="sortSelect" class="sort-select" title="Sort By">
+          <option value="default" id="i18n-sort-default">Curated Order</option>
+          <option value="period" id="i18n-sort-period">Sort by Era</option>
+          <option value="composer" id="i18n-sort-composer">Sort by Composer</option>
+          <option value="title" id="i18n-sort-title">Sort by Title</option>
+        </select>
+      </div>
+
+      <div class="filter-row">
+        <div class="period-tags" id="periodFilterTags">
+          <button class="tag-btn active" data-period="all" id="i18n-filter-all">All</button>
+          <button class="tag-btn" data-period="baroque" id="i18n-filter-baroque">Baroque</button>
+          <button class="tag-btn" data-period="classical" id="i18n-filter-classical">Classical</button>
+          <button class="tag-btn" data-period="romantic" id="i18n-filter-romantic">Romantic</button>
+          <button class="tag-btn" data-period="impressionist" id="i18n-filter-impressionist">Impressionist</button>
+        </div>
+
+        <div class="stats-info" id="statsInfo">
+          27 pieces
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Pieces Grid -->
+    <section id="piecesGrid" class="pieces-grid" aria-label="Music Collection">
+      <!-- Cards dynamically injected by JavaScript -->
+    </section>
+
+    <!-- Curated Classical Resources Section (from Notion Note) -->
+    <section class="resources-section">
+      <div class="resources-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span id="i18n-resources-title">Curated Classical Music Resources</span>
+      </div>
+      <div class="resources-list">
+        <a href="https://www.bilibili.com/video/av6399944/?spm_id_from=333.788.videocard.5" target="_blank" rel="noopener noreferrer" class="resource-chip" title="Top 50 Classical Masterpieces on Bilibili">
+          <span>📺</span>
+          <span id="i18n-res-bili">Top 50 Classical Masterpieces (最佳古典音乐50篇)</span>
+          <span>↗</span>
+        </a>
+        <a href="http://ncpa-classic.cntv.cn/special/gdyysx/top100/index.shtml" target="_blank" rel="noopener noreferrer" class="resource-chip" title="100 Essential Classical Works by NCPA">
+          <span>🎼</span>
+          <span id="i18n-res-ncpa">100 Essential Classical Works (国家大剧院100首入门曲目)</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Video Player & Details Modal -->
+  <div id="playerModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTrackTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span style="color:var(--accent-gold);">𝄞</span>
+          <span id="modalTrackTitle">Now Playing</span>
+        </div>
+        <button id="closePlayerModalBtn" class="modal-close" aria-label="Close Player">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- Prominent Direct Play Action Banner -->
+        <div class="player-action-banner">
+          <div class="player-banner-text">
+            <strong id="i18n-modal-play-heading">Direct YouTube Playback</strong>
+            <div class="player-banner-sub" id="i18n-modal-play-sub">
+              If local browser security (file://) blocks in-page video playback, click here to watch directly on YouTube:
+            </div>
+          </div>
+          <a id="playerDirectLinkTop" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            <span id="i18n-modal-yt-btn">Play directly on YouTube</span>
+          </a>
+        </div>
+
+        <div class="video-wrapper">
+          <iframe id="playerIframe" src="" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen></iframe>
+        </div>
+        <div class="player-details">
+          <h3 id="playerDetailTitle"></h3>
+          <div id="playerDetailComposer" class="player-composer"></div>
+          <p id="playerDetailDesc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add New Source Modal -->
+  <div id="addModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="addModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title" id="addModalTitle">
+          <span style="color:var(--accent-gold);">➕</span>
+          <span id="i18n-add-modal-title">Add New Classical Piece</span>
+        </div>
+        <button id="closeAddModalBtn" class="modal-close" aria-label="Close Dialog">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="addPieceForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="newTitleEn" id="i18n-form-title-en">English Title *</label>
+              <input type="text" id="newTitleEn" class="form-input" placeholder="e.g. Air on the G String" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="newTitleZh" id="i18n-form-title-zh">Chinese Title (中文曲名)</label>
+              <input type="text" id="newTitleZh" class="form-input" placeholder="例如: G弦上的咏叹调">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="newComposerEn" id="i18n-form-comp-en">Composer (English) *</label>
+              <input type="text" id="newComposerEn" class="form-input" placeholder="e.g. Johann Sebastian Bach" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="newComposerZh" id="i18n-form-comp-zh">Composer (Chinese)</label>
+              <input type="text" id="newComposerZh" class="form-input" placeholder="例如: 约翰·塞巴斯蒂安·巴赫">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="newPeriod" id="i18n-form-period">Musical Era *</label>
+              <select id="newPeriod" class="form-select">
+                <option value="baroque">Baroque · 巴洛克</option>
+                <option value="classical">Classical · 古典主义</option>
+                <option value="romantic" selected>Romantic · 浪漫主义</option>
+                <option value="impressionist">Impressionist · 印象主义</option>
+                <option value="other">Other / Modern · 现代及其他</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="newYear" id="i18n-form-year">Year / Opus</label>
+              <input type="text" id="newYear" class="form-input" placeholder="e.g. 1730 or BWV 1068">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newYoutubeUrl" id="i18n-form-yt">YouTube URL *</label>
+            <input type="url" id="newYoutubeUrl" class="form-input" placeholder="https://www.youtube.com/watch?v=..." required>
+            <div class="form-hint" id="i18n-form-yt-hint">HQ video thumbnail will be automatically retrieved from YouTube.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newImageUrl" id="i18n-form-img">Custom Cover Image URL (Optional)</label>
+            <input type="url" id="newImageUrl" class="form-input" placeholder="Leave empty to auto-use YouTube thumbnail">
+            <div class="thumb-preview-box" id="thumbnailPreview">
+              <span style="font-size:0.8125rem; color:var(--text-muted);" id="i18n-thumb-preview-text">Cover thumbnail preview</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="newDesc" id="i18n-form-desc">Description / Program Notes</label>
+            <textarea id="newDesc" class="form-textarea" rows="3" placeholder="Brief introduction to the piece, historical context or musical themes..."></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; gap:12px; flex-wrap:wrap;">
+            <button type="button" id="copyCodeSnippetBtn" class="btn btn-outline" style="font-size:0.8125rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span id="i18n-form-snippet-btn">Generate JS Snippet</span>
+            </button>
+            <div style="display:flex; gap:10px;">
+              <button type="button" id="cancelAddBtn" class="btn btn-outline" id="i18n-form-cancel">Cancel</button>
+              <button type="submit" class="btn btn-gold" id="i18n-form-submit">Save & Display</button>
+            </div>
+          </div>
+        </form>
+
+        <div id="codeSnippetWrapper" style="display:none; margin-top:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span class="form-label" style="margin:0;">JavaScript Snippet (paste into index.html):</span>
+            <button id="copyToClipboardBtn" class="btn btn-outline" style="padding:4px 10px; font-size:0.75rem;">Copy Snippet</button>
+          </div>
+          <pre class="code-preview-area" id="codeSnippetPre"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Management / Export Modal -->
+  <div id="exportModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title" id="exportModalTitle">
+          <span style="color:var(--accent-gold);">⚙️</span>
+          <span id="i18n-manage-modal-title">Data Backup & Management</span>
+        </div>
+        <button id="closeExportModalBtn" class="modal-close" aria-label="Close Dialog">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.875rem; color:var(--text-secondary); margin-bottom:14px;" id="i18n-manage-desc">
+          Export your collection as JSON or copy code snippets to permanently customize the collection in the source code.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label" id="i18n-manage-json-label">Complete Collection JSON:</label>
+          <pre class="code-preview-area" id="fullJsonPre" style="max-height:260px;"></pre>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; gap:10px; flex-wrap:wrap;">
+          <button id="resetDataBtn" class="btn btn-outline" style="color:#ef4444; border-color:rgba(239,68,68,0.3);" id="i18n-manage-reset-btn">
+            Reset to Curated Catalog (27 Pieces)
+          </button>
+          <div style="display:flex; gap:10px;">
+            <button id="downloadJsonBtn" class="btn btn-outline" id="i18n-manage-download-btn">Download JSON</button>
+            <button id="copyFullJsonBtn" class="btn btn-gold" id="i18n-manage-copy-btn">Copy Full JSON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">
+    <span id="toastIcon">✓</span>
+    <span id="toastMessage">Copied to clipboard</span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2018–2026 <a href="http://www.ess.uci.edu/~ychen17" target="_blank" rel="noopener noreferrer">Yang Chen</a> · All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="#top" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" id="i18n-footer-top">Back to top ↑</a>
+        <span>·</span>
+        <span>Classical Music Collection</span>
+        <span>·</span>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">Web Archive</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JavaScript Logic & Master Data (27 Pieces from Archive + Notion)
+       ========================================================================== -->
+  <script>
+    /**
+     * --------------------------------------------------------------------------
+     * 1. 核心曲目数据库 (DEFAULT_PIECES) - 27 首名作 (含 Notion 专属收藏)
+     * --------------------------------------------------------------------------
+     */
+    const DEFAULT_PIECES = [
+      /* --- 巴洛克时期 (Baroque) --- */
+      {
+        id: "pachelbel-canon-in-d",
+        title: { en: "Canon in D major", zh: "D大调卡农" },
+        originalTitle: "Kanon und Gigue in D-Dur",
+        composer: { en: "Johann Pachelbel", zh: "约翰·帕赫贝尔" },
+        period: "baroque",
+        year: "c. 1680",
+        description: {
+          en: "Pachelbel's Canon is his most celebrated composition. Built upon a serene ground bass and repetitive harmonies, it has become an iconic baroque masterpiece worldwide.",
+          zh: "《D大调卡农与吉格》是德国作曲家帕赫贝尔最著名的作品，以其安宁优美、层层叠进的和声织体闻名于世，常被直接称为“卡农”。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=JvNQLJ1_HQ0",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/41Z1057hhPL._SY355_.jpg"
+      },
+      {
+        id: "vivaldi-four-seasons",
+        title: { en: "The Four Seasons", zh: "四季" },
+        originalTitle: "Le quattro stagioni, Op. 8",
+        composer: { en: "Antonio Vivaldi", zh: "安东尼奥·维瓦尔第" },
+        period: "baroque",
+        year: "1723",
+        description: {
+          en: "A set of four violin concertos by Antonio Vivaldi, each giving vivid musical expression to a season of the year. One of the greatest milestones of programmatic music.",
+          zh: "《四季》是意大利音乐家安东尼奥·维瓦尔第在1723年创作的小提琴协奏曲，生动描绘了一年四季的风光与心境，是他最负盛名的传世代表作。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=zzE-kVadtNw",
+        imageUrl: "https://cdn.shopify.com/s/files/1/1377/6983/products/b0dd9c09706c9051b5567467600929bd25b692cb.jpg"
+      },
+      {
+        id: "bach-brandenburg-concertos",
+        title: { en: "Brandenburg Concertos", zh: "勃兰登堡协奏曲" },
+        originalTitle: "Brandenburgische Konzerte, BWV 1046–1051",
+        composer: { en: "Johann Sebastian Bach", zh: "约翰·塞巴斯蒂安·巴赫" },
+        period: "baroque",
+        year: "1721",
+        description: {
+          en: "A collection of six instrumental works presented by Bach to the Margrave of Brandenburg. Widely regarded as the pinnacle of Baroque concerto grosso composition.",
+          zh: "巴赫献给勃兰登堡侯爵的一套六首管弦乐大协奏曲，复调技巧精湛严密，是巴洛克时期管弦乐最高峰代表作之一。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=hbQORqkStpk",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/81-txT7n%2BhL._SL1500_.jpg"
+      },
+      {
+        id: "bach-air-on-g-string",
+        title: { en: "Air on the G String", zh: "G弦上的咏叹调" },
+        originalTitle: "Orchestral Suite No. 3 in D major, BWV 1068",
+        composer: { en: "Johann Sebastian Bach", zh: "约翰·塞巴斯蒂安·巴赫" },
+        period: "baroque",
+        year: "1730",
+        description: {
+          en: "Arranged from the second movement of Bach's Orchestral Suite No. 3. Celebrated for its sublime, floating melodic line that evokes transcendent peace and grace.",
+          zh: "源自巴赫《第三号管弦乐组曲》第二乐章，经19世纪小提琴家威廉密改编后名扬天下。旋律宛如天籁，纯净深沉而静谧悠远。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=CvglW3KNSsQ",
+        imageUrl: ""
+      },
+      {
+        id: "handel-hallelujah-chorus",
+        title: { en: "'Hallelujah' Chorus (Messiah)", zh: "哈利路亚大合唱 (选自《弥赛亚》)" },
+        originalTitle: "Messiah, HWV 56: Part II, No. 44",
+        composer: { en: "George Frideric Handel", zh: "格奥尔格·弗里德里希·韩德尔" },
+        period: "baroque",
+        year: "1741",
+        description: {
+          en: "The jubilant climax of Handel's oratorio 'Messiah'. Known for its triumphant choruses, majestic brass, and traditional standing ovation introduced by King George II.",
+          zh: "清唱剧《弥赛亚》第二部分的压轴合唱。雄浑壮阔、震撼人心，首演时英王乔治二世为之肃然起立，至今仍是世界最著名的合唱名作之一。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=IUZEtVbJT5c",
+        imageUrl: ""
+      },
+
+      /* --- 古典主义时期 (Classical) --- */
+      {
+        id: "haydn-surprise-symphony",
+        title: { en: "Symphony No. 94 'Surprise'", zh: "第94号交响曲“惊愕”" },
+        originalTitle: "Symphony No. 94 in G major: II. Andante",
+        composer: { en: "Joseph Haydn", zh: "约瑟夫·海顿" },
+        period: "classical",
+        year: "1791",
+        description: {
+          en: "Nicknamed the 'Surprise Symphony' for the sudden loud fortissimo chord punctuating the peaceful second-movement theme. One of Haydn's London masterpieces.",
+          zh: "“交响乐之父”海顿创作于伦敦的著名交响曲，第二乐章在轻柔宁静的行进中突然爆发一声定音鼓与乐队强奏，极具古典主义的幽默与睿智。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=VOLy6JxEDLw",
+        imageUrl: ""
+      },
+      {
+        id: "mozart-symphony-40",
+        title: { en: "Symphony No. 40 in G minor", zh: "g小调第40号交响曲" },
+        originalTitle: "Symphony No. 40, K. 550",
+        composer: { en: "Wolfgang Amadeus Mozart", zh: "沃尔夫冈·阿马德乌斯·莫扎特" },
+        period: "classical",
+        year: "1788",
+        description: {
+          en: "One of only two minor-key symphonies by Mozart. Filled with intense emotional pathos, tragic urgency, and soaring melodic elegance.",
+          zh: "莫扎特仅有的两部小调交响曲之一。第一乐章那带有淡淡忧伤却充满急迫脉动的标志性主题，是古典主义时期情感张力最高峰的代表。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=CDzxKJkU21s",
+        imageUrl: ""
+      },
+      {
+        id: "mozart-marriage-of-figaro",
+        title: { en: "The Marriage of Figaro (Overture)", zh: "费加罗的婚礼序曲" },
+        originalTitle: "Le nozze di Figaro, K. 492: Overture",
+        composer: { en: "Wolfgang Amadeus Mozart", zh: "沃尔夫冈·阿马德乌斯·莫扎特" },
+        period: "classical",
+        year: "1786",
+        description: {
+          en: "A dazzling, buoyant orchestral curtain-raiser showcasing Mozart's theatrical genius, effervescent woodwind interplay, and boundless comedic energy.",
+          zh: "莫扎特歌剧杰作《费加罗的婚礼》的管弦乐序曲。旋律轻快欢腾、妙趣横生，展现了莫扎特无与伦比的戏剧灵感与明澈活力。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=8OZCyp-LcGw",
+        imageUrl: ""
+      },
+      {
+        id: "mozart-requiem-lacrimosa",
+        title: { en: "Requiem: Lacrimosa", zh: "安魂曲 · 泪光点点" },
+        originalTitle: "Requiem in D minor, K. 626: Lacrimosa",
+        composer: { en: "Wolfgang Amadeus Mozart", zh: "沃尔夫冈·阿马德乌斯·莫扎特" },
+        period: "classical",
+        year: "1791",
+        description: {
+          en: "The haunting and deeply moving final movement composed by Mozart on his deathbed. A sublime cry of human sorrow, redemption, and transcendent beauty.",
+          zh: "莫扎特临终前写下的绝笔之作。“泪光点点”以如泣如诉的弦乐摇曳与哀婉合唱展开，凝结了对生命的眷恋与终极救赎。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=Zi8vJ_lMxQI",
+        imageUrl: ""
+      },
+      {
+        id: "mozart-rondo-alla-turca",
+        title: { en: "Turkish March (Rondo alla Turca)", zh: "土耳其进行曲" },
+        originalTitle: "Piano Sonata No. 11 in A major, K. 331: III",
+        composer: { en: "Wolfgang Amadeus Mozart", zh: "沃尔夫冈·阿马德乌斯·莫扎特" },
+        period: "classical",
+        year: "1783",
+        description: {
+          en: "The vivacious third movement of Mozart's Piano Sonata No. 11, imitating the percussive clatter of Ottoman Janissary military bands with brilliant sparkling piano flourishes.",
+          zh: "莫扎特第11号钢琴奏鸣曲的第三乐章，模仿当时风靡欧洲的奥斯曼土耳其苏丹禁卫军军乐打击风格，清脆跃动、家喻户晓。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=aeEmGvm7kDk",
+        imageUrl: ""
+      },
+      {
+        id: "beethoven-fur-elise",
+        title: { en: "Für Elise", zh: "致爱丽丝" },
+        originalTitle: "Bagatelle No. 25 in A minor, WoO 59",
+        composer: { en: "Ludwig van Beethoven", zh: "路德维希·范·贝多芬" },
+        period: "classical",
+        year: "1810",
+        description: {
+          en: "One of Beethoven's most popular compositions for solo piano. A charming bagatelle in A minor with an instantly recognizable, poignant opening melody.",
+          zh: "贝多芬创作于1810年的A小调钢琴小品，旋律优美明净、略带淡淡伤感与眷恋，是古典乐史上流传度最广的钢琴名作之一。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=Lkcvrxj0eLY",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/51K0iYx5UXL._SS500.jpg"
+      },
+      {
+        id: "beethoven-symphony-5",
+        title: { en: "Symphony No. 5 'Fate'", zh: "c小调第五交响曲“命运”" },
+        originalTitle: "Symphony No. 5 in C minor, Op. 67: I",
+        composer: { en: "Ludwig van Beethoven", zh: "路德维希·范·贝多芬" },
+        period: "classical",
+        year: "1808",
+        description: {
+          en: "Opening with the four iconic short-short-short-long notes ('fate knocking at the door'), this symphony embodies struggle, heroism, and triumphant human victory.",
+          zh: "贝多芬最著名的交响曲，开头由四个铿锵有力的音符构成“命运敲门之声”，展现了人类与残酷命运扼颈搏斗并最终迈向光明的英雄史诗。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=7eOaIiHB58U",
+        imageUrl: ""
+      },
+      {
+        id: "beethoven-ode-to-joy",
+        title: { en: "Ode to Joy (Symphony No. 9)", zh: "欢乐颂 (选自《第九交响曲》)" },
+        originalTitle: "Symphony No. 9 in D minor, Op. 125: IV",
+        composer: { en: "Ludwig van Beethoven", zh: "路德维希·范·贝多芬" },
+        period: "classical",
+        year: "1824",
+        description: {
+          en: "Beethoven's revolutionary choral symphony setting Friedrich Schiller's poem. A glorious universal anthem of peace, human brotherhood, and ecstatic joy.",
+          zh: "贝多芬在完全失聪的晚年创作的巅峰之作，破天荒地将人声合唱融入交响乐中，唱出席勒诗作中“四海之内皆兄弟”的博爱理想与澎湃喜悦。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=Jg3sEE18WsE",
+        imageUrl: ""
+      },
+      {
+        id: "rossini-william-tell",
+        title: { en: "William Tell Overture", zh: "威廉·退尔序曲" },
+        originalTitle: "Guillaume Tell: Ouverture",
+        composer: { en: "Gioachino Rossini", zh: "焦阿基诺·罗西尼" },
+        period: "classical",
+        year: "1829",
+        description: {
+          en: "Famous worldwide for its galloping cavalry finale, pastorale English horn melody, and raging musical storm. An exhilarating orchestral showpiece.",
+          zh: "罗西尼歌剧《威廉·退尔》的序曲。描绘了平静晨曦、暴风骤雨、阿尔卑斯牧歌与最后万马奔腾的瑞士骑兵冲锋，节奏极其明快振奋。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=H_6_71G7xyM",
+        imageUrl: ""
+      },
+      {
+        id: "rossini-barber-of-seville",
+        title: { en: "The Barber of Seville (Overture)", zh: "塞维利亚的理发师序曲" },
+        originalTitle: "Il barbiere di Siviglia: Sinfonia",
+        composer: { en: "Gioachino Rossini", zh: "焦阿基诺·罗西尼" },
+        period: "classical",
+        year: "1816",
+        description: {
+          en: "Known for the signature 'Rossini crescendo', rapid witty woodwind motifs, and sparkling Italian opera buffa exuberance.",
+          zh: "意大利喜歌剧的皇冠之作。序曲充分展现了标志性的“罗西尼渐强”，弦乐与管乐跌宕起伏、妙语连珠，令人忍俊不禁。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=mdGtyQnCMtI",
+        imageUrl: ""
+      },
+
+      /* --- 浪漫主义时期 (Romantic) --- */
+      {
+        id: "schubert-moments-musicaux",
+        title: { en: "Six Moments Musicaux", zh: "六首乐兴之时" },
+        originalTitle: "6 Moments musicaux, D. 780 (Op. 94)",
+        composer: { en: "Franz Schubert", zh: "弗朗茨·舒伯特" },
+        period: "romantic",
+        year: "1823–1828",
+        description: {
+          en: "A collection of six enchanting piano miniatures by Schubert, reflecting intimate poetic moods, lyrical melodies, and early Romantic expressive subtlety.",
+          zh: "浪漫乐派早期大师舒伯特创作的一组六首抒情钢琴小品，旋律真挚深情、诗意流淌，体现了作曲家内敛深邃的艺术气质。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=0WDQL_X7Euk",
+        imageUrl: "https://resources.wimpmusic.com/images/acee9b78/0a79/4291/b866/ef59d4de4d45/640x640.jpg"
+      },
+      {
+        id: "schubert-ave-maria",
+        title: { en: "Ave Maria", zh: "圣母颂" },
+        originalTitle: "Ellens dritter Gesang, D. 839",
+        composer: { en: "Franz Schubert", zh: "弗朗茨·舒伯特" },
+        period: "romantic",
+        year: "1825",
+        description: {
+          en: "Originally composed for Walter Scott's poem 'The Lady of the Lake'. Its serene, prayer-like arpeggiated accompaniment and pure vocal line evoke profound solace.",
+          zh: "舒伯特根据英国诗人瓦尔特·司各特的叙事长诗《湖上夫人》谱写的经典声乐杰作。琴声如行云流水，祈愿词纯净圣洁、安抚心灵。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=pwp1CH5R-w4",
+        imageUrl: ""
+      },
+      {
+        id: "strauss-radetzky-march",
+        title: { en: "Radetzky March", zh: "拉德茨基进行曲" },
+        originalTitle: "Radetzky-Marsch, Op. 228",
+        composer: { en: "Johann Strauss I", zh: "老约翰·施特劳斯" },
+        period: "romantic",
+        year: "1848",
+        description: {
+          en: "Composed in honor of Austrian Field Marshal Radetzky. Today it is famously performed as the joyous clapping finale of the annual Vienna New Year's Concert.",
+          zh: "老约翰·施特劳斯创作的军旅进行曲。如今是维也纳新年音乐会每年保留的欢庆压轴曲目，全场观众伴随指挥拍手齐和，气氛热烈非凡。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=eab_eFtTKFs",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/61SLMkrD3YL._SY355_.jpg"
+      },
+      {
+        id: "mendelssohn-wedding-march",
+        title: { en: "Wedding March", zh: "结婚进行曲" },
+        originalTitle: "A Midsummer Night's Dream, Op. 61",
+        composer: { en: "Felix Mendelssohn", zh: "费利克斯·门德尔松" },
+        period: "romantic",
+        year: "1842",
+        description: {
+          en: "Mendelssohn's Wedding March in C major, written as incidental music for Shakespeare's 'A Midsummer Night's Dream', is one of the most recognized ceremonial pieces in history.",
+          zh: "门德尔松为莎士比亚喜剧《仲夏夜之梦》所作的配乐，C大调管弦乐进行曲，是世界各地婚礼仪式中最经典通用的礼仪乐曲。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=rIM5cWB2wmM",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/51zVtExetrL._SS500.jpg"
+      },
+      {
+        id: "chopin-nocturne-op9-no2",
+        title: { en: "Nocturne in E-flat major", zh: "降E大调夜曲" },
+        originalTitle: "Nocturne Op. 9 No. 2",
+        composer: { en: "Frédéric Chopin", zh: "弗雷德里克·肖邦" },
+        period: "romantic",
+        year: "1832",
+        description: {
+          en: "Chopin's most beloved nocturne, composed at age 20. Its lyrical bel canto melody glows with tender melancholy, romantic wistfulness, and ornamental filigree.",
+          zh: "“钢琴诗人”肖邦最负盛名的夜曲。左手和缓均匀的低音伴奏烘托出右手清丽婉约、如歌如泣的主题，宛如皎洁夜空下的浪漫低语。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=9E6b3swbnWg",
+        imageUrl: ""
+      },
+      {
+        id: "schumann-kinderszenen",
+        title: { en: "Scenes from Childhood (Kinderszenen)", zh: "童年即景" },
+        originalTitle: "Kinderszenen, Op. 15",
+        composer: { en: "Robert Schumann", zh: "罗伯特·舒曼" },
+        period: "romantic",
+        year: "1838",
+        description: {
+          en: "A suite of thirteen poetic piano miniatures reminiscing on childhood from an adult perspective, highlighted by the beloved, wistful 'Träumerei' (Dreaming).",
+          zh: "德国浪漫派音乐家舒曼创作的十三首钢琴套曲，以成年人的视角追忆纯真童年时光，其中《梦幻曲》(Träumerei)尤为家喻户晓。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=yibf6QNjgGU",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/51I6drYlSbL._SS500.jpg"
+      },
+      {
+        id: "offenbach-orpheus-cancan",
+        title: { en: "Orpheus in the Underworld (Can-Can)", zh: "地狱中的奥菲欧 (康康舞曲)" },
+        originalTitle: "Orphée aux enfers: Galop infernal",
+        composer: { en: "Jacques Offenbach", zh: "贾克·奥芬巴赫" },
+        period: "romantic",
+        year: "1858",
+        description: {
+          en: "The uproarious 'Galop infernal' from Offenbach's operetta that popularized the high-kicking Parisian Can-Can dance. Uncontainable festive joy.",
+          zh: "法国轻歌剧之父奥芬巴赫的惊艳代表作。这段著名的“地狱加洛普”催生了巴黎红磨坊的康康舞，节奏飞快、狂欢欢庆。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=sf9CtbLGzgw",
+        imageUrl: ""
+      },
+      {
+        id: "strauss-blue-danube",
+        title: { en: "The Blue Danube", zh: "蓝色多瑙河" },
+        originalTitle: "An der schönen blauen Donau, Op. 314",
+        composer: { en: "Johann Strauss II", zh: "小约翰·施特劳斯" },
+        period: "romantic",
+        year: "1867",
+        description: {
+          en: "A world-renowned waltz by the Austrian 'Waltz King' Johann Strauss II. Unofficially regarded as Austria's second national anthem, it is a quintessential Viennese classic.",
+          zh: "奥地利“圆舞曲之王”小约翰·施特劳斯于1867年创作的代表作，被称为奥地利的“第二国歌”，旋律轻快优美、充满维也纳浪漫风情。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=_CTYymbbEL4",
+        imageUrl: "https://www.tradebit.com/usr/markbogd/pub/9002/105501586_DIGITAL-PRINT-1600x1600-The-blue-Danube.jpg"
+      },
+      {
+        id: "strauss-tritsch-tratsch",
+        title: { en: "Tritsch-Tratsch-Polka", zh: "闲聊波尔卡" },
+        originalTitle: "Tritsch-Tratsch-Polka, Op. 214",
+        composer: { en: "Johann Strauss II", zh: "小约翰·施特劳斯" },
+        period: "romantic",
+        year: "1858",
+        description: {
+          en: "A spirited and high-energy polka by Johann Strauss II, capturing the lively, cheerful chatter and laughter of Viennese social gatherings with delightful wit.",
+          zh: "一首欢快热烈、诙谐灵动的快速波尔卡舞曲，有声有色地展现了妇女们欢快聚会、谈笑风生的生动场景。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=u5yr-r3GkW4",
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Tritsch_tratsch_polka_214.jpg/640px-Tritsch_tratsch_polka_214.jpg"
+      },
+      {
+        id: "smetana-vltava",
+        title: { en: "Vltava (The Moldau)", zh: "伏尔塔瓦河" },
+        originalTitle: "Má vlast No. 2: Vltava",
+        composer: { en: "Bedřich Smetana", zh: "贝多伊齐·斯美塔那" },
+        period: "romantic",
+        year: "1874–1879",
+        description: {
+          en: "The second and most famous symphonic poem from Smetana's cycle 'Má vlast' (My Homeland), portraying the course of the Vltava river flowing through the Bohemian countryside to Prague.",
+          zh: "《我的祖国》是捷克作曲家斯美塔那创作的交响诗套曲，《伏尔塔瓦河》为其中第二首亦是最著名的一首，描绘了捷克母亲河奔流不息的壮丽风貌。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=l6kqu2mk-Kw",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/51L-EPHQQ3L._SS500.jpg"
+      },
+      {
+        id: "brahms-hungarian-dances",
+        title: { en: "Hungarian Dances (No. 5)", zh: "匈牙利舞曲第5号" },
+        originalTitle: "Ungarische Tänze, WoO 1: No. 5",
+        composer: { en: "Johannes Brahms", zh: "约翰内斯·勃拉姆斯" },
+        period: "romantic",
+        year: "1869",
+        description: {
+          en: "A set of 21 lively dance tunes based mostly on Hungarian gypsy themes. Hungarian Dance No. 5 is among Brahms's most popular and enduring compositions.",
+          zh: "由勃拉姆斯创作的一组21首以匈牙利吉普赛曲调为主题的欢快舞曲，其中第5号舞曲最为脍炙人口，节奏鲜明热情奔放。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=tUe-clNbnBE",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/710EmOlGjHL._SX355_.jpg"
+      },
+
+      /* --- 印象主义时期 (Impressionist) --- */
+      {
+        id: "debussy-clair-de-lune",
+        title: { en: "Clair de Lune", zh: "月光" },
+        originalTitle: "Suite bergamasque: III. Clair de lune, L. 75",
+        composer: { en: "Claude Debussy", zh: "阿希尔-克洛德·德彪西" },
+        period: "impressionist",
+        year: "1890–1905",
+        description: {
+          en: "The magical third movement of Debussy's 'Suite bergamasque', inspired by Paul Verlaine's poem. A masterpiece of Impressionist harmony and luminous pianistic color.",
+          zh: "《贝加马斯克组曲》中的第三乐章，灵感来自魏尔伦的同名诗作。琴音如月光水银泻地，是法国印象派音乐最具代表性的梦幻杰作。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=ea2WoUtbzuw",
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/51JlXk3liGL._SY355_.jpg"
+      }
+    ];
+
+    /**
+     * --------------------------------------------------------------------------
+     * 2. 多语言词条字典 (I18N Dictionary)
+     * --------------------------------------------------------------------------
+     */
+    const I18N = {
+      en: {
+        pageTitle: "Classical Music · Timeless Masterpieces",
+        brandTitle: "CLASSICAL MUSIC",
+        brandSub: "Masterpieces & Symphonic Poetry",
+        langBtn: "中文",
+        addBtn: "Add Piece",
+        manageBtn: "Manage Data",
+        heroBadge: "Classical Heritage · Masterpieces Collection",
+        heroTitle: "Timeless Masterpieces",
+        heroSub: "Immerse yourself in centuries of classical symphonies, concertos, and solo masterworks from Baroque, Classical, Romantic, and Impressionist masters.",
+        searchPlaceholder: "Search piece title, composer (e.g., Beethoven, Vivaldi, Mozart)...",
+        sortDefault: "Curated Order",
+        sortPeriod: "Sort by Era",
+        sortComposer: "Sort by Composer",
+        sortTitle: "Sort by Title",
+        filterAll: "All",
+        filterBaroque: "Baroque",
+        filterClassical: "Classical",
+        filterRomantic: "Romantic",
+        filterImpressionist: "Impressionist",
+        statsPrefix: "Showing",
+        statsOf: "of",
+        statsSuffix: "masterworks",
+        playDirect: "Play on YouTube",
+        viewDetails: "Details",
+        deleteBtn: "Remove",
+        deleteConfirm: "Are you sure you want to remove this piece from your collection?",
+        nowPlaying: "Now Playing",
+        modalPlayHeading: "Direct YouTube Playback",
+        modalPlaySub: "If local browser security (file://) blocks in-page video playback, click here to watch directly on YouTube:",
+        modalYtBtn: "Play directly on YouTube",
+        resourcesTitle: "Curated Classical Music Resources",
+        resBili: "Top 50 Classical Masterpieces",
+        resNcpa: "NCPA 100 Classical Works",
+        addModalTitle: "Add New Classical Piece",
+        formTitleEn: "English Title *",
+        formTitleZh: "Chinese Title",
+        formCompEn: "Composer (English) *",
+        formCompZh: "Composer (Chinese)",
+        formPeriod: "Musical Era *",
+        formYear: "Year / Opus",
+        formYt: "YouTube URL *",
+        formYtHint: "HQ video thumbnail will be automatically retrieved from YouTube.",
+        formImg: "Custom Cover Image URL (Optional)",
+        thumbPreviewText: "Cover thumbnail preview",
+        formDesc: "Description / Program Notes",
+        formSnippetBtn: "Generate JS Snippet",
+        formCancel: "Cancel",
+        formSubmit: "Save & Display",
+        manageModalTitle: "Data Backup & Management",
+        manageDesc: "Export your collection as JSON or copy code snippets to permanently customize the collection in the source code.",
+        manageJsonLabel: "Complete Collection JSON:",
+        manageResetBtn: "Reset to Curated Catalog (27 Pieces)",
+        manageDownloadBtn: "Download JSON",
+        manageCopyBtn: "Copy Full JSON",
+        footerTop: "Back to top ↑",
+        toastCopied: "✓ Copied to clipboard",
+        toastAdded: "✓ Piece added to collection!",
+        toastRemoved: "✓ Piece removed from collection",
+        toastReset: "✓ Collection reset to curated 27 pieces",
+        emptyTitle: "No matching classical works found",
+        emptyDesc: "Try different search keywords or reset filter tags",
+        periodLabels: {
+          baroque: "Baroque",
+          classical: "Classical",
+          romantic: "Romantic",
+          impressionist: "Impressionist",
+          other: "Other"
+        }
+      },
+      zh: {
+        pageTitle: "Classical Music · 古典音乐典藏",
+        brandTitle: "CLASSICAL MUSIC",
+        brandSub: "经典名作与交响诗篇",
+        langBtn: "English",
+        addBtn: "添加新曲目",
+        manageBtn: "数据管理",
+        heroBadge: "古典乐珍藏 · 传世经典",
+        heroTitle: "传世经典乐章",
+        heroSub: "沉浸于跨越数百年的经典管弦交响、协奏与独奏名篇，聆听巴洛克、古典乐派、浪漫主义与印象派大师的传世回响。",
+        searchPlaceholder: "搜索曲目名、作曲家 (如: 贝多芬, 莫扎特, 四季)...",
+        sortDefault: "默认推荐顺序",
+        sortPeriod: "按乐派时代排序",
+        sortComposer: "按作曲家姓名",
+        sortTitle: "按曲目名称",
+        filterAll: "全部 (All)",
+        filterBaroque: "巴洛克 (Baroque)",
+        filterClassical: "古典主义 (Classical)",
+        filterRomantic: "浪漫主义 (Romantic)",
+        filterImpressionist: "印象主义 (Impressionist)",
+        statsPrefix: "显示",
+        statsOf: "/",
+        statsSuffix: "首名作",
+        playDirect: "在 YouTube 播放",
+        viewDetails: "作品导赏",
+        deleteBtn: "删除",
+        deleteConfirm: "确定从本地收藏中移除曲目吗？",
+        nowPlaying: "正在播放",
+        modalPlayHeading: "YouTube 直连畅听",
+        modalPlaySub: "若本地文件模式 (file://) 限制内嵌视频播放，点击右侧即可在新标签页直接观看高画质演奏：",
+        modalYtBtn: "直接在 YouTube 畅听",
+        resourcesTitle: "精选古典音乐研学资源",
+        resBili: "最佳古典音乐50篇 (Bilibili)",
+        resNcpa: "国家大剧院100首入门曲目",
+        addModalTitle: "添加新曲目 / 音乐源",
+        formTitleEn: "外文曲名 *",
+        formTitleZh: "中文曲名",
+        formCompEn: "作曲家外文名 *",
+        formCompZh: "作曲家中文名",
+        formPeriod: "乐派风格 *",
+        formYear: "创作年份 / 编号",
+        formYt: "YouTube 播放链接 *",
+        formYtHint: "输入 YouTube 链接后，将自动提取高质量封面缩略图与视频。",
+        formImg: "自定义封面图片 URL (可选)",
+        thumbPreviewText: "封面预览区 (输入链接后自动生成)",
+        formDesc: "作品简介 / 导赏",
+        formSnippetBtn: "生成 JavaScript 代码片段",
+        formCancel: "取消",
+        formSubmit: "保存并展示",
+        manageModalTitle: "数据备份与管理",
+        manageDesc: "支持将自定义增加的曲目导出为 JSON，或直接复制代码片段嵌入到网页源码中永久保存。",
+        manageJsonLabel: "完整曲库 JSON 数据:",
+        manageResetBtn: "重置为精选 27 首名篇",
+        manageDownloadBtn: "下载 JSON 文件",
+        manageCopyBtn: "复制全部 JSON",
+        footerTop: "回到顶部 ↑",
+        toastCopied: "✓ 已成功复制到剪贴板",
+        toastAdded: "✓ 曲目已添加至当前曲库！",
+        toastRemoved: "✓ 曲目已从列表移除",
+        toastReset: "✓ 已重置为精选 27 首名篇",
+        emptyTitle: "未找到匹配的古典乐作品",
+        emptyDesc: "尝试更换搜索关键词或重置乐派筛选标签",
+        periodLabels: {
+          baroque: "巴洛克",
+          classical: "古典主义",
+          romantic: "浪漫主义",
+          impressionist: "印象主义",
+          other: "其他乐派"
+        }
+      }
+    };
+
+    /**
+     * --------------------------------------------------------------------------
+     * 3. 状态管理 (默认英文)
+     * --------------------------------------------------------------------------
+     */
+    let currentLang = localStorage.getItem("classical_music_lang") || "en";
+    let currentPeriodFilter = "all";
+    let currentSearchTerm = "";
+    let currentSortMode = "default";
+
+    function loadMusicCollection() {
+      const stored = localStorage.getItem("classical_music_items_v3");
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch (e) {
+          console.error("Failed to parse localStorage data", e);
+        }
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_PIECES));
+    }
+
+    let musicCollection = loadMusicCollection();
+
+    function saveCollectionToLocalStorage() {
+      localStorage.setItem("classical_music_items_v3", JSON.stringify(musicCollection));
+    }
+
+    function getLocalized(obj, lang) {
+      if (!obj) return "";
+      if (typeof obj === "string") return obj;
+      return obj[lang] || obj["en"] || obj["zh"] || "";
+    }
+
+    function extractYouTubeId(url) {
+      if (!url) return null;
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    function getCoverThumbnail(piece) {
+      if (piece.imageUrl && piece.imageUrl.trim().length > 0) {
+        return piece.imageUrl;
+      }
+      const ytId = extractYouTubeId(piece.youtubeUrl);
+      if (ytId) {
+        return `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+      }
+      return "";
+    }
+
+    /**
+     * --------------------------------------------------------------------------
+     * 4. 国际化界面渲染 (I18N DOM Sync)
+     * --------------------------------------------------------------------------
+     */
+    function applyLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      localStorage.setItem("classical_music_lang", lang);
+
+      const dict = I18N[lang];
+      document.title = dict.pageTitle;
+      document.getElementById("i18n-brand-title").textContent = dict.brandTitle;
+      document.getElementById("i18n-brand-sub").textContent = dict.brandSub;
+      document.getElementById("langBtnText").textContent = dict.langBtn;
+      document.getElementById("i18n-add-btn").textContent = dict.addBtn;
+      document.getElementById("i18n-manage-btn").textContent = dict.manageBtn;
+      document.getElementById("i18n-hero-badge").textContent = dict.heroBadge;
+      document.getElementById("i18n-hero-title").textContent = dict.heroTitle;
+      document.getElementById("i18n-hero-sub").textContent = dict.heroSub;
+      document.getElementById("searchInput").placeholder = dict.searchPlaceholder;
+
+      document.getElementById("i18n-sort-default").textContent = dict.sortDefault;
+      document.getElementById("i18n-sort-period").textContent = dict.sortPeriod;
+      document.getElementById("i18n-sort-composer").textContent = dict.sortComposer;
+      document.getElementById("i18n-sort-title").textContent = dict.sortTitle;
+
+      document.getElementById("i18n-filter-all").textContent = dict.filterAll;
+      document.getElementById("i18n-filter-baroque").textContent = dict.filterBaroque;
+      document.getElementById("i18n-filter-classical").textContent = dict.filterClassical;
+      document.getElementById("i18n-filter-romantic").textContent = dict.filterRomantic;
+      document.getElementById("i18n-filter-impressionist").textContent = dict.filterImpressionist;
+
+      document.getElementById("i18n-modal-play-heading").textContent = dict.modalPlayHeading;
+      document.getElementById("i18n-modal-play-sub").textContent = dict.modalPlaySub;
+      document.getElementById("i18n-modal-yt-btn").textContent = dict.modalYtBtn;
+
+      document.getElementById("i18n-resources-title").textContent = dict.resourcesTitle;
+      document.getElementById("i18n-res-bili").textContent = dict.resBili;
+      document.getElementById("i18n-res-ncpa").textContent = dict.resNcpa;
+
+      document.getElementById("i18n-add-modal-title").textContent = dict.addModalTitle;
+      document.getElementById("i18n-form-title-en").textContent = dict.formTitleEn;
+      document.getElementById("i18n-form-title-zh").textContent = dict.formTitleZh;
+      document.getElementById("i18n-form-comp-en").textContent = dict.formCompEn;
+      document.getElementById("i18n-form-comp-zh").textContent = dict.formCompZh;
+      document.getElementById("i18n-form-period").textContent = dict.formPeriod;
+      document.getElementById("i18n-form-year").textContent = dict.formYear;
+      document.getElementById("i18n-form-yt").textContent = dict.formYt;
+      document.getElementById("i18n-form-yt-hint").textContent = dict.formYtHint;
+      document.getElementById("i18n-form-img").textContent = dict.formImg;
+      document.getElementById("i18n-thumb-preview-text").textContent = dict.thumbPreviewText;
+      document.getElementById("i18n-form-desc").textContent = dict.formDesc;
+      document.getElementById("i18n-form-snippet-btn").textContent = dict.formSnippetBtn;
+      document.getElementById("cancelAddBtn").textContent = dict.formCancel;
+      document.getElementById("i18n-form-submit").textContent = dict.formSubmit;
+
+      document.getElementById("i18n-manage-modal-title").textContent = dict.manageModalTitle;
+      document.getElementById("i18n-manage-desc").textContent = dict.manageDesc;
+      document.getElementById("i18n-manage-json-label").textContent = dict.manageJsonLabel;
+      document.getElementById("resetDataBtn").textContent = dict.manageResetBtn;
+      document.getElementById("downloadJsonBtn").textContent = dict.manageDownloadBtn;
+      document.getElementById("copyFullJsonBtn").textContent = dict.manageCopyBtn;
+      document.getElementById("i18n-footer-top").textContent = dict.footerTop;
+
+      renderCollection();
+    }
+
+    document.getElementById("langToggleBtn").addEventListener("click", () => {
+      const nextLang = currentLang === "en" ? "zh" : "en";
+      applyLanguage(nextLang);
+    });
+
+    /**
+     * --------------------------------------------------------------------------
+     * 5. 渲染曲目卡片 (Direct Playing & Details)
+     * --------------------------------------------------------------------------
+     */
+    const piecesGrid = document.getElementById("piecesGrid");
+    const statsInfo = document.getElementById("statsInfo");
+
+    function renderCollection() {
+      const dict = I18N[currentLang];
+
+      let filtered = musicCollection.filter(piece => {
+        const matchesPeriod = currentPeriodFilter === "all" || (piece.period || "").toLowerCase() === currentPeriodFilter.toLowerCase();
+        if (!matchesPeriod) return false;
+
+        if (!currentSearchTerm) return true;
+        const q = currentSearchTerm.toLowerCase();
+        const tEn = getLocalized(piece.title, "en").toLowerCase();
+        const tZh = getLocalized(piece.title, "zh").toLowerCase();
+        const orig = (piece.originalTitle || "").toLowerCase();
+        const cEn = getLocalized(piece.composer, "en").toLowerCase();
+        const cZh = getLocalized(piece.composer, "zh").toLowerCase();
+        const dEn = getLocalized(piece.description, "en").toLowerCase();
+        const dZh = getLocalized(piece.description, "zh").toLowerCase();
+        const yr = (piece.year || "").toLowerCase();
+
+        return tEn.includes(q) || tZh.includes(q) || orig.includes(q) ||
+               cEn.includes(q) || cZh.includes(q) || dEn.includes(q) || dZh.includes(q) || yr.includes(q);
+      });
+
+      if (currentSortMode === "period") {
+        filtered.sort((a, b) => (a.period || "").localeCompare(b.period || ""));
+      } else if (currentSortMode === "composer") {
+        filtered.sort((a, b) => getLocalized(a.composer, currentLang).localeCompare(getLocalized(b.composer, currentLang), currentLang === "zh" ? "zh-CN" : "en"));
+      } else if (currentSortMode === "title") {
+        filtered.sort((a, b) => getLocalized(a.title, currentLang).localeCompare(getLocalized(b.title, currentLang), currentLang === "zh" ? "zh-CN" : "en"));
+      }
+
+      statsInfo.textContent = `${dict.statsPrefix} ${filtered.length} ${dict.statsOf} ${musicCollection.length} ${dict.statsSuffix}`;
+      piecesGrid.innerHTML = "";
+
+      if (filtered.length === 0) {
+        piecesGrid.innerHTML = `
+          <div class="empty-state">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+            <h3 style="font-size:1.125rem; margin-bottom:6px;">${dict.emptyTitle}</h3>
+            <p style="color:var(--text-muted); font-size:0.875rem;">${dict.emptyDesc}</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(piece => {
+        const card = document.createElement("article");
+        card.className = "piece-card";
+        card.setAttribute("data-id", piece.id);
+
+        const ytId = extractYouTubeId(piece.youtubeUrl);
+        const periodKey = (piece.period || "other").toLowerCase();
+        const periodLabel = dict.periodLabels[periodKey] || piece.period || "Classical";
+        const coverSrc = getCoverThumbnail(piece);
+        const ytFallbackSrc = ytId ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` : "";
+
+        const primaryTitle = getLocalized(piece.title, currentLang);
+        const secondaryTitle = currentLang === "en" 
+          ? (getLocalized(piece.title, "zh") !== primaryTitle ? getLocalized(piece.title, "zh") : (piece.originalTitle || ""))
+          : (piece.originalTitle || getLocalized(piece.title, "en"));
+
+        const composerName = getLocalized(piece.composer, currentLang);
+        const composerSub = currentLang === "en" ? getLocalized(piece.composer, "zh") : getLocalized(piece.composer, "en");
+        const descriptionText = getLocalized(piece.description, currentLang);
+
+        const isCustom = !DEFAULT_PIECES.some(d => d.id === piece.id);
+
+        card.innerHTML = `
+          <!-- Thumbnail Click Triggers Direct YouTube Playing -->
+          <div class="card-thumbnail-wrap" role="button" tabindex="0" title="${dict.playDirect}: ${escapeHtml(primaryTitle)}">
+            <span class="period-badge ${periodKey}">${escapeHtml(periodLabel)}</span>
+            <img class="card-img" 
+                 src="${escapeHtml(coverSrc)}" 
+                 alt="${escapeHtml(primaryTitle)}" 
+                 loading="lazy"
+                 onerror="this.onerror=null; ${ytFallbackSrc ? `this.src='${escapeHtml(ytFallbackSrc)}';` : `this.parentElement.innerHTML='<div class=\\'fallback-cover\\'>𝄞<span>${escapeHtml(composerName)}</span></div>';`}">
+            <div class="play-overlay">
+              <div class="play-btn-circle" title="${dict.playDirect}">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <div class="card-title-group">
+              <h3 class="card-title">${escapeHtml(primaryTitle)}</h3>
+              ${secondaryTitle ? `<div class="card-original-title">${escapeHtml(secondaryTitle)}</div>` : ''}
+            </div>
+
+            <div class="composer-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+              <span>${escapeHtml(composerName)}</span>
+              ${(composerSub && composerSub !== composerName) ? `<span style="font-size:0.75rem; color:var(--text-muted);">(${escapeHtml(composerSub)})</span>` : ''}
+            </div>
+
+            <p class="card-description" title="${escapeHtml(descriptionText)}">${escapeHtml(descriptionText || 'Timeless classical masterwork.')}</p>
+
+            <div class="card-actions">
+              <!-- Direct YouTube Play Button -->
+              <a href="${escapeHtml(piece.youtubeUrl)}" target="_blank" rel="noopener noreferrer" class="btn-direct-play" title="${dict.playDirect}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <span>${dict.playDirect}</span>
+              </a>
+
+              <!-- Details Modal Button -->
+              <button class="btn-details" data-details-id="${escapeHtml(piece.id)}" title="${dict.viewDetails}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>${dict.viewDetails}</span>
+              </button>
+
+              ${isCustom ? `
+                <button class="btn-card-del" data-delete-id="${escapeHtml(piece.id)}" title="${dict.deleteBtn}">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        `;
+
+        card.querySelector(".card-thumbnail-wrap").addEventListener("click", () => {
+          window.open(piece.youtubeUrl, "_blank", "noopener,noreferrer");
+        });
+
+        card.querySelector(".btn-details").addEventListener("click", () => openPlayer(piece));
+
+        const delBtn = card.querySelector(".btn-card-del");
+        if (delBtn) {
+          delBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (confirm(dict.deleteConfirm)) {
+              deletePiece(piece.id);
+            }
+          });
+        }
+
+        piecesGrid.appendChild(card);
+      });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    /**
+     * --------------------------------------------------------------------------
+     * 6. 播放器模态框控制
+     * --------------------------------------------------------------------------
+     */
+    const playerModal = document.getElementById("playerModal");
+    const playerIframe = document.getElementById("playerIframe");
+    const playerTrackTitle = document.getElementById("modalTrackTitle");
+    const playerDetailTitle = document.getElementById("playerDetailTitle");
+    const playerDetailComposer = document.getElementById("playerDetailComposer");
+    const playerDetailDesc = document.getElementById("playerDetailDesc");
+    const playerDirectLinkTop = document.getElementById("playerDirectLinkTop");
+    const closePlayerModalBtn = document.getElementById("closePlayerModalBtn");
+
+    function openPlayer(piece) {
+      const ytId = extractYouTubeId(piece.youtubeUrl);
+      const title = getLocalized(piece.title, currentLang);
+      const composer = getLocalized(piece.composer, currentLang);
+      const desc = getLocalized(piece.description, currentLang);
+
+      playerTrackTitle.textContent = title;
+      playerDetailTitle.textContent = `${title} ${piece.originalTitle ? `· ${piece.originalTitle}` : ''}`;
+      playerDetailComposer.textContent = `${composer} ${piece.year ? `(${piece.year})` : ''}`;
+      playerDetailDesc.textContent = desc || "No description provided.";
+
+      playerDirectLinkTop.href = piece.youtubeUrl;
+
+      // In-page embed
+      if (ytId) {
+        playerIframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&enablejsapi=1&rel=0`;
+      } else {
+        playerIframe.src = "";
+      }
+
+      playerModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePlayer() {
+      playerModal.classList.remove("active");
+      playerIframe.src = "";
+      document.body.style.overflow = "";
+    }
+
+    closePlayerModalBtn.addEventListener("click", closePlayer);
+    playerModal.addEventListener("click", (e) => {
+      if (e.target === playerModal) closePlayer();
+    });
+
+    /**
+     * --------------------------------------------------------------------------
+     * 7. 搜索、筛选与排序控制
+     * --------------------------------------------------------------------------
+     */
+    const searchInput = document.getElementById("searchInput");
+    const searchClearBtn = document.getElementById("searchClearBtn");
+    const sortSelect = document.getElementById("sortSelect");
+    const periodButtons = document.querySelectorAll("#periodFilterTags .tag-btn");
+
+    searchInput.addEventListener("input", (e) => {
+      currentSearchTerm = e.target.value.trim();
+      searchClearBtn.style.display = currentSearchTerm ? "block" : "none";
+      renderCollection();
+    });
+
+    searchClearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      currentSearchTerm = "";
+      searchClearBtn.style.display = "none";
+      searchInput.focus();
+      renderCollection();
+    });
+
+    sortSelect.addEventListener("change", (e) => {
+      currentSortMode = e.target.value;
+      renderCollection();
+    });
+
+    periodButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        periodButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentPeriodFilter = btn.getAttribute("data-period");
+        renderCollection();
+      });
+    });
+
+    /**
+     * --------------------------------------------------------------------------
+     * 8. 添加新曲目模态框
+     * --------------------------------------------------------------------------
+     */
+    const addModal = document.getElementById("addModal");
+    const openAddModalBtn = document.getElementById("openAddModalBtn");
+    const closeAddModalBtn = document.getElementById("closeAddModalBtn");
+    const cancelAddBtn = document.getElementById("cancelAddBtn");
+    const addPieceForm = document.getElementById("addPieceForm");
+    const newYoutubeUrlInput = document.getElementById("newYoutubeUrl");
+    const newImageUrlInput = document.getElementById("newImageUrl");
+    const thumbnailPreview = document.getElementById("thumbnailPreview");
+    const copyCodeSnippetBtn = document.getElementById("copyCodeSnippetBtn");
+    const codeSnippetWrapper = document.getElementById("codeSnippetWrapper");
+    const codeSnippetPre = document.getElementById("codeSnippetPre");
+    const copyToClipboardBtn = document.getElementById("copyToClipboardBtn");
+
+    function openAddModal() {
+      addModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeAddModal() {
+      addModal.classList.remove("active");
+      document.body.style.overflow = "";
+      addPieceForm.reset();
+      thumbnailPreview.innerHTML = `<span style="font-size:0.8125rem; color:var(--text-muted);">${I18N[currentLang].thumbPreviewText}</span>`;
+      codeSnippetWrapper.style.display = "none";
+    }
+
+    openAddModalBtn.addEventListener("click", openAddModal);
+    closeAddModalBtn.addEventListener("click", closeAddModal);
+    cancelAddBtn.addEventListener("click", closeAddModal);
+    addModal.addEventListener("click", (e) => {
+      if (e.target === addModal) closeAddModal();
+    });
+
+    function updateThumbnailPreview() {
+      const customImg = newImageUrlInput.value.trim();
+      const ytUrl = newYoutubeUrlInput.value.trim();
+      const ytId = extractYouTubeId(ytUrl);
+
+      let targetImg = customImg;
+      if (!targetImg && ytId) {
+        targetImg = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+      }
+
+      if (targetImg) {
+        thumbnailPreview.innerHTML = `<img src="${escapeHtml(targetImg)}" alt="Cover Preview" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\\'color:#ef4444;font-size:0.8125rem;\\'>Image load failed</span>';">`;
+      } else {
+        thumbnailPreview.innerHTML = `<span style="font-size:0.8125rem; color:var(--text-muted);">${I18N[currentLang].thumbPreviewText}</span>`;
+      }
+    }
+
+    newYoutubeUrlInput.addEventListener("input", updateThumbnailPreview);
+    newImageUrlInput.addEventListener("input", updateThumbnailPreview);
+
+    function getFormDataObject() {
+      const titleEn = document.getElementById("newTitleEn").value.trim();
+      const titleZh = document.getElementById("newTitleZh").value.trim();
+      const composerEn = document.getElementById("newComposerEn").value.trim();
+      const composerZh = document.getElementById("newComposerZh").value.trim();
+      const period = document.getElementById("newPeriod").value;
+      const year = document.getElementById("newYear").value.trim();
+      const youtubeUrl = newYoutubeUrlInput.value.trim();
+      const imageUrl = newImageUrlInput.value.trim();
+      const description = document.getElementById("newDesc").value.trim();
+
+      const slug = (composerEn || 'piece').toLowerCase().replace(/[^a-z0-9]/g, '-') + '-' + Date.now().toString(36);
+
+      return {
+        id: slug,
+        title: { en: titleEn, zh: titleZh || titleEn },
+        originalTitle: titleEn,
+        composer: { en: composerEn, zh: composerZh || composerEn },
+        period,
+        year,
+        description: { en: description, zh: description },
+        youtubeUrl,
+        imageUrl
+      };
+    }
+
+    copyCodeSnippetBtn.addEventListener("click", () => {
+      const p = getFormDataObject();
+      const snippet = `  {
+    id: "${p.id}",
+    title: { en: "${p.title.en}", zh: "${p.title.zh}" },
+    originalTitle: "${p.originalTitle}",
+    composer: { en: "${p.composer.en}", zh: "${p.composer.zh}" },
+    period: "${p.period}",
+    year: "${p.year}",
+    description: {
+      en: "${p.description.en.replace(/"/g, '\\"')}",
+      zh: "${p.description.zh.replace(/"/g, '\\"')}"
+    },
+    youtubeUrl: "${p.youtubeUrl}",
+    imageUrl: "${p.imageUrl}"
+  },`;
+      codeSnippetPre.textContent = snippet;
+      codeSnippetWrapper.style.display = "block";
+      codeSnippetWrapper.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    copyToClipboardBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(codeSnippetPre.textContent).then(() => {
+        showToast(I18N[currentLang].toastCopied);
+      });
+    });
+
+    addPieceForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const newPiece = getFormDataObject();
+      musicCollection.unshift(newPiece);
+      saveCollectionToLocalStorage();
+      renderCollection();
+      closeAddModal();
+      showToast(I18N[currentLang].toastAdded);
+    });
+
+    function deletePiece(id) {
+      musicCollection = musicCollection.filter(item => item.id !== id);
+      saveCollectionToLocalStorage();
+      renderCollection();
+      showToast(I18N[currentLang].toastRemoved);
+    }
+
+    /**
+     * --------------------------------------------------------------------------
+     * 9. 数据管理与全量 JSON
+     * --------------------------------------------------------------------------
+     */
+    const exportModal = document.getElementById("exportModal");
+    const openExportModalBtn = document.getElementById("openExportModalBtn");
+    const closeExportModalBtn = document.getElementById("closeExportModalBtn");
+    const fullJsonPre = document.getElementById("fullJsonPre");
+    const copyFullJsonBtn = document.getElementById("copyFullJsonBtn");
+    const downloadJsonBtn = document.getElementById("downloadJsonBtn");
+    const resetDataBtn = document.getElementById("resetDataBtn");
+
+    function openExportModal() {
+      fullJsonPre.textContent = JSON.stringify(musicCollection, null, 2);
+      exportModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeExportModal() {
+      exportModal.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    openExportModalBtn.addEventListener("click", openExportModal);
+    closeExportModalBtn.addEventListener("click", closeExportModal);
+    exportModal.addEventListener("click", (e) => {
+      if (e.target === exportModal) closeExportModal();
+    });
+
+    copyFullJsonBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(fullJsonPre.textContent).then(() => {
+        showToast(I18N[currentLang].toastCopied);
+      });
+    });
+
+    downloadJsonBtn.addEventListener("click", () => {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(musicCollection, null, 2));
+      const downloadAnchor = document.createElement("a");
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `classical_music_${new Date().toISOString().slice(0, 10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast(I18N[currentLang].toastCopied);
+    });
+
+    resetDataBtn.addEventListener("click", () => {
+      if (confirm(I18N[currentLang].deleteConfirm)) {
+        localStorage.removeItem("classical_music_items_v3");
+        musicCollection = JSON.parse(JSON.stringify(DEFAULT_PIECES));
+        renderCollection();
+        fullJsonPre.textContent = JSON.stringify(musicCollection, null, 2);
+        showToast(I18N[currentLang].toastReset);
+      }
+    });
+
+    /**
+     * --------------------------------------------------------------------------
+     * 10. 主题控制 (Dark / Light)
+     * --------------------------------------------------------------------------
+     */
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function updateThemeIcon(isLight) {
+      if (isLight) {
+        themeIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+      } else {
+        themeIcon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+      }
+    }
+
+    const savedTheme = localStorage.getItem("classical_music_theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    updateThemeIcon(savedTheme === "light");
+
+    themeToggleBtn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      const nextTheme = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("classical_music_theme", nextTheme);
+      updateThemeIcon(nextTheme === "light");
+    });
+
+    /**
+     * --------------------------------------------------------------------------
+     * 11. Toast 消息提示
+     * --------------------------------------------------------------------------
+     */
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
+    let toastTimeout = null;
+
+    function showToast(msg) {
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastMessage.textContent = msg;
+      toast.classList.add("show");
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    // 全局快捷键 ESC
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (playerModal.classList.contains("active")) closePlayer();
+        if (addModal.classList.contains("active")) closeAddModal();
+        if (exportModal.classList.contains("active")) closeExportModal();
+      }
+    });
+
+    // 页面初次加载执行语言渲染 (默认为英文)
+    applyLanguage(currentLang);
+  </script>
+</body>
+</html>
