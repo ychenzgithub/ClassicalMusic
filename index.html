@@ -1273,7 +1273,7 @@
         </div>
 
         <div class="stats-info" id="statsInfo">
-          47 pieces
+          55 pieces
         </div>
       </div>
     </section>
@@ -1522,12 +1522,12 @@
         </div>
 
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; gap:10px; flex-wrap:wrap;">
-          <button id="resetDataBtn" class="btn btn-outline" style="color:#ef4444; border-color:rgba(239,68,68,0.3);" id="i18n-manage-reset-btn">
-            Reset to Curated Catalog (47 Pieces)
+          <button id="resetDataBtn" class="btn btn-outline" style="color:#ef4444; border-color:rgba(239,68,68,0.3);">
+            Reset to Curated Catalog (55 Pieces)
           </button>
           <div style="display:flex; gap:10px;">
-            <button id="downloadJsonBtn" class="btn btn-outline" id="i18n-manage-download-btn">Download JSON</button>
-            <button id="copyFullJsonBtn" class="btn btn-gold" id="i18n-manage-copy-btn">Copy Full JSON</button>
+            <button id="downloadJsonBtn" class="btn btn-outline">Download JSON</button>
+            <button id="copyFullJsonBtn" class="btn btn-gold">Copy Full JSON</button>
           </div>
         </div>
       </div>
@@ -1555,12 +1555,12 @@
   </footer>
 
   <!-- ==========================================================================
-       JavaScript Logic & Master Data (47 Pieces from Archive + Notion + Impressionist Masterworks)
+       JavaScript Logic & Master Data (55 Pieces: Baroque, Classical, Romantic, Impressionist & Modern Masterworks)
        ========================================================================== -->
   <script>
     /**
      * --------------------------------------------------------------------------
-     * 1. 核心曲目数据库 (DEFAULT_PIECES) - 47 首名作 (完整整合 Notion 典藏与印象派经典)
+     * 1. 核心曲目数据库 (DEFAULT_PIECES) - 55 首名作 (完整整合巴洛克、古典、浪漫、印象主义与现代经典名篇)
      * --------------------------------------------------------------------------
      */
     const DEFAULT_PIECES = [
@@ -2218,6 +2218,90 @@
 
       /* --- 现代主义及二十世纪 (Modernist & 20th Century) --- */
       {
+        id: "stravinsky-firebird",
+        title: { en: "The Firebird: Finale", zh: "《火鸟》终曲" },
+        originalTitle: "L'Oiseau de feu: Finale",
+        composer: { en: "Igor Stravinsky", zh: "伊戈尔·斯特拉文斯基" },
+        period: "modern",
+        year: "1910",
+        description: {
+          en: "The triumphant culmination of Stravinsky's revolutionary breakthrough ballet for Diaghilev's Ballets Russes. Beginning with a solo French horn playing a noble Russian folk hymn, the music builds into a dazzling, golden hymn of light and liberation that changed 20th-century music forever.",
+          zh: "俄罗斯作曲大师斯特拉文斯基为佳吉列夫俄罗斯芭蕾舞团创作的成名开山巨作。从圆号独奏深情幽雅的俄罗斯古歌谣主题缓缓升起，全乐团在辉煌灿烂的铜管与钟鸣中汇成无比壮丽雄浑的光明与胜利赞歌，彻底改写了20世纪现代管弦乐的历史。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=_vscblGW31Q",
+        imageUrl: "https://img.youtube.com/vi/_vscblGW31Q/hqdefault.jpg"
+      },
+      {
+        id: "holst-jupiter",
+        title: { en: "The Planets: Jupiter, the Bringer of Jollity", zh: "《行星组曲》：木星——欢乐使者" },
+        originalTitle: "The Planets, Op. 32: IV. Jupiter, the Bringer of Jollity",
+        composer: { en: "Gustav Holst", zh: "古斯塔夫·霍尔斯特" },
+        period: "modern",
+        year: "1914–1916",
+        description: {
+          en: "The joyful centerpiece of Holst's astronomical suite 'The Planets'. Overflowing with infectious festive rustic dances, it houses the world-famous central hymn tune 'Thaxted' ('I Vow to Thee, My Country'), revered as one of the most sublime and patriotic orchestral melodies ever written.",
+          zh: "英国作曲家霍尔斯特管弦乐巅峰巨作《行星组曲》中最受欢迎的第四乐章。乐曲以热烈奔放的节日舞蹈节奏交织飞扬，中段引出享誉全球、庄严宽广的传世圣歌旋律（《祖国我向你立誓》），磅礴大气的英伦交响情怀震撼人心。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=3B49N46I39Y",
+        imageUrl: "https://img.youtube.com/vi/3B49N46I39Y/hqdefault.jpg"
+      },
+      {
+        id: "gershwin-rhapsody-in-blue",
+        title: { en: "Rhapsody in Blue", zh: "蓝色狂想曲" },
+        originalTitle: "Rhapsody in Blue",
+        composer: { en: "George Gershwin", zh: "乔治·格什温" },
+        period: "modern",
+        year: "1924",
+        description: {
+          en: "Gershwin's sensational milestone uniting classical concerto architecture with the vibrant soul of American jazz. Opening with the legendary upward clarinet trill and two-and-a-half-octave glissando, it encapsulates the bustling vitality, dreams, and urban heartbeat of 1920s New York.",
+          zh: "20世纪美国现代音乐的里程碑巨作，首次天衣无缝地将古典协奏曲格局与爵士蓝调灵魂融为一体。开篇那声极具辨识度的小提琴/单簧管颤音与高难度滑音惊艳登场，以奔放律动、俏皮切分和深情浪漫的都会抒情主题，勾勒出咆哮二十年代纽约大都会的无限生机与绚烂梦想。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=ynEOo28lsbc",
+        imageUrl: "https://img.youtube.com/vi/ynEOo28lsbc/hqdefault.jpg"
+      },
+      {
+        id: "prokofiev-dance-of-the-knights",
+        title: { en: "Dance of the Knights (Montagues and Capulets)", zh: "骑士之舞 (蒙太古与凯普莱特)" },
+        originalTitle: "Romeo and Juliet, Op. 64: Act I, No. 13 'Dance of the Knights'",
+        composer: { en: "Sergei Prokofiev", zh: "谢尔盖·普罗科菲耶夫" },
+        period: "modern",
+        year: "1935",
+        description: {
+          en: "The most gripping and menacing scene in Prokofiev's celebrated ballet 'Romeo and Juliet'. Built upon heavy orchestral ostinato bass, brooding brass chords, and razor-sharp syncopations, it evokes the ruthless aristocratic pride and fatal feud of Verona's noble families.",
+          zh: "普罗科菲耶夫芭蕾舞剧《罗密欧与朱丽叶》中最具震撼力与压迫感的名篇。沉重的低音提琴固定音型、肃杀逼人的铜管重击与尖锐切分节奏，威严冷峻地勾勒出维罗纳贵族城堡舞会上蒙太古与凯普莱特两大家族的宿命世仇与傲慢权势。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=cCCd4jC9PcY",
+        imageUrl: "https://img.youtube.com/vi/cCCd4jC9PcY/hqdefault.jpg"
+      },
+      {
+        id: "orff-o-fortuna",
+        title: { en: "Carmina Burana: O Fortuna", zh: "《布兰诗歌》：哦，命运女神" },
+        originalTitle: "Carmina Burana: Fortuna Imperatrix Mundi, No. 1 'O Fortuna'",
+        composer: { en: "Carl Orff", zh: "卡尔·奥尔夫" },
+        period: "modern",
+        year: "1936",
+        description: {
+          en: "The thundering opening and closing chorus of Orff's cantata based on medieval Latin poems. With primal, pounding percussion, breathless choral whispers, and apocalyptic brass crescendos, it portrays the cruel wheel of fate and remains one of the most recognized choral works in history.",
+          zh: "德国现代作曲家奥尔夫根据中世纪修道院手稿创作的世俗清唱剧序曲与尾声。如惊雷贯耳的重击定音鼓、压抑低语到排山倒海的合唱咆哮，生动描绘了命运轮盘冷酷无常、主宰人世荣辱的巨大震撼力，被无数现代史诗影视与音乐广泛致敬。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=GXFSK0ogeg4",
+        imageUrl: "https://img.youtube.com/vi/GXFSK0ogeg4/hqdefault.jpg"
+      },
+      {
+        id: "barber-adagio-for-strings",
+        title: { en: "Adagio for Strings", zh: "弦乐柔板" },
+        originalTitle: "Adagio for Strings, Op. 11",
+        composer: { en: "Samuel Barber", zh: "萨缪尔·巴伯" },
+        period: "modern",
+        year: "1936",
+        description: {
+          en: "One of the most intensely emotional and universally beloved orchestral works in American music. Adapted from Barber's String Quartet, its stepwise melodic arch rises gently into an overwhelming, breathless peak of grief and catharsis before descending into profound, sacred silence.",
+          zh: "美国音乐史上最动人心弦、哀而不伤的世纪杰作。由巴伯自身弦乐四重奏慢板乐章改编而来，纯净起伏的旋律线在弦乐各声部间层层缠绕递进，积蓄至令人窒息的崇高悲怆顶峰后归于无限肃穆与宁静，具有抚慰人心的神圣精神力量。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=izQsgE0L450",
+        imageUrl: "https://img.youtube.com/vi/izQsgE0L450/hqdefault.jpg"
+      },
+      {
         id: "shostakovich-second-waltz",
         title: { en: "The Second Waltz", zh: "第二圆舞曲" },
         originalTitle: "Suite for Variety Orchestra: VII. Waltz No. 2",
@@ -2230,6 +2314,34 @@
         },
         youtubeUrl: "https://www.youtube.com/watch?v=-rdG-uyueeI",
         imageUrl: "https://img.youtube.com/vi/-rdG-uyueeI/hqdefault.jpg"
+      },
+      {
+        id: "rodrigo-concierto-de-aranjuez",
+        title: { en: "Concierto de Aranjuez: II. Adagio", zh: "《阿兰胡埃斯协奏曲》：第二乐章 (柔板)" },
+        originalTitle: "Concierto de Aranjuez: II. Adagio",
+        composer: { en: "Joaquín Rodrigo", zh: "华金·罗德里戈" },
+        period: "modern",
+        year: "1939",
+        description: {
+          en: "The crown jewel of 20th-century guitar music. Inspired by the gardens of the Royal Palace of Aranjuez, its legendary melancholic dialogue between English horn and classical guitar conveys an unbearable tenderness, Spanish nostalgia, and profound poetic longing.",
+          zh: "20世纪世界古典吉他艺术当之无愧的王冠明珠。灵感源自马德里南郊阿兰胡埃斯皇家夏宫花园，英国管与古典吉他幽咽对答的如歌旋律饱含深沉的西班牙哀思与诗意怀旧，琴弦拨动间流露出无可比拟的脉脉温情与典雅幽思。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=sZyZBS4INuc",
+        imageUrl: "https://img.youtube.com/vi/sZyZBS4INuc/hqdefault.jpg"
+      },
+      {
+        id: "copland-fanfare-for-the-common-man",
+        title: { en: "Fanfare for the Common Man", zh: "凡人鼓号乐" },
+        originalTitle: "Fanfare for the Common Man",
+        composer: { en: "Aaron Copland", zh: "艾伦·柯普兰" },
+        period: "modern",
+        year: "1942",
+        description: {
+          en: "Commissioned during World War II and inspired by Vice President Henry Wallace's speech heralding the 'Century of the Common Man'. Scored strictly for brass and percussion, its solemn drumbeats and noble trumpet calls embody democratic dignity, resilience, and monumental American spirit.",
+          zh: "二战期间受辛辛那提交响乐团委托创作的壮丽鼓号乐。柯普兰独辟蹊径放弃为君王将相加冕的传统，将音乐献给每一个在艰苦岁月中默默奉献的普通平凡人。雄浑肃穆的定音鼓声与嘹亮纯净的金铜号角勾勒出天地开阔、百折不挠的坚毅尊严。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=nYV85sp0jow",
+        imageUrl: "https://img.youtube.com/vi/nYV85sp0jow/hqdefault.jpg"
       }
     ];
 
@@ -2300,14 +2412,14 @@
         manageModalTitle: "Data Backup & Management",
         manageDesc: "Export your collection as JSON or copy code snippets to permanently customize the collection in the source code.",
         manageJsonLabel: "Complete Collection JSON:",
-        manageResetBtn: "Reset to Curated Catalog (47 Pieces)",
+        manageResetBtn: "Reset to Curated Catalog (55 Pieces)",
         manageDownloadBtn: "Download JSON",
         manageCopyBtn: "Copy Full JSON",
         footerTop: "Back to top ↑",
         toastCopied: "✓ Copied to clipboard",
         toastAdded: "✓ Piece added to collection!",
         toastRemoved: "✓ Piece removed from collection",
-        toastReset: "✓ Collection reset to curated 47 pieces",
+        toastReset: "✓ Collection reset to curated 55 pieces",
         emptyTitle: "No matching classical works found",
         emptyDesc: "Try different search keywords or reset filter tags",
         periodLabels: {
@@ -2380,14 +2492,14 @@
         manageModalTitle: "数据备份与管理",
         manageDesc: "支持将自定义增加的曲目导出为 JSON，或直接复制代码片段嵌入到网页源码中永久保存。",
         manageJsonLabel: "完整曲库 JSON 数据:",
-        manageResetBtn: "重置为精选 47 首名篇",
+        manageResetBtn: "重置为精选 55 首名篇",
         manageDownloadBtn: "下载 JSON 文件",
         manageCopyBtn: "复制全部 JSON",
         footerTop: "回到顶部 ↑",
         toastCopied: "✓ 已成功复制到剪贴板",
         toastAdded: "✓ 曲目已添加至当前曲库！",
         toastRemoved: "✓ 曲目已从列表移除",
-        toastReset: "✓ 已重置为精选 47 首名篇",
+        toastReset: "✓ 已重置为精选 55 首名篇",
         emptyTitle: "未找到匹配的古典乐作品",
         emptyDesc: "尝试更换搜索关键词或重置乐派筛选标签",
         periodLabels: {
@@ -2412,7 +2524,7 @@
     let currentSortMode = "default";
 
     function loadMusicCollection() {
-      const stored = localStorage.getItem("classical_music_items_v6");
+      const stored = localStorage.getItem("classical_music_items_v7");
       if (stored) {
         try {
           return JSON.parse(stored);
@@ -2426,7 +2538,7 @@
     let musicCollection = loadMusicCollection();
 
     function saveCollectionToLocalStorage() {
-      localStorage.setItem("classical_music_items_v6", JSON.stringify(musicCollection));
+      localStorage.setItem("classical_music_items_v7", JSON.stringify(musicCollection));
     }
 
     function getLocalized(obj, lang) {
@@ -3079,7 +3191,7 @@
 
     resetDataBtn.addEventListener("click", () => {
       if (confirm(I18N[currentLang].deleteConfirm)) {
-        localStorage.removeItem("classical_music_items_v6");
+        localStorage.removeItem("classical_music_items_v7");
         musicCollection = JSON.parse(JSON.stringify(DEFAULT_PIECES));
         renderCollection();
         fullJsonPre.textContent = JSON.stringify(musicCollection, null, 2);
