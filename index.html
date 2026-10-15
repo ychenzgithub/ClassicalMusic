@@ -587,6 +587,7 @@
       border-top: 1px solid var(--border-subtle);
     }
 
+    .btn-card-play,
     .btn-direct-play {
       flex: 1;
       padding: 8px 12px;
@@ -605,14 +606,16 @@
       box-shadow: 0 2px 8px rgba(229, 9, 20, 0.3);
     }
 
+    .btn-card-play:hover,
     .btn-direct-play:hover {
       filter: brightness(1.15);
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(229, 9, 20, 0.45);
     }
 
+    .btn-card-details,
     .btn-details {
-      padding: 8px 12px;
+      padding: 8px 13px;
       border-radius: var(--radius-sm);
       background: var(--bg-surface-elevated);
       color: var(--text-primary);
@@ -622,13 +625,36 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       transition: var(--transition);
     }
 
+    .btn-card-details:hover,
     .btn-details:hover {
       border-color: var(--accent-gold);
       color: var(--accent-gold);
+      background: rgba(212, 175, 55, 0.1);
+    }
+
+    .btn-card-yt {
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-card-yt:hover {
+      color: #e50914;
+      border-color: rgba(229, 9, 20, 0.4);
+      background: rgba(229, 9, 20, 0.08);
     }
 
     .btn-card-del {
@@ -763,32 +789,13 @@
       overflow-y: auto;
     }
 
-    /* Modal Player Actions & Alerts */
-    .player-action-banner {
-      background: linear-gradient(135deg, rgba(229, 9, 20, 0.12), rgba(212, 175, 55, 0.12));
-      border: 1px solid rgba(229, 9, 20, 0.35);
-      border-radius: var(--radius-md);
-      padding: 12px 18px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+    /* Modal Dialog Custom Widths */
+    .modal-dialog-video {
+      max-width: 860px;
     }
 
-    .player-banner-text {
-      flex: 1;
-      min-width: 200px;
-      font-size: 0.84rem;
-      color: var(--text-primary);
-      line-height: 1.4;
-    }
-
-    .player-banner-sub {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 2px;
+    .modal-dialog-details {
+      max-width: 780px;
     }
 
     .video-wrapper {
@@ -798,7 +805,7 @@
       background: #000;
       border-radius: var(--radius-sm);
       overflow: hidden;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     }
 
@@ -811,23 +818,196 @@
       border: none;
     }
 
-    .player-details h3 {
-      font-size: 1.3rem;
-      margin-bottom: 4px;
+    /* Video Player Modal Meta Bar */
+    .video-meta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 4px;
+      flex-wrap: wrap;
+    }
+
+    .video-piece-title {
+      font-size: 1.25rem;
+      font-weight: 700;
       color: var(--text-primary);
+      margin-bottom: 4px;
     }
 
-    .player-details .player-composer {
+    .video-composer-subtitle {
       color: var(--accent-gold);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      margin-bottom: 12px;
     }
 
-    .player-details p {
+    .video-meta-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Inline Badges in Header & Tags */
+    .period-badge-inline {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      color: #ffffff;
+      margin-left: 8px;
+    }
+    .period-badge-inline.baroque { background: var(--badge-baroque); }
+    .period-badge-inline.classical { background: var(--badge-classical); }
+    .period-badge-inline.romantic { background: var(--badge-romantic); }
+    .period-badge-inline.impressionist { background: var(--badge-impressionist); }
+    .period-badge-inline.modern { background: #0891b2; }
+    .period-badge-inline.other { background: var(--badge-other); }
+
+    /* Dedicated Details Modal Styles */
+    .details-modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .details-hero {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .details-cover-wrap {
+      position: relative;
+      width: 140px;
+      height: 95px;
+      flex-shrink: 0;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .details-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .details-hero-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .details-tag-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .details-period-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      color: #ffffff;
+    }
+    .details-period-pill.baroque { background: var(--badge-baroque); }
+    .details-period-pill.classical { background: var(--badge-classical); }
+    .details-period-pill.romantic { background: var(--badge-romantic); }
+    .details-period-pill.impressionist { background: var(--badge-impressionist); }
+    .details-period-pill.modern { background: #0891b2; }
+    .details-period-pill.other { background: var(--badge-other); }
+
+    .details-year-pill {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--bg-surface-elevated);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .details-primary-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .details-original-title {
+      font-size: 0.875rem;
+      color: var(--accent-gold);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .details-composer-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-size: 0.9rem;
       color: var(--text-secondary);
-      line-height: 1.65;
+    }
+
+    .details-content-card {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+    }
+
+    .details-section-heading {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .details-desc-prose {
+      font-size: 0.9375rem;
+      color: var(--text-primary);
+      line-height: 1.75;
+      white-space: pre-line;
+    }
+
+    .details-action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .details-action-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+      .details-hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .details-cover-wrap {
+        width: 100%;
+        height: 160px;
+      }
     }
 
     /* Form Styles */
@@ -1129,40 +1309,99 @@
     </section>
   </main>
 
-  <!-- Video Player & Details Modal -->
-  <div id="playerModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTrackTitle">
-    <div class="modal-dialog">
+  <!-- 1. Dedicated Video Player Modal (Embedded Playback) -->
+  <div id="videoPlayerModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+    <div class="modal-dialog modal-dialog-video">
       <div class="modal-header">
         <div class="modal-title">
-          <span style="color:var(--accent-gold);">𝄞</span>
-          <span id="modalTrackTitle">Now Playing</span>
+          <span style="color:var(--accent-gold); font-size:1.3rem;">𝄞</span>
+          <span id="videoModalTitle">Now Playing</span>
+          <span id="videoModalPeriodBadge" class="period-badge-inline"></span>
         </div>
-        <button id="closePlayerModalBtn" class="modal-close" aria-label="Close Player">✕</button>
+        <button id="closeVideoModalBtn" class="modal-close" aria-label="Close Video Player">✕</button>
       </div>
       <div class="modal-body">
-        <!-- Prominent Direct Play Action Banner -->
-        <div class="player-action-banner">
-          <div class="player-banner-text">
-            <strong id="i18n-modal-play-heading">Direct YouTube Playback</strong>
-            <div class="player-banner-sub" id="i18n-modal-play-sub">
-              If local browser security (file://) blocks in-page video playback, click here to watch directly on YouTube:
-            </div>
-          </div>
-          <a id="playerDirectLinkTop" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-red">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-            <span id="i18n-modal-yt-btn">Play directly on YouTube</span>
-          </a>
-        </div>
-
         <div class="video-wrapper">
-          <iframe id="playerIframe" src="" 
+          <iframe id="videoPlayerIframe" src="" 
+                  title="Classical Music Embedded Video Player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   allowfullscreen></iframe>
         </div>
-        <div class="player-details">
-          <h3 id="playerDetailTitle"></h3>
-          <div id="playerDetailComposer" class="player-composer"></div>
-          <p id="playerDetailDesc"></p>
+        <div class="video-meta-bar">
+          <div class="video-meta-info">
+            <h3 id="videoMetaPieceTitle" class="video-piece-title"></h3>
+            <div id="videoMetaComposer" class="video-composer-subtitle"></div>
+          </div>
+          <div class="video-meta-actions">
+            <button id="videoModalViewDetailsBtn" class="btn btn-outline" title="View Full Program Notes">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <span id="i18n-video-view-details">Full Details & Notes</span>
+            </button>
+            <a id="videoModalDirectYtLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-red" title="Watch on YouTube">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+              <span>YouTube ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Dedicated Piece Details & Appreciation Modal -->
+  <div id="detailsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="detailsModalTitle">
+    <div class="modal-dialog modal-dialog-details">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span style="color:var(--accent-gold); font-size:1.2rem;">📖</span>
+          <span id="detailsModalTitle">Piece Details & Appreciation</span>
+        </div>
+        <button id="closeDetailsModalBtn" class="modal-close" aria-label="Close Details Dialog">✕</button>
+      </div>
+      <div class="modal-body details-modal-body">
+        <!-- Hero Header of Details -->
+        <div class="details-hero">
+          <div class="details-cover-wrap">
+            <img id="detailsCoverImg" class="details-cover-img" src="" alt="Album Cover">
+          </div>
+          <div class="details-hero-text">
+            <div class="details-tag-row">
+              <span id="detailsPeriodTag" class="details-period-pill"></span>
+              <span id="detailsYearTag" class="details-year-pill"></span>
+            </div>
+            <h2 id="detailsPrimaryTitle" class="details-primary-title"></h2>
+            <div id="detailsOriginalTitle" class="details-original-title"></div>
+            <div class="details-composer-row">
+              <span class="details-composer-icon">👤</span>
+              <strong id="detailsComposerName" class="details-composer-name"></strong>
+              <span id="detailsComposerSub" class="details-composer-sub"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comprehensive Program Notes & Appreciation Content -->
+        <div class="details-content-card">
+          <h4 class="details-section-heading">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span id="i18n-details-notes-heading">Program Notes & Musical Appreciation</span>
+          </h4>
+          <div id="detailsDescriptionText" class="details-desc-prose"></div>
+        </div>
+
+        <!-- Quick Action Bar -->
+        <div class="details-action-bar">
+          <div class="details-action-left">
+            <button id="detailsPlayVideoBtn" class="btn btn-gold">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+              <span id="i18n-details-play-btn">Play Video (Embedded)</span>
+            </button>
+            <a id="detailsYtLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+              <span id="i18n-details-yt-btn">Open on YouTube ↗</span>
+            </a>
+          </div>
+          <button id="detailsCloseFooterBtn" class="btn btn-outline">
+            Close
+          </button>
         </div>
       </div>
     </div>
@@ -2024,14 +2263,21 @@
         statsPrefix: "Showing",
         statsOf: "of",
         statsSuffix: "masterworks",
-        playDirect: "Play on YouTube",
+        playVideo: "Play",
+        playVideoTooltip: "Play video (Embedded)",
         viewDetails: "Details",
+        viewDetailsTooltip: "View detailed description & program notes",
+        openInYoutube: "Open on YouTube ↗",
         deleteBtn: "Remove",
         deleteConfirm: "Are you sure you want to remove this piece from your collection?",
         nowPlaying: "Now Playing",
-        modalPlayHeading: "Direct YouTube Playback",
-        modalPlaySub: "If local browser security (file://) blocks in-page video playback, click here to watch directly on YouTube:",
-        modalYtBtn: "Play directly on YouTube",
+        videoModalTitle: "Now Playing",
+        videoViewDetailsBtn: "Full Details & Notes",
+        detailsModalTitle: "Piece Details & Musical Appreciation",
+        detailsNotesHeading: "Program Notes & Musical Appreciation",
+        detailsPlayBtn: "Play Video (Embedded)",
+        detailsYtBtn: "Open on YouTube ↗",
+        detailsCloseBtn: "Close",
         resourcesTitle: "Curated Classical Music Resources",
         resBili: "Top 50 Classical Masterpieces",
         resNcpa: "NCPA 100 Classical Works",
@@ -2097,14 +2343,21 @@
         statsPrefix: "显示",
         statsOf: "/",
         statsSuffix: "首名作",
-        playDirect: "在 YouTube 播放",
-        viewDetails: "作品导赏",
+        playVideo: "播放",
+        playVideoTooltip: "播放视频 (内嵌畅听)",
+        viewDetails: "详情",
+        viewDetailsTooltip: "查看曲目详细背景与音乐赏析",
+        openInYoutube: "在 YouTube 打开 ↗",
         deleteBtn: "删除",
         deleteConfirm: "确定从本地收藏中移除曲目吗？",
         nowPlaying: "正在播放",
-        modalPlayHeading: "YouTube 直连畅听",
-        modalPlaySub: "若本地文件模式 (file://) 限制内嵌视频播放，点击右侧即可在新标签页直接观看高画质演奏：",
-        modalYtBtn: "直接在 YouTube 畅听",
+        videoModalTitle: "正在播放",
+        videoViewDetailsBtn: "查看详细背景赏析",
+        detailsModalTitle: "曲目详情与音乐赏析",
+        detailsNotesHeading: "作品背景与音乐赏析",
+        detailsPlayBtn: "播放视频 (内嵌畅听)",
+        detailsYtBtn: "在 YouTube 打开 ↗",
+        detailsCloseBtn: "关闭",
         resourcesTitle: "精选古典音乐研学资源",
         resBili: "最佳古典音乐50篇 (Bilibili)",
         resNcpa: "国家大剧院100首入门曲目",
@@ -2159,7 +2412,7 @@
     let currentSortMode = "default";
 
     function loadMusicCollection() {
-      const stored = localStorage.getItem("classical_music_items_v5");
+      const stored = localStorage.getItem("classical_music_items_v6");
       if (stored) {
         try {
           return JSON.parse(stored);
@@ -2173,7 +2426,7 @@
     let musicCollection = loadMusicCollection();
 
     function saveCollectionToLocalStorage() {
-      localStorage.setItem("classical_music_items_v5", JSON.stringify(musicCollection));
+      localStorage.setItem("classical_music_items_v6", JSON.stringify(musicCollection));
     }
 
     function getLocalized(obj, lang) {
@@ -2234,9 +2487,21 @@
       document.getElementById("i18n-filter-impressionist").textContent = dict.filterImpressionist;
       document.getElementById("i18n-filter-modern").textContent = dict.filterModern;
 
-      document.getElementById("i18n-modal-play-heading").textContent = dict.modalPlayHeading;
-      document.getElementById("i18n-modal-play-sub").textContent = dict.modalPlaySub;
-      document.getElementById("i18n-modal-yt-btn").textContent = dict.modalYtBtn;
+      if (document.getElementById("i18n-video-view-details")) {
+        document.getElementById("i18n-video-view-details").textContent = dict.videoViewDetailsBtn;
+      }
+      if (document.getElementById("i18n-details-notes-heading")) {
+        document.getElementById("i18n-details-notes-heading").textContent = dict.detailsNotesHeading;
+      }
+      if (document.getElementById("i18n-details-play-btn")) {
+        document.getElementById("i18n-details-play-btn").textContent = dict.detailsPlayBtn;
+      }
+      if (document.getElementById("i18n-details-yt-btn")) {
+        document.getElementById("i18n-details-yt-btn").textContent = dict.detailsYtBtn;
+      }
+      if (document.getElementById("detailsCloseFooterBtn")) {
+        document.getElementById("detailsCloseFooterBtn").textContent = dict.detailsCloseBtn;
+      }
 
       document.getElementById("i18n-resources-title").textContent = dict.resourcesTitle;
       document.getElementById("i18n-res-bili").textContent = dict.resBili;
@@ -2352,8 +2617,8 @@
         const isCustom = !DEFAULT_PIECES.some(d => d.id === piece.id);
 
         card.innerHTML = `
-          <!-- Thumbnail Click Triggers Direct YouTube Playing -->
-          <div class="card-thumbnail-wrap" role="button" tabindex="0" title="${dict.playDirect}: ${escapeHtml(primaryTitle)}">
+          <!-- Thumbnail Click Triggers Embedded Video Playing -->
+          <div class="card-thumbnail-wrap" role="button" tabindex="0" title="${dict.playVideoTooltip}: ${escapeHtml(primaryTitle)}">
             <span class="period-badge ${periodKey}">${escapeHtml(periodLabel)}</span>
             <img class="card-img" 
                  src="${escapeHtml(coverSrc)}" 
@@ -2361,7 +2626,7 @@
                  loading="lazy"
                  onerror="this.onerror=null; ${ytFallbackSrc ? `this.src='${escapeHtml(ytFallbackSrc)}';` : `this.parentElement.innerHTML='<div class=\\'fallback-cover\\'>𝄞<span>${escapeHtml(composerName)}</span></div>';`}">
             <div class="play-overlay">
-              <div class="play-btn-circle" title="${dict.playDirect}">
+              <div class="play-btn-circle" title="${dict.playVideoTooltip}">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
               </div>
             </div>
@@ -2382,17 +2647,23 @@
             <p class="card-description" title="${escapeHtml(descriptionText)}">${escapeHtml(descriptionText || 'Timeless classical masterwork.')}</p>
 
             <div class="card-actions">
-              <!-- Direct YouTube Play Button -->
-              <a href="${escapeHtml(piece.youtubeUrl)}" target="_blank" rel="noopener noreferrer" class="btn-direct-play" title="${dict.playDirect}">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                <span>${dict.playDirect}</span>
-              </a>
+              <!-- Embedded Video Play Button -->
+              <button class="btn-card-play" data-play-id="${escapeHtml(piece.id)}" title="${dict.playVideoTooltip}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <span>${dict.playVideo}</span>
+              </button>
 
-              <!-- Details Modal Button -->
-              <button class="btn-details" data-details-id="${escapeHtml(piece.id)}" title="${dict.viewDetails}">
+              <!-- Dedicated Details Modal Button -->
+              <button class="btn-card-details" data-details-id="${escapeHtml(piece.id)}" title="${dict.viewDetailsTooltip}">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                 <span>${dict.viewDetails}</span>
               </button>
+
+              <!-- Direct External YouTube Link -->
+              <a href="${escapeHtml(piece.youtubeUrl)}" target="_blank" rel="noopener noreferrer" class="btn-card-yt" title="${dict.openInYoutube}">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <span style="font-size:0.75rem;">↗</span>
+              </a>
 
               ${isCustom ? `
                 <button class="btn-card-del" data-delete-id="${escapeHtml(piece.id)}" title="${dict.deleteBtn}">
@@ -2403,11 +2674,20 @@
           </div>
         `;
 
+        // 1. Thumbnail click -> Automatically use embedded approach to play video
         card.querySelector(".card-thumbnail-wrap").addEventListener("click", () => {
-          window.open(piece.youtubeUrl, "_blank", "noopener,noreferrer");
+          openVideoModal(piece);
         });
 
-        card.querySelector(".btn-details").addEventListener("click", () => openPlayer(piece));
+        // 2. Play button -> Automatically use embedded approach to play video
+        card.querySelector(".btn-card-play").addEventListener("click", () => {
+          openVideoModal(piece);
+        });
+
+        // 3. Details button -> Lead to detailed description of each item
+        card.querySelector(".btn-card-details").addEventListener("click", () => {
+          openDetailsModal(piece);
+        });
 
         const delBtn = card.querySelector(".btn-card-del");
         if (delBtn) {
@@ -2435,51 +2715,153 @@
 
     /**
      * --------------------------------------------------------------------------
-     * 6. 播放器模态框控制
+     * 6. 模态框控制 (专属视频播放模态框 & 专属曲目详细介绍模态框)
      * --------------------------------------------------------------------------
      */
-    const playerModal = document.getElementById("playerModal");
-    const playerIframe = document.getElementById("playerIframe");
-    const playerTrackTitle = document.getElementById("modalTrackTitle");
-    const playerDetailTitle = document.getElementById("playerDetailTitle");
-    const playerDetailComposer = document.getElementById("playerDetailComposer");
-    const playerDetailDesc = document.getElementById("playerDetailDesc");
-    const playerDirectLinkTop = document.getElementById("playerDirectLinkTop");
-    const closePlayerModalBtn = document.getElementById("closePlayerModalBtn");
+    let activeVideoPiece = null;
+    let activeDetailsPiece = null;
 
-    function openPlayer(piece) {
+    // 6.1 专属内嵌视频播放模态框
+    const videoPlayerModal = document.getElementById("videoPlayerModal");
+    const videoPlayerIframe = document.getElementById("videoPlayerIframe");
+    const videoModalTitle = document.getElementById("videoModalTitle");
+    const videoModalPeriodBadge = document.getElementById("videoModalPeriodBadge");
+    const videoMetaPieceTitle = document.getElementById("videoMetaPieceTitle");
+    const videoMetaComposer = document.getElementById("videoMetaComposer");
+    const videoModalViewDetailsBtn = document.getElementById("videoModalViewDetailsBtn");
+    const videoModalDirectYtLink = document.getElementById("videoModalDirectYtLink");
+    const closeVideoModalBtn = document.getElementById("closeVideoModalBtn");
+
+    function openVideoModal(piece) {
+      activeVideoPiece = piece;
       const ytId = extractYouTubeId(piece.youtubeUrl);
       const title = getLocalized(piece.title, currentLang);
       const composer = getLocalized(piece.composer, currentLang);
-      const desc = getLocalized(piece.description, currentLang);
+      const periodKey = (piece.period || "other").toLowerCase();
+      const periodLabel = I18N[currentLang].periodLabels[periodKey] || piece.period || "Classical";
 
-      playerTrackTitle.textContent = title;
-      playerDetailTitle.textContent = `${title} ${piece.originalTitle ? `· ${piece.originalTitle}` : ''}`;
-      playerDetailComposer.textContent = `${composer} ${piece.year ? `(${piece.year})` : ''}`;
-      playerDetailDesc.textContent = desc || "No description provided.";
+      videoModalTitle.textContent = title;
+      videoModalPeriodBadge.textContent = periodLabel;
+      videoModalPeriodBadge.className = `period-badge-inline ${periodKey}`;
 
-      playerDirectLinkTop.href = piece.youtubeUrl;
+      videoMetaPieceTitle.textContent = `${title} ${piece.originalTitle ? `· ${piece.originalTitle}` : ''}`;
+      videoMetaComposer.textContent = `${composer} ${piece.year ? `(${piece.year})` : ''}`;
+      videoModalDirectYtLink.href = piece.youtubeUrl;
 
-      // In-page embed
-      if (ytId) {
-        playerIframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&enablejsapi=1&rel=0`;
-      } else {
-        playerIframe.src = "";
+      // Close Details modal if open
+      if (detailsModal.classList.contains("active")) {
+        closeDetailsModal();
       }
 
-      playerModal.classList.add("active");
+      // In-page embed with autoplay
+      if (ytId) {
+        videoPlayerIframe.src = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&enablejsapi=1&rel=0`;
+      } else {
+        videoPlayerIframe.src = "";
+      }
+
+      videoPlayerModal.classList.add("active");
       document.body.style.overflow = "hidden";
     }
 
-    function closePlayer() {
-      playerModal.classList.remove("active");
-      playerIframe.src = "";
+    function closeVideoModal() {
+      videoPlayerModal.classList.remove("active");
+      videoPlayerIframe.src = "";
       document.body.style.overflow = "";
+      activeVideoPiece = null;
     }
 
-    closePlayerModalBtn.addEventListener("click", closePlayer);
-    playerModal.addEventListener("click", (e) => {
-      if (e.target === playerModal) closePlayer();
+    closeVideoModalBtn.addEventListener("click", closeVideoModal);
+    videoPlayerModal.addEventListener("click", (e) => {
+      if (e.target === videoPlayerModal) closeVideoModal();
+    });
+
+    videoModalViewDetailsBtn.addEventListener("click", () => {
+      const piece = activeVideoPiece;
+      closeVideoModal();
+      if (piece) {
+        openDetailsModal(piece);
+      }
+    });
+
+    // 6.2 专属曲目详细介绍与音乐赏析模态框 (无视频自动播放)
+    const detailsModal = document.getElementById("detailsModal");
+    const detailsModalTitle = document.getElementById("detailsModalTitle");
+    const detailsCoverImg = document.getElementById("detailsCoverImg");
+    const detailsPeriodTag = document.getElementById("detailsPeriodTag");
+    const detailsYearTag = document.getElementById("detailsYearTag");
+    const detailsPrimaryTitle = document.getElementById("detailsPrimaryTitle");
+    const detailsOriginalTitle = document.getElementById("detailsOriginalTitle");
+    const detailsComposerName = document.getElementById("detailsComposerName");
+    const detailsComposerSub = document.getElementById("detailsComposerSub");
+    const detailsDescriptionText = document.getElementById("detailsDescriptionText");
+    const detailsPlayVideoBtn = document.getElementById("detailsPlayVideoBtn");
+    const detailsYtLink = document.getElementById("detailsYtLink");
+    const closeDetailsModalBtn = document.getElementById("closeDetailsModalBtn");
+    const detailsCloseFooterBtn = document.getElementById("detailsCloseFooterBtn");
+
+    function openDetailsModal(piece) {
+      activeDetailsPiece = piece;
+      const dict = I18N[currentLang];
+      const title = getLocalized(piece.title, currentLang);
+      const composer = getLocalized(piece.composer, currentLang);
+      const composerSub = currentLang === "en" ? getLocalized(piece.composer, "zh") : getLocalized(piece.composer, "en");
+      const desc = getLocalized(piece.description, currentLang);
+      const periodKey = (piece.period || "other").toLowerCase();
+      const periodLabel = dict.periodLabels[periodKey] || piece.period || "Classical";
+      const coverSrc = getCoverThumbnail(piece);
+
+      detailsModalTitle.textContent = title;
+      detailsPrimaryTitle.textContent = title;
+      if (piece.originalTitle) {
+        detailsOriginalTitle.textContent = piece.originalTitle;
+        detailsOriginalTitle.style.display = "block";
+      } else {
+        detailsOriginalTitle.textContent = "";
+        detailsOriginalTitle.style.display = "none";
+      }
+
+      detailsComposerName.textContent = composer;
+      detailsComposerSub.textContent = (composerSub && composerSub !== composer) ? `(${composerSub})` : "";
+
+      detailsPeriodTag.textContent = periodLabel;
+      detailsPeriodTag.className = `details-period-pill ${periodKey}`;
+      detailsYearTag.textContent = piece.year ? (currentLang === "zh" ? `创作年代: ${piece.year}` : `Year: ${piece.year}`) : periodLabel;
+
+      detailsCoverImg.src = coverSrc;
+      detailsCoverImg.alt = title;
+
+      detailsDescriptionText.textContent = desc || (currentLang === "zh" ? "经典传世之作，暂无详细文字导赏。" : "A timeless classical masterwork.");
+
+      detailsYtLink.href = piece.youtubeUrl;
+
+      // Close video modal if open
+      if (videoPlayerModal.classList.contains("active")) {
+        closeVideoModal();
+      }
+
+      detailsModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeDetailsModal() {
+      detailsModal.classList.remove("active");
+      document.body.style.overflow = "";
+      activeDetailsPiece = null;
+    }
+
+    closeDetailsModalBtn.addEventListener("click", closeDetailsModal);
+    detailsCloseFooterBtn.addEventListener("click", closeDetailsModal);
+    detailsModal.addEventListener("click", (e) => {
+      if (e.target === detailsModal) closeDetailsModal();
+    });
+
+    detailsPlayVideoBtn.addEventListener("click", () => {
+      const piece = activeDetailsPiece;
+      closeDetailsModal();
+      if (piece) {
+        openVideoModal(piece);
+      }
     });
 
     /**
@@ -2697,7 +3079,7 @@
 
     resetDataBtn.addEventListener("click", () => {
       if (confirm(I18N[currentLang].deleteConfirm)) {
-        localStorage.removeItem("classical_music_items_v5");
+        localStorage.removeItem("classical_music_items_v6");
         musicCollection = JSON.parse(JSON.stringify(DEFAULT_PIECES));
         renderCollection();
         fullJsonPre.textContent = JSON.stringify(musicCollection, null, 2);
@@ -2754,9 +3136,10 @@
     // 全局快捷键 ESC
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
-        if (playerModal.classList.contains("active")) closePlayer();
-        if (addModal.classList.contains("active")) closeAddModal();
-        if (exportModal.classList.contains("active")) closeExportModal();
+        if (videoPlayerModal && videoPlayerModal.classList.contains("active")) closeVideoModal();
+        if (detailsModal && detailsModal.classList.contains("active")) closeDetailsModal();
+        if (addModal && addModal.classList.contains("active")) closeAddModal();
+        if (exportModal && exportModal.classList.contains("active")) closeExportModal();
       }
     });
 

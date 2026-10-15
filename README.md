@@ -20,15 +20,12 @@ An elegant, bilingual classical music showcase webpage with 47 curated masterwor
    - Click `🌐 中文` / `🌐 English` in the top right navigation bar to toggle between languages anytime.
    - Preference is saved automatically in `localStorage`.
 
-3. **Resolved YouTube Playback (Why embeds fail on `file://` & the Fix)**:
-   - **The Problem**: When opening an HTML file directly off your computer (`file:///.../index.html`), browsers pass a `null` origin. YouTube's anti-piracy system restricts playback of Content-ID claimed classical music on `null`/`file://` origins, showing *"Playback on other websites has been disabled by the video owner"* (Error 150).
-   - **Fix 1 (Direct YouTube Playing)**:
-     - On the cards: clicking the thumbnail or the red **「▶ Play on YouTube」** button immediately launches the recording on YouTube in a new tab with zero restrictions.
-     - In the Details popup: a prominent **「▶ Play directly on YouTube」** button is provided at the very top.
-   - **Fix 2 (1-Click Local Server for macOS)**:
-     - Double-click [start_server.command](./start_server.command) in Finder.
-     - It starts a lightweight local server at `http://localhost:8000` and opens your browser.
-     - Because it runs over HTTP, **embedded playback inside the Details modal works 100% directly without any browser restrictions**!
+3. **Embedded Video Playback & Dedicated Details Modal**:
+   - **Clicking the Card Image or Play Button**: Automatically launches the dedicated **Embedded Video Player Modal** (`#videoPlayerModal`) and autoplays the performance in 16:9 HD with concert-hall ambiance.
+   - **Clicking 'Details'**: Exclusively opens the dedicated **Piece Details & Appreciation Modal** (`#detailsModal`) featuring rich program notes, historical context, movements/catalog numbers, composer biography, and artistic appreciation—**without** auto-playing any video.
+   - **Seamless Cross-Navigation**: From the Details modal, you can click *「▶ Play Video (Embedded)」* to start listening; from the Video modal, you can click *「Full Details & Notes」* to read the background story.
+   - **Direct External YouTube Link**: Each card and modal includes a direct link (`YouTube ↗`) for watching on YouTube in a new tab.
+   - **Unrestricted Playback**: On GitHub Pages ([Live Site](https://ychenzgithub.github.io/ClassicalMusic/)) and local server ([start_server.command](./start_server.command)), embedded playback works with zero browser restrictions.
 
 4. **Refined Visual Design & Themes**:
    - Google Fonts (`Cinzel` & `Inter`) paired with clean system font fallbacks.
