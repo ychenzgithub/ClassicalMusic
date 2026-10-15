@@ -1091,7 +1091,7 @@
         </div>
 
         <div class="stats-info" id="statsInfo">
-          27 pieces
+          34 pieces
         </div>
       </div>
     </section>
@@ -1276,7 +1276,7 @@
 
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; gap:10px; flex-wrap:wrap;">
           <button id="resetDataBtn" class="btn btn-outline" style="color:#ef4444; border-color:rgba(239,68,68,0.3);" id="i18n-manage-reset-btn">
-            Reset to Curated Catalog (27 Pieces)
+            Reset to Curated Catalog (34 Pieces)
           </button>
           <div style="display:flex; gap:10px;">
             <button id="downloadJsonBtn" class="btn btn-outline" id="i18n-manage-download-btn">Download JSON</button>
@@ -1308,12 +1308,12 @@
   </footer>
 
   <!-- ==========================================================================
-       JavaScript Logic & Master Data (27 Pieces from Archive + Notion)
+       JavaScript Logic & Master Data (34 Pieces from Archive + Notion + Impressionist Masterworks)
        ========================================================================== -->
   <script>
     /**
      * --------------------------------------------------------------------------
-     * 1. 核心曲目数据库 (DEFAULT_PIECES) - 27 首名作 (含 Notion 专属收藏)
+     * 1. 核心曲目数据库 (DEFAULT_PIECES) - 34 首名作 (含 Notion 专属收藏与印象派经典)
      * --------------------------------------------------------------------------
      */
     const DEFAULT_PIECES = [
@@ -1701,6 +1701,104 @@
         },
         youtubeUrl: "https://www.youtube.com/watch?v=ea2WoUtbzuw",
         imageUrl: "https://images-na.ssl-images-amazon.com/images/I/51JlXk3liGL._SY355_.jpg"
+      },
+      {
+        id: "ravel-bolero",
+        title: { en: "Boléro", zh: "波莱罗舞曲" },
+        originalTitle: "Boléro, M. 81",
+        composer: { en: "Maurice Ravel", zh: "莫里斯·拉威尔" },
+        period: "impressionist",
+        year: "1928",
+        description: {
+          en: "Ravel's celebrated orchestral tour de force, built upon an unchanging snare drum ostinato and hypnotic Spanish themes that inexorably crescendo to a stupendous climax.",
+          zh: "拉威尔闻名遐迩的管弦乐代表作，以小军鼓永不停歇的西班牙博莱罗舞曲节奏为骨干，各乐器声部轮番变幻主旋律，渐次汇聚成震撼人心的辉煌高潮。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=r30D3SW4OVw",
+        imageUrl: "https://img.youtube.com/vi/r30D3SW4OVw/hqdefault.jpg"
+      },
+      {
+        id: "debussy-prelude-apres-midi-faune",
+        title: { en: "Prelude to the Afternoon of a Faun", zh: "牧神午后前奏曲" },
+        originalTitle: "Prélude à l'après-midi d'un faune, L. 86",
+        composer: { en: "Claude Debussy", zh: "阿希尔-克洛德·德彪西" },
+        period: "impressionist",
+        year: "1894",
+        description: {
+          en: "A historic breakthrough in modern orchestral color inspired by Mallarmé's symbolist poem. Initiated by the iconic languid solo flute, it evokes a warm, shimmering pastoral dreamscape.",
+          zh: "根据马拉美同名象征派诗作创作，被公认为现代管弦乐的开山里程碑。长笛慵懒迷离的半音阶独奏引出光影斑驳、温润梦幻的夏日林间神话幻境。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=9_7loz-HWUM",
+        imageUrl: "https://img.youtube.com/vi/9_7loz-HWUM/hqdefault.jpg"
+      },
+      {
+        id: "debussy-la-mer",
+        title: { en: "La Mer (The Sea)", zh: "大海" },
+        originalTitle: "La Mer, trois esquisses symphoniques, L. 109",
+        composer: { en: "Claude Debussy", zh: "阿希尔-克洛德·德彪西" },
+        period: "impressionist",
+        year: "1905",
+        description: {
+          en: "Debussy's monumental masterpiece of three symphonic sketches, masterfully painting the sea from dawn to midday, the playful dance of the waves, and the stormy dialogue of wind and water.",
+          zh: "德彪西管弦乐配器的巅峰巨作，由三首交响素描组成。以极富流动感的音乐画笔捕捉海上的晨曦日出、浪涛嬉戏以及风与海狂暴而宏伟的交响对话。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=FOCucJw7iT8",
+        imageUrl: "https://img.youtube.com/vi/FOCucJw7iT8/hqdefault.jpg"
+      },
+      {
+        id: "ravel-pavane",
+        title: { en: "Pavane for a Dead Princess", zh: "帕凡舞曲" },
+        originalTitle: "Pavane pour une infante défunte, M. 19",
+        composer: { en: "Maurice Ravel", zh: "莫里斯·拉威尔" },
+        period: "impressionist",
+        year: "1899",
+        description: {
+          en: "An exquisitely tender, nostalgic masterwork evoking the courtly grace of a Spanish Renaissance infanta. Famous for its heartbreakingly beautiful French horn and warm string textures.",
+          zh: "拉威尔最富诗意优雅的传世杰作，追忆西班牙古典宫廷中年轻公主翩跹慢舞的纯洁与典雅。圆号深情温润的引子与如歌弦乐交织出扣人心弦的静谧之美。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=GKkeDqJBlK8",
+        imageUrl: "https://img.youtube.com/vi/GKkeDqJBlK8/hqdefault.jpg"
+      },
+      {
+        id: "debussy-arabesque-1",
+        title: { en: "Arabesque No. 1", zh: "第一号阿拉伯风格华丽曲" },
+        originalTitle: "Deux Arabesques, L. 66: I. Andantino con moto",
+        composer: { en: "Claude Debussy", zh: "阿希尔-克洛德·德彪西" },
+        period: "impressionist",
+        year: "1888–1891",
+        description: {
+          en: "One of Debussy's earliest and most charming piano jewels, characterized by graceful cascading triplets, gentle pentatonic motifs, and a serene sway like light ripples across water.",
+          zh: "德彪西早期最脍炙人口的钢琴名作。行云流水般的三连音琶音层层流转，五声性旋律清新灵动，如清泉微波在晨光下泛起粼粼波光。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=cVYH-7QGE-A",
+        imageUrl: "https://img.youtube.com/vi/cVYH-7QGE-A/hqdefault.jpg"
+      },
+      {
+        id: "ravel-daphnis-et-chloe",
+        title: { en: "Daphnis et Chloé: Lever du jour", zh: "达芙妮与克罗埃：日出" },
+        originalTitle: "Daphnis et Chloé, Suite No. 2: I. Lever du jour, M. 57b",
+        composer: { en: "Maurice Ravel", zh: "莫里斯·拉威尔" },
+        period: "impressionist",
+        year: "1912",
+        description: {
+          en: "Celebrated as one of the most miraculous orchestrations in musical history, depicting a pastoral sunrise with cascading woodwinds imitating bubbling brooks, birdsong, and a radiant sunburst.",
+          zh: "管弦乐配器史上无可比拟的神作。木管如群鸟欢歌与林间潺潺溪流，弦乐如朝阳破晓般铺陈展开，描绘出古希腊神话中无比宏伟绚烂的晨光破晓。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=wdX5mrp8uE0",
+        imageUrl: "https://img.youtube.com/vi/wdX5mrp8uE0/hqdefault.jpg"
+      },
+      {
+        id: "satie-gymnopedie-1",
+        title: { en: "Gymnopédie No. 1", zh: "第一号裸体歌舞" },
+        originalTitle: "Gymnopédies: No. 1, Lent et douloureux",
+        composer: { en: "Erik Satie", zh: "埃里克·萨蒂" },
+        period: "impressionist",
+        year: "1888",
+        description: {
+          en: "A visionary precursor and philosophical kin to French Impressionism, featuring serene, sorrowful modal harmonies suspended peacefully in timeless, uncluttered space.",
+          zh: "法国先锋派及印象主义时期的灵感源泉。静穆、空灵而带有一丝淡淡忧伤的和弦在三拍子中缓缓流淌，开启了现代氛围与极简音乐的唯美篇章。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=S-Xm7s9eGxU",
+        imageUrl: "https://img.youtube.com/vi/S-Xm7s9eGxU/hqdefault.jpg"
       }
     ];
 
@@ -1762,14 +1860,14 @@
         manageModalTitle: "Data Backup & Management",
         manageDesc: "Export your collection as JSON or copy code snippets to permanently customize the collection in the source code.",
         manageJsonLabel: "Complete Collection JSON:",
-        manageResetBtn: "Reset to Curated Catalog (27 Pieces)",
+        manageResetBtn: "Reset to Curated Catalog (34 Pieces)",
         manageDownloadBtn: "Download JSON",
         manageCopyBtn: "Copy Full JSON",
         footerTop: "Back to top ↑",
         toastCopied: "✓ Copied to clipboard",
         toastAdded: "✓ Piece added to collection!",
         toastRemoved: "✓ Piece removed from collection",
-        toastReset: "✓ Collection reset to curated 27 pieces",
+        toastReset: "✓ Collection reset to curated 34 pieces",
         emptyTitle: "No matching classical works found",
         emptyDesc: "Try different search keywords or reset filter tags",
         periodLabels: {
@@ -1832,14 +1930,14 @@
         manageModalTitle: "数据备份与管理",
         manageDesc: "支持将自定义增加的曲目导出为 JSON，或直接复制代码片段嵌入到网页源码中永久保存。",
         manageJsonLabel: "完整曲库 JSON 数据:",
-        manageResetBtn: "重置为精选 27 首名篇",
+        manageResetBtn: "重置为精选 34 首名篇",
         manageDownloadBtn: "下载 JSON 文件",
         manageCopyBtn: "复制全部 JSON",
         footerTop: "回到顶部 ↑",
         toastCopied: "✓ 已成功复制到剪贴板",
         toastAdded: "✓ 曲目已添加至当前曲库！",
         toastRemoved: "✓ 曲目已从列表移除",
-        toastReset: "✓ 已重置为精选 27 首名篇",
+        toastReset: "✓ 已重置为精选 34 首名篇",
         emptyTitle: "未找到匹配的古典乐作品",
         emptyDesc: "尝试更换搜索关键词或重置乐派筛选标签",
         periodLabels: {
@@ -1863,7 +1961,7 @@
     let currentSortMode = "default";
 
     function loadMusicCollection() {
-      const stored = localStorage.getItem("classical_music_items_v3");
+      const stored = localStorage.getItem("classical_music_items_v4");
       if (stored) {
         try {
           return JSON.parse(stored);
@@ -1877,7 +1975,7 @@
     let musicCollection = loadMusicCollection();
 
     function saveCollectionToLocalStorage() {
-      localStorage.setItem("classical_music_items_v3", JSON.stringify(musicCollection));
+      localStorage.setItem("classical_music_items_v4", JSON.stringify(musicCollection));
     }
 
     function getLocalized(obj, lang) {
@@ -2397,7 +2495,7 @@
 
     resetDataBtn.addEventListener("click", () => {
       if (confirm(I18N[currentLang].deleteConfirm)) {
-        localStorage.removeItem("classical_music_items_v3");
+        localStorage.removeItem("classical_music_items_v4");
         musicCollection = JSON.parse(JSON.stringify(DEFAULT_PIECES));
         renderCollection();
         fullJsonPre.textContent = JSON.stringify(musicCollection, null, 2);
