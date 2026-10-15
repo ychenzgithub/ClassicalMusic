@@ -524,6 +524,7 @@
     .period-badge.classical { background: var(--badge-classical); }
     .period-badge.romantic { background: var(--badge-romantic); }
     .period-badge.impressionist { background: var(--badge-impressionist); }
+    .period-badge.modern { background: #0891b2; }
     .period-badge.other { background: var(--badge-other); }
 
     .card-content {
@@ -1088,10 +1089,11 @@
           <button class="tag-btn" data-period="classical" id="i18n-filter-classical">Classical</button>
           <button class="tag-btn" data-period="romantic" id="i18n-filter-romantic">Romantic</button>
           <button class="tag-btn" data-period="impressionist" id="i18n-filter-impressionist">Impressionist</button>
+          <button class="tag-btn" data-period="modern" id="i18n-filter-modern">Modern</button>
         </div>
 
         <div class="stats-info" id="statsInfo">
-          34 pieces
+          47 pieces
         </div>
       </div>
     </section>
@@ -1116,6 +1118,11 @@
         <a href="http://ncpa-classic.cntv.cn/special/gdyysx/top100/index.shtml" target="_blank" rel="noopener noreferrer" class="resource-chip" title="100 Essential Classical Works by NCPA">
           <span>🎼</span>
           <span id="i18n-res-ncpa">100 Essential Classical Works (国家大剧院100首入门曲目)</span>
+          <span>↗</span>
+        </a>
+        <a href="https://www.wikiwand.com/zh-hans/%E5%8F%A4%E5%85%B8%E9%9F%B3%E6%A8%82%E4%BD%9C%E6%9B%B2%E5%AE%B6%E5%88%97%E8%A1%A8" target="_blank" rel="noopener noreferrer" class="resource-chip" title="Classical Music Composers Directory">
+          <span>📚</span>
+          <span id="i18n-res-composers">Composers Directory (古典音乐作曲家名录)</span>
           <span>↗</span>
         </a>
       </div>
@@ -1203,7 +1210,8 @@
                 <option value="classical">Classical · 古典主义</option>
                 <option value="romantic" selected>Romantic · 浪漫主义</option>
                 <option value="impressionist">Impressionist · 印象主义</option>
-                <option value="other">Other / Modern · 现代及其他</option>
+                <option value="modern">Modern · 现代主义</option>
+                <option value="other">Other · 其他</option>
               </select>
             </div>
             <div class="form-group">
@@ -1276,7 +1284,7 @@
 
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; gap:10px; flex-wrap:wrap;">
           <button id="resetDataBtn" class="btn btn-outline" style="color:#ef4444; border-color:rgba(239,68,68,0.3);" id="i18n-manage-reset-btn">
-            Reset to Curated Catalog (34 Pieces)
+            Reset to Curated Catalog (47 Pieces)
           </button>
           <div style="display:flex; gap:10px;">
             <button id="downloadJsonBtn" class="btn btn-outline" id="i18n-manage-download-btn">Download JSON</button>
@@ -1308,12 +1316,12 @@
   </footer>
 
   <!-- ==========================================================================
-       JavaScript Logic & Master Data (34 Pieces from Archive + Notion + Impressionist Masterworks)
+       JavaScript Logic & Master Data (47 Pieces from Archive + Notion + Impressionist Masterworks)
        ========================================================================== -->
   <script>
     /**
      * --------------------------------------------------------------------------
-     * 1. 核心曲目数据库 (DEFAULT_PIECES) - 34 首名作 (含 Notion 专属收藏与印象派经典)
+     * 1. 核心曲目数据库 (DEFAULT_PIECES) - 47 首名作 (完整整合 Notion 典藏与印象派经典)
      * --------------------------------------------------------------------------
      */
     const DEFAULT_PIECES = [
@@ -1686,6 +1694,174 @@
         youtubeUrl: "https://www.youtube.com/watch?v=tUe-clNbnBE",
         imageUrl: "https://images-na.ssl-images-amazon.com/images/I/710EmOlGjHL._SX355_.jpg"
       },
+      {
+        id: "suppe-light-cavalry-overture",
+        title: { en: "Light Cavalry (Overture)", zh: "轻骑兵序曲" },
+        originalTitle: "Leichte Kavallerie: Ouvertüre",
+        composer: { en: "Franz von Suppé", zh: "弗朗茨·冯·苏佩" },
+        period: "romantic",
+        year: "1866",
+        description: {
+          en: "The world-famous overture to Suppé's operetta 'Light Cavalry', celebrated for its triumphant brass fanfare and exhilarating cavalry gallop rhythms.",
+          zh: "奥地利轻歌剧大师苏佩最负盛名的代表作。辉煌明亮的小号号角齐鸣，随后转入风驰电掣、热血奔放的轻骑兵策马奔驰节奏，极富生命力。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=aF5nhMIyeqI",
+        imageUrl: "https://img.youtube.com/vi/aF5nhMIyeqI/hqdefault.jpg"
+      },
+      {
+        id: "brahms-lullaby",
+        title: { en: "Lullaby (Wiegenlied)", zh: "摇篮曲" },
+        originalTitle: "Wiegenlied: Guten Abend, gute Nacht, Op. 49 No. 4",
+        composer: { en: "Johannes Brahms", zh: "约翰内斯·勃拉姆斯" },
+        period: "romantic",
+        year: "1868",
+        description: {
+          en: "Brahms' universally cherished 'Wiegenlied', written for the birth of a friend's child. One of the tenderest and most soothing lullaby melodies ever composed.",
+          zh: "勃拉姆斯为祝贺好友幼子诞生而作的传世名曲。旋律温馨恬静、纯美安详，如母亲床畔温存的抚慰，是全人类最耳熟能详的摇篮曲。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=t894eGoymio",
+        imageUrl: "https://img.youtube.com/vi/t894eGoymio/hqdefault.jpg"
+      },
+      {
+        id: "saint-saens-danse-macabre",
+        title: { en: "Danse Macabre", zh: "骷髅之舞" },
+        originalTitle: "Danse macabre, Op. 40",
+        composer: { en: "Camille Saint-Saëns", zh: "卡米耶·圣桑" },
+        period: "romantic",
+        year: "1874",
+        description: {
+          en: "Saint-Saëns' spellbinding symphonic poem where Death plays a solo violin at midnight in a graveyard, summoning dancing skeletons before dawn breaks.",
+          zh: "圣桑极富戏剧张力与色彩的交响音诗。午夜钟声12响后，死神拉响不协和小提琴召唤骷髅在墓地翩翩起舞，直至黎明公鸡破晓啼鸣方才散去。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=71fZhMXlGT4",
+        imageUrl: "https://img.youtube.com/vi/71fZhMXlGT4/hqdefault.jpg"
+      },
+      {
+        id: "bizet-carmen-overture",
+        title: { en: "Carmen: Overture (Prélude)", zh: "卡门序曲" },
+        originalTitle: "Carmen: Prélude (Les Toréadors)",
+        composer: { en: "Georges Bizet", zh: "乔治·比才" },
+        period: "romantic",
+        year: "1875",
+        description: {
+          en: "The electrifying opening prelude to Bizet's opera 'Carmen', famous worldwide for its swaggering Toreador March and fiery Spanish festival rhythms.",
+          zh: "法国歌剧皇冠上的耀眼明珠。热烈奔放的西班牙狂欢节气氛扑面而来，铜管高奏英姿勃发的斗牛士进行曲，铿锵有力、扣人心弦。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=pmuFOuh3QHs",
+        imageUrl: "https://img.youtube.com/vi/pmuFOuh3QHs/hqdefault.jpg"
+      },
+      {
+        id: "tchaikovsky-andante-cantabile",
+        title: { en: "Andante Cantabile", zh: "如歌的行板" },
+        originalTitle: "String Quartet No. 1 in D major, Op. 11: II. Andante cantabile",
+        composer: { en: "Pyotr Ilyich Tchaikovsky", zh: "彼得·伊里奇·柴可夫斯基" },
+        period: "romantic",
+        year: "1871",
+        description: {
+          en: "The deeply soulful second movement of Tchaikovsky's first string quartet, based on a Ukrainian folk tune. Leo Tolstoy famously wept upon hearing it.",
+          zh: "柴可夫斯基取材于乌克兰民歌的室内乐传世瑰宝。哀婉如歌、纯朴真挚，文学巨擘列夫·托尔斯泰听后曾感动得潸然泪下。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=SX3iL0KJpGE",
+        imageUrl: "https://img.youtube.com/vi/SX3iL0KJpGE/hqdefault.jpg"
+      },
+      {
+        id: "tchaikovsky-swan-lake",
+        title: { en: "Swan Lake: Scène", zh: "天鹅湖 (场景)" },
+        originalTitle: "Swan Lake Suite, Op. 20a: I. Scène (Moderato)",
+        composer: { en: "Pyotr Ilyich Tchaikovsky", zh: "彼得·伊里奇·柴可夫斯基" },
+        period: "romantic",
+        year: "1876",
+        description: {
+          en: "The haunting, immortal main theme of Tchaikovsky's ballet 'Swan Lake', featuring a sorrowful oboe melody floating over shivering strings and harp glissandos.",
+          zh: "芭蕾艺术巅峰巨制《天鹅湖》的灵魂篇章。凄美幽怨的双簧管独奏在竖琴流云琶音与弦乐波光中回荡，勾勒出幽暗月夜下白天鹅的纯洁与深情。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=9rJoB7y6Ncs",
+        imageUrl: "https://img.youtube.com/vi/9rJoB7y6Ncs/hqdefault.jpg"
+      },
+      {
+        id: "dvorak-new-world-symphony",
+        title: { en: "Symphony No. 9 'From the New World'", zh: "第九交响曲“自新大陆”" },
+        originalTitle: "Symphony No. 9 in E minor, Op. 95, B. 178",
+        composer: { en: "Antonín Dvořák", zh: "安东宁·德沃夏克" },
+        period: "romantic",
+        year: "1893",
+        description: {
+          en: "Dvořák's monumental symphonic masterpiece composed during his American residency, integrating African-American spirituals with Bohemian nostalgia (famous for 'Goin' Home').",
+          zh: "捷克音乐泰斗德沃夏克旅美期间的交响不朽丰碑。融汇黑人灵歌与波希米亚乡愁，英国管奏响的‘念故乡’与终乐章铜管怒吼响彻乐坛。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=O_tPb4JFgmw",
+        imageUrl: "https://img.youtube.com/vi/O_tPb4JFgmw/hqdefault.jpg"
+      },
+      {
+        id: "grieg-in-the-hall-of-the-mountain-king",
+        title: { en: "In the Hall of the Mountain King", zh: "在山魔王的宫殿中" },
+        originalTitle: "Peer Gynt Suite No. 1, Op. 46: IV. In the Hall of the Mountain King",
+        composer: { en: "Edvard Grieg", zh: "爱德华·格里格" },
+        period: "romantic",
+        year: "1875",
+        description: {
+          en: "Grieg's thrilling programmatic masterpiece for Ibsen's play 'Peer Gynt'. It begins as a creeping bassoon ostinato and builds into an unstoppable whirlwind of orchestral fury.",
+          zh: "挪威音乐大师格里格为易卜生诗剧《培尔·金特》创作的戏剧杰作。低音大管蹑手蹑脚开场，速度与力度层层递进加速，最终在群妖狂乱的怒潮中震撼收尾。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=OqvHWUZZdP0",
+        imageUrl: "https://img.youtube.com/vi/OqvHWUZZdP0/hqdefault.jpg"
+      },
+      {
+        id: "puccini-nessun-dorma",
+        title: { en: "Nessun dorma (Turandot)", zh: "今夜无人入睡 (《图兰朵》)" },
+        originalTitle: "Turandot: Act III, 'Nessun dorma'",
+        composer: { en: "Giacomo Puccini", zh: "贾科莫·普契尼" },
+        period: "romantic",
+        year: "1924",
+        description: {
+          en: "Puccini's immortal tenor aria from 'Turandot', sung by Prince Calaf awaiting dawn. Celebrated for its soaring vocal line and triumphant final cry: 'Vincerò!'",
+          zh: "歌剧终极经典《图兰朵》中卡拉夫王子的绝美咏叹调。夜幕下的深情期盼化作黎明将至的豪迈自信，终句‘Vincerò!’（我必胜利！）响彻云霄、气贯长虹。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=cWc7vYjgnTs",
+        imageUrl: "https://img.youtube.com/vi/cWc7vYjgnTs/hqdefault.jpg"
+      },
+      {
+        id: "puccini-o-mio-babbino-caro",
+        title: { en: "O mio babbino caro", zh: "亲爱的爸爸" },
+        originalTitle: "Gianni Schicchi: 'O mio babbino caro'",
+        composer: { en: "Giacomo Puccini", zh: "贾科莫·普契尼" },
+        period: "romantic",
+        year: "1918",
+        description: {
+          en: "Lauretta's poignant, tender soprano aria from Puccini's opera 'Gianni Schicchi', sung as a lyrical plea of innocent love to her father.",
+          zh: "普契尼喜歌剧《贾尼·斯基基》中女儿劳蕾塔向父亲倾诉真挚爱恋的著名女高音咏叹调。旋律纯美温润、深情款款，如天籁般动人心弦。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=Sf-tjXevlyQ",
+        imageUrl: "https://img.youtube.com/vi/Sf-tjXevlyQ/hqdefault.jpg"
+      },
+      {
+        id: "strauss-also-sprach-zarathustra",
+        title: { en: "Also sprach Zarathustra (Sunrise)", zh: "查拉图斯特拉如是说 (日出)" },
+        originalTitle: "Also sprach Zarathustra, Op. 30: Sunrise",
+        composer: { en: "Richard Strauss", zh: "理查德·施特劳斯" },
+        period: "romantic",
+        year: "1896",
+        description: {
+          en: "Strauss' majestic tone poem inspired by Nietzsche. The breathtaking 'Sunrise' fanfare—with its organ pedal, trumpet fanfare, and thunderous kettledrums—is an icon of Western music.",
+          zh: "受尼采同名哲学著作启发创作的宏伟交响诗。开篇《日出》管风琴持续低音、小号嘹亮的‘自然动机’三音符与定音鼓轰鸣，展现出宇宙破晓与理性苏醒的壮丽气象。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=Szdziw4tI9o",
+        imageUrl: "https://img.youtube.com/vi/Szdziw4tI9o/hqdefault.jpg"
+      },
+      {
+        id: "joplin-the-entertainer",
+        title: { en: "The Entertainer", zh: "演艺人" },
+        originalTitle: "The Entertainer: A Ragtime Two Step",
+        composer: { en: "Scott Joplin", zh: "斯科特·乔普林" },
+        period: "romantic",
+        year: "1902",
+        description: {
+          en: "The world-famous ragtime piano classic by Scott Joplin, celebrated for its sparkling syncopated rhythms, sunny charm, and timeless jaunty melodies.",
+          zh: "‘雷格泰姆之王’斯科特·乔普林享誉世界的钢琴代表作。轻快俏皮的切分节奏与诙谐明朗的旋律充满20世纪初新大陆特有的蓬勃朝气与幽默感。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=PbA8CAacNZ4",
+        imageUrl: "https://img.youtube.com/vi/PbA8CAacNZ4/hqdefault.jpg"
+      },
 
       /* --- 印象主义时期 (Impressionist) --- */
       {
@@ -1799,6 +1975,22 @@
         },
         youtubeUrl: "https://www.youtube.com/watch?v=S-Xm7s9eGxU",
         imageUrl: "https://img.youtube.com/vi/S-Xm7s9eGxU/hqdefault.jpg"
+      },
+
+      /* --- 现代主义及二十世纪 (Modernist & 20th Century) --- */
+      {
+        id: "shostakovich-second-waltz",
+        title: { en: "The Second Waltz", zh: "第二圆舞曲" },
+        originalTitle: "Suite for Variety Orchestra: VII. Waltz No. 2",
+        composer: { en: "Dmitri Shostakovich", zh: "德米特里·肖斯塔科维奇" },
+        period: "modern",
+        year: "1938",
+        description: {
+          en: "Shostakovich's hauntingly melancholic and infectious waltz from 'Suite for Variety Orchestra', led by an evocative saxophone and clarinet melody that swept worldwide culture.",
+          zh: "肖斯塔科维奇最为大众熟知、风靡全球的管弦乐圆舞曲。萨克斯管与单簧管奏出略带忧郁感伤却又极尽优雅浪漫的旋律，令人情不自禁随之旋舞。"
+        },
+        youtubeUrl: "https://www.youtube.com/watch?v=-rdG-uyueeI",
+        imageUrl: "https://img.youtube.com/vi/-rdG-uyueeI/hqdefault.jpg"
       }
     ];
 
@@ -1828,6 +2020,7 @@
         filterClassical: "Classical",
         filterRomantic: "Romantic",
         filterImpressionist: "Impressionist",
+        filterModern: "Modern",
         statsPrefix: "Showing",
         statsOf: "of",
         statsSuffix: "masterworks",
@@ -1842,6 +2035,7 @@
         resourcesTitle: "Curated Classical Music Resources",
         resBili: "Top 50 Classical Masterpieces",
         resNcpa: "NCPA 100 Classical Works",
+        resComposers: "Composers Directory",
         addModalTitle: "Add New Classical Piece",
         formTitleEn: "English Title *",
         formTitleZh: "Chinese Title",
@@ -1860,14 +2054,14 @@
         manageModalTitle: "Data Backup & Management",
         manageDesc: "Export your collection as JSON or copy code snippets to permanently customize the collection in the source code.",
         manageJsonLabel: "Complete Collection JSON:",
-        manageResetBtn: "Reset to Curated Catalog (34 Pieces)",
+        manageResetBtn: "Reset to Curated Catalog (47 Pieces)",
         manageDownloadBtn: "Download JSON",
         manageCopyBtn: "Copy Full JSON",
         footerTop: "Back to top ↑",
         toastCopied: "✓ Copied to clipboard",
         toastAdded: "✓ Piece added to collection!",
         toastRemoved: "✓ Piece removed from collection",
-        toastReset: "✓ Collection reset to curated 34 pieces",
+        toastReset: "✓ Collection reset to curated 47 pieces",
         emptyTitle: "No matching classical works found",
         emptyDesc: "Try different search keywords or reset filter tags",
         periodLabels: {
@@ -1875,6 +2069,7 @@
           classical: "Classical",
           romantic: "Romantic",
           impressionist: "Impressionist",
+          modern: "Modern",
           other: "Other"
         }
       },
@@ -1898,6 +2093,7 @@
         filterClassical: "古典主义 (Classical)",
         filterRomantic: "浪漫主义 (Romantic)",
         filterImpressionist: "印象主义 (Impressionist)",
+        filterModern: "现代主义 (Modern)",
         statsPrefix: "显示",
         statsOf: "/",
         statsSuffix: "首名作",
@@ -1912,6 +2108,7 @@
         resourcesTitle: "精选古典音乐研学资源",
         resBili: "最佳古典音乐50篇 (Bilibili)",
         resNcpa: "国家大剧院100首入门曲目",
+        resComposers: "古典音乐作曲家名录 (Wikiwand)",
         addModalTitle: "添加新曲目 / 音乐源",
         formTitleEn: "外文曲名 *",
         formTitleZh: "中文曲名",
@@ -1930,14 +2127,14 @@
         manageModalTitle: "数据备份与管理",
         manageDesc: "支持将自定义增加的曲目导出为 JSON，或直接复制代码片段嵌入到网页源码中永久保存。",
         manageJsonLabel: "完整曲库 JSON 数据:",
-        manageResetBtn: "重置为精选 34 首名篇",
+        manageResetBtn: "重置为精选 47 首名篇",
         manageDownloadBtn: "下载 JSON 文件",
         manageCopyBtn: "复制全部 JSON",
         footerTop: "回到顶部 ↑",
         toastCopied: "✓ 已成功复制到剪贴板",
         toastAdded: "✓ 曲目已添加至当前曲库！",
         toastRemoved: "✓ 曲目已从列表移除",
-        toastReset: "✓ 已重置为精选 34 首名篇",
+        toastReset: "✓ 已重置为精选 47 首名篇",
         emptyTitle: "未找到匹配的古典乐作品",
         emptyDesc: "尝试更换搜索关键词或重置乐派筛选标签",
         periodLabels: {
@@ -1945,6 +2142,7 @@
           classical: "古典主义",
           romantic: "浪漫主义",
           impressionist: "印象主义",
+          modern: "现代主义",
           other: "其他乐派"
         }
       }
@@ -1961,7 +2159,7 @@
     let currentSortMode = "default";
 
     function loadMusicCollection() {
-      const stored = localStorage.getItem("classical_music_items_v4");
+      const stored = localStorage.getItem("classical_music_items_v5");
       if (stored) {
         try {
           return JSON.parse(stored);
@@ -1975,7 +2173,7 @@
     let musicCollection = loadMusicCollection();
 
     function saveCollectionToLocalStorage() {
-      localStorage.setItem("classical_music_items_v4", JSON.stringify(musicCollection));
+      localStorage.setItem("classical_music_items_v5", JSON.stringify(musicCollection));
     }
 
     function getLocalized(obj, lang) {
@@ -2034,6 +2232,7 @@
       document.getElementById("i18n-filter-classical").textContent = dict.filterClassical;
       document.getElementById("i18n-filter-romantic").textContent = dict.filterRomantic;
       document.getElementById("i18n-filter-impressionist").textContent = dict.filterImpressionist;
+      document.getElementById("i18n-filter-modern").textContent = dict.filterModern;
 
       document.getElementById("i18n-modal-play-heading").textContent = dict.modalPlayHeading;
       document.getElementById("i18n-modal-play-sub").textContent = dict.modalPlaySub;
@@ -2042,6 +2241,9 @@
       document.getElementById("i18n-resources-title").textContent = dict.resourcesTitle;
       document.getElementById("i18n-res-bili").textContent = dict.resBili;
       document.getElementById("i18n-res-ncpa").textContent = dict.resNcpa;
+      if (document.getElementById("i18n-res-composers")) {
+        document.getElementById("i18n-res-composers").textContent = dict.resComposers;
+      }
 
       document.getElementById("i18n-add-modal-title").textContent = dict.addModalTitle;
       document.getElementById("i18n-form-title-en").textContent = dict.formTitleEn;
@@ -2495,7 +2697,7 @@
 
     resetDataBtn.addEventListener("click", () => {
       if (confirm(I18N[currentLang].deleteConfirm)) {
-        localStorage.removeItem("classical_music_items_v4");
+        localStorage.removeItem("classical_music_items_v5");
         musicCollection = JSON.parse(JSON.stringify(DEFAULT_PIECES));
         renderCollection();
         fullJsonPre.textContent = JSON.stringify(musicCollection, null, 2);
