@@ -420,6 +420,91 @@
       white-space: nowrap;
     }
 
+    /* Continuous Playback Controls in Main Toolbar */
+    .continuous-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .continuous-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-playback {
+      font-size: 0.875rem;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-playback:hover {
+      transform: translateY(-1px);
+    }
+
+    .live-playback-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--accent-gold);
+      box-shadow: 0 0 12px var(--accent-gold-glow);
+      font-size: 0.8125rem;
+      color: var(--text-primary);
+    }
+
+    .live-playback-text {
+      color: var(--accent-gold);
+      font-weight: 500;
+      max-width: 280px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .playing-equalizer-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 14px;
+    }
+
+    .playing-equalizer-bars span {
+      width: 3px;
+      background: var(--accent-gold);
+      border-radius: 1px;
+      animation: eqBarAnim 0.8s ease-in-out infinite alternate;
+    }
+
+    .playing-equalizer-bars span:nth-child(1) { height: 45%; animation-delay: 0.1s; }
+    .playing-equalizer-bars span:nth-child(2) { height: 100%; animation-delay: 0.3s; }
+    .playing-equalizer-bars span:nth-child(3) { height: 65%; animation-delay: 0.2s; }
+
+    @keyframes eqBarAnim {
+      0% { height: 25%; }
+      100% { height: 100%; }
+    }
+
+    .btn-xs {
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      border-radius: var(--radius-sm);
+    }
+
     /* Cards */
     .pieces-grid {
       display: grid;
@@ -846,6 +931,238 @@
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
+    }
+
+    /* Modal Playback Controls Bar */
+    .modal-playback-bar {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .playback-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .playback-main-btns, .playback-toggle-btns {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .player-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      cursor: pointer;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .player-btn:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-1px);
+    }
+
+    .player-btn.primary {
+      background: var(--accent-gold);
+      color: #0b0f19;
+      border-color: var(--accent-gold);
+      font-weight: 600;
+      padding: 8px 18px;
+    }
+
+    .player-btn.primary:hover {
+      background: var(--accent-gold-light);
+      box-shadow: 0 0 14px var(--accent-gold-glow);
+    }
+
+    .player-btn.active {
+      background: rgba(212, 175, 55, 0.16);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold-glow);
+    }
+
+    .playback-track-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .queue-position-badge {
+      font-weight: 600;
+      color: var(--accent-gold);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .up-next-text {
+      color: var(--text-secondary);
+      font-style: italic;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 480px;
+    }
+
+    .queue-drawer {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      max-height: 220px;
+      overflow-y: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .queue-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      padding: 4px 6px 8px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 4px;
+    }
+
+    .queue-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 10px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.8125rem;
+      transition: var(--transition);
+      gap: 10px;
+      border: 1px solid transparent;
+    }
+
+    .queue-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--border-subtle);
+      color: var(--accent-gold);
+    }
+
+    .queue-item.current {
+      background: rgba(212, 175, 55, 0.15);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .modal-tool-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .modal-tool-btn:hover {
+      background: var(--bg-surface-elevated);
+      color: var(--accent-gold);
+    }
+
+    /* Floating Mini-Player mode for videoPlayerModal */
+    .modal-backdrop.minimized {
+      background: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      pointer-events: none !important;
+      padding: 0 !important;
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .modal-backdrop.minimized .modal-dialog-video {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 380px;
+      max-width: calc(100vw - 32px);
+      max-height: 85vh;
+      margin: 0;
+      pointer-events: auto;
+      z-index: 1000;
+      border: 1px solid var(--accent-gold);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 0 0 20px var(--accent-gold-glow);
+      border-radius: var(--radius-md);
+      transform: none !important;
+    }
+
+    .modal-backdrop.minimized .modal-header {
+      padding: 10px 14px;
+    }
+
+    .modal-backdrop.minimized .modal-title {
+      font-size: 0.875rem;
+    }
+
+    .modal-backdrop.minimized .modal-body {
+      padding: 12px;
+      max-height: 70vh;
+    }
+
+    .modal-backdrop.minimized .video-wrapper {
+      margin-bottom: 8px;
+    }
+
+    .modal-backdrop.minimized .video-piece-title {
+      font-size: 0.9375rem;
+    }
+
+    .modal-backdrop.minimized .video-composer-subtitle {
+      font-size: 0.8125rem;
+    }
+
+    .modal-backdrop.minimized .video-meta-actions {
+      display: none;
+    }
+
+    .modal-backdrop.minimized .btn-text-desktop {
+      display: none;
+    }
+
+    .modal-backdrop.minimized .queue-drawer {
+      max-height: 140px;
     }
 
     /* Inline Badges in Header & Tags */
@@ -1276,6 +1593,31 @@
           55 pieces
         </div>
       </div>
+
+      <!-- Continuous Playback Action Bar -->
+      <div class="continuous-bar">
+        <div class="continuous-actions">
+          <button id="playAllBtn" class="btn btn-gold btn-playback" title="Play all pieces continuously in sequence">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+            <span id="i18n-play-all">Play All (Continuous)</span>
+          </button>
+          <button id="shufflePlayBtn" class="btn btn-outline btn-playback" title="Play pieces continuously in random order">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+            <span id="i18n-shuffle-play">Shuffle Play</span>
+          </button>
+        </div>
+
+        <div id="livePlaybackStatus" class="live-playback-status" style="display:none;">
+          <span class="playing-equalizer-bars" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span id="livePlaybackText" class="live-playback-text">Continuous Playback Active</span>
+          <button id="reopenPlayerBtn" class="btn btn-outline btn-xs" title="Open player window">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>
+            <span id="i18n-open-player">View Player</span>
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- Music Pieces Grid -->
@@ -1313,12 +1655,19 @@
   <div id="videoPlayerModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
     <div class="modal-dialog modal-dialog-video">
       <div class="modal-header">
-        <div class="modal-title">
+        <div class="modal-title" style="flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
           <span style="color:var(--accent-gold); font-size:1.3rem;">𝄞</span>
-          <span id="videoModalTitle">Now Playing</span>
+          <span id="videoModalTitle" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Now Playing</span>
           <span id="videoModalPeriodBadge" class="period-badge-inline"></span>
         </div>
-        <button id="closeVideoModalBtn" class="modal-close" aria-label="Close Video Player">✕</button>
+        <div class="modal-header-actions" style="display:flex; align-items:center; gap:6px;">
+          <!-- Minimize / Expand Toggle Button -->
+          <button id="modalMinExpandBtn" class="modal-tool-btn" title="Minimize to floating window (keep listening while browsing)">
+            <svg id="minIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h6v6"></path><path d="M20 10h-6V4"></path><path d="M14 10l7-7"></path><path d="M3 21l7-7"></path></svg>
+            <svg id="expandIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>
+          </button>
+          <button id="closeVideoModalBtn" class="modal-close" aria-label="Close Video Player">✕</button>
+        </div>
       </div>
       <div class="modal-body">
         <div class="video-wrapper">
@@ -1341,6 +1690,72 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
               <span>YouTube ↗</span>
             </a>
+          </div>
+        </div>
+
+        <!-- Continuous Playback Bar inside Modal -->
+        <div class="modal-playback-bar">
+          <div class="playback-controls-row">
+            <div class="playback-main-btns">
+              <!-- Previous Button -->
+              <button id="modalPrevBtn" class="player-btn" title="Previous Piece">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5"></line></svg>
+                <span id="i18n-prev-btn" class="btn-text-desktop">Prev</span>
+              </button>
+
+              <!-- Play/Pause Button -->
+              <button id="modalPlayPauseBtn" class="player-btn primary" title="Play / Pause">
+                <svg id="modalPlayIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                <svg id="modalPauseIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                <span id="modalPlayPauseLabel">Play</span>
+              </button>
+
+              <!-- Next Button -->
+              <button id="modalNextBtn" class="player-btn" title="Next Piece">
+                <span id="i18n-next-btn" class="btn-text-desktop">Next</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"></line></svg>
+              </button>
+            </div>
+
+            <div class="playback-toggle-btns">
+              <!-- Shuffle Toggle -->
+              <button id="modalShuffleToggleBtn" class="player-btn" title="Toggle Shuffle Mode (Random Order)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+                <span id="i18n-shuffle-toggle">Shuffle: OFF</span>
+              </button>
+
+              <!-- Continuous / Autoplay Next Toggle -->
+              <button id="modalContinuousToggleBtn" class="player-btn active" title="Toggle Continuous Play (Autoplay Next)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                <span id="i18n-continuous-toggle">Continuous: ON</span>
+              </button>
+
+              <!-- Queue Drawer Toggle -->
+              <button id="modalQueueToggleBtn" class="player-btn" title="View Upcoming Queue">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                <span id="i18n-queue-toggle">Queue</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Queue Status & Next Track Info -->
+          <div class="playback-track-status">
+            <span id="modalQueuePosition" class="queue-position-badge">Track 1 of 55</span>
+            <span id="modalUpNextText" class="up-next-text">Up next: ...</span>
+          </div>
+
+          <!-- Collapsible Queue Drawer -->
+          <div id="modalQueueDrawer" class="queue-drawer" style="display:none;">
+            <div class="queue-drawer-header">
+              <span id="i18n-queue-title">Upcoming Playlist Queue</span>
+              <button id="modalReshuffleBtn" class="btn btn-outline btn-xs" title="Reshuffle playlist">
+                <span>⟳</span>
+                <span id="i18n-reshuffle-btn">Reshuffle</span>
+              </button>
+            </div>
+            <div id="modalQueueList" class="queue-items-list">
+              <!-- Dynamically populated -->
+            </div>
           </div>
         </div>
       </div>
@@ -2422,6 +2837,31 @@
         toastReset: "✓ Collection reset to curated 55 pieces",
         emptyTitle: "No matching classical works found",
         emptyDesc: "Try different search keywords or reset filter tags",
+        playAll: "Play All (Continuous)",
+        playAllTooltip: "Play all pieces continuously in sequence",
+        shufflePlay: "Shuffle Play",
+        shufflePlayTooltip: "Play pieces continuously in random order",
+        openPlayer: "View Player",
+        prevBtn: "Prev",
+        nextBtn: "Next",
+        shuffleToggleOn: "Shuffle: ON",
+        shuffleToggleOff: "Shuffle: OFF",
+        continuousToggleOn: "Continuous: ON",
+        continuousToggleOff: "Continuous: OFF",
+        queueToggle: "Queue",
+        queueTitle: "Upcoming Playlist Queue",
+        reshuffleBtn: "Reshuffle",
+        trackOf: "Piece {curr} of {total}",
+        upNextPrefix: "Up next: ",
+        upNextEnd: "End of playlist queue",
+        continuousActive: "Continuous Playback Active",
+        toastPlayAllStart: "▶ Starting continuous playback in sequence",
+        toastShuffleOn: "🔀 Shuffle mode enabled (random order)",
+        toastShuffleOff: "🔁 Sequential mode enabled",
+        toastContinuousOn: "▶ Continuous autoplay enabled",
+        toastContinuousOff: "⏸ Continuous autoplay paused",
+        toastMinimized: "🗗 Minimized to floating window (keep listening while browsing)",
+        videoErrorSkipping: "⚠️ Video embed unavailable. Skipping to next piece...",
         periodLabels: {
           baroque: "Baroque",
           classical: "Classical",
@@ -2502,6 +2942,31 @@
         toastReset: "✓ 已重置为精选 55 首名篇",
         emptyTitle: "未找到匹配的古典乐作品",
         emptyDesc: "尝试更换搜索关键词或重置乐派筛选标签",
+        playAll: "顺序连播",
+        playAllTooltip: "按顺序连续播放列表所有作品",
+        shufflePlay: "随机连播",
+        shufflePlayTooltip: "随机打乱顺序连续畅听所有作品",
+        openPlayer: "查看播放器",
+        prevBtn: "上一首",
+        nextBtn: "下一首",
+        shuffleToggleOn: "随机播放: 开启",
+        shuffleToggleOff: "随机播放: 关闭",
+        continuousToggleOn: "自动连播: 开启",
+        continuousToggleOff: "自动连播: 关闭",
+        queueToggle: "队列",
+        queueTitle: "待播曲目队列",
+        reshuffleBtn: "重新乱序",
+        trackOf: "第 {curr} 首 / 共 {total} 首",
+        upNextPrefix: "即将播放: ",
+        upNextEnd: "已播至队列末尾",
+        continuousActive: "连续播放进行中",
+        toastPlayAllStart: "▶ 已开启顺序连续播放",
+        toastShuffleOn: "🔀 已开启随机连播模式",
+        toastShuffleOff: "🔁 已切换为顺序播放模式",
+        toastContinuousOn: "▶ 已开启自动连播",
+        toastContinuousOff: "⏸ 已关闭自动连播",
+        toastMinimized: "🗗 已最小化为右下角悬浮窗（边听边逛）",
+        videoErrorSkipping: "⚠️ 该视频无法在此内嵌播放，即将自动跳至下一首...",
         periodLabels: {
           baroque: "巴洛克",
           classical: "古典主义",
@@ -2646,6 +3111,42 @@
       document.getElementById("copyFullJsonBtn").textContent = dict.manageCopyBtn;
       document.getElementById("i18n-footer-top").textContent = dict.footerTop;
 
+      // Continuous Playback Toolbar & Modal I18N
+      if (document.getElementById("i18n-play-all")) {
+        document.getElementById("i18n-play-all").textContent = dict.playAll;
+      }
+      if (document.getElementById("playAllBtn")) {
+        document.getElementById("playAllBtn").title = dict.playAllTooltip;
+      }
+      if (document.getElementById("i18n-shuffle-play")) {
+        document.getElementById("i18n-shuffle-play").textContent = dict.shufflePlay;
+      }
+      if (document.getElementById("shufflePlayBtn")) {
+        document.getElementById("shufflePlayBtn").title = dict.shufflePlayTooltip;
+      }
+      if (document.getElementById("i18n-open-player")) {
+        document.getElementById("i18n-open-player").textContent = dict.openPlayer;
+      }
+      if (document.getElementById("i18n-prev-btn")) {
+        document.getElementById("i18n-prev-btn").textContent = dict.prevBtn;
+      }
+      if (document.getElementById("i18n-next-btn")) {
+        document.getElementById("i18n-next-btn").textContent = dict.nextBtn;
+      }
+      if (document.getElementById("i18n-queue-toggle")) {
+        document.getElementById("i18n-queue-toggle").textContent = dict.queueToggle;
+      }
+      if (document.getElementById("i18n-queue-title")) {
+        document.getElementById("i18n-queue-title").textContent = dict.queueTitle;
+      }
+      if (document.getElementById("i18n-reshuffle-btn")) {
+        document.getElementById("i18n-reshuffle-btn").textContent = dict.reshuffleBtn;
+      }
+
+      if (typeof updatePlayerUIControls === "function") {
+        updatePlayerUIControls();
+      }
+
       renderCollection();
     }
 
@@ -2788,12 +3289,12 @@
 
         // 1. Thumbnail click -> Automatically use embedded approach to play video
         card.querySelector(".card-thumbnail-wrap").addEventListener("click", () => {
-          openVideoModal(piece);
+          startContinuousPlayback({ targetPiece: piece, shuffle: isShuffleEnabled });
         });
 
         // 2. Play button -> Automatically use embedded approach to play video
         card.querySelector(".btn-card-play").addEventListener("click", () => {
-          openVideoModal(piece);
+          startContinuousPlayback({ targetPiece: piece, shuffle: isShuffleEnabled });
         });
 
         // 3. Details button -> Lead to detailed description of each item
@@ -2833,7 +3334,7 @@
     let activeVideoPiece = null;
     let activeDetailsPiece = null;
 
-    // 6.1 专属内嵌视频播放模态框
+    // 6.1 专属连续播放与内嵌播放器核心系统 (Continuous Playback & Player Core)
     const videoPlayerModal = document.getElementById("videoPlayerModal");
     const videoPlayerIframe = document.getElementById("videoPlayerIframe");
     const videoModalTitle = document.getElementById("videoModalTitle");
@@ -2842,51 +3343,578 @@
     const videoMetaComposer = document.getElementById("videoMetaComposer");
     const videoModalViewDetailsBtn = document.getElementById("videoModalViewDetailsBtn");
     const videoModalDirectYtLink = document.getElementById("videoModalDirectYtLink");
+    const modalMinExpandBtn = document.getElementById("modalMinExpandBtn");
+    const minIcon = document.getElementById("minIcon");
+    const expandIcon = document.getElementById("expandIcon");
     const closeVideoModalBtn = document.getElementById("closeVideoModalBtn");
 
-    function openVideoModal(piece) {
+    // Modal Playback Controls
+    const modalPrevBtn = document.getElementById("modalPrevBtn");
+    const modalPlayPauseBtn = document.getElementById("modalPlayPauseBtn");
+    const modalPlayIcon = document.getElementById("modalPlayIcon");
+    const modalPauseIcon = document.getElementById("modalPauseIcon");
+    const modalPlayPauseLabel = document.getElementById("modalPlayPauseLabel");
+    const modalNextBtn = document.getElementById("modalNextBtn");
+    const modalShuffleToggleBtn = document.getElementById("modalShuffleToggleBtn");
+    const modalContinuousToggleBtn = document.getElementById("modalContinuousToggleBtn");
+    const modalQueueToggleBtn = document.getElementById("modalQueueToggleBtn");
+    const modalQueuePosition = document.getElementById("modalQueuePosition");
+    const modalUpNextText = document.getElementById("modalUpNextText");
+    const modalQueueDrawer = document.getElementById("modalQueueDrawer");
+    const modalQueueList = document.getElementById("modalQueueList");
+    const modalReshuffleBtn = document.getElementById("modalReshuffleBtn");
+
+    // Main Page Playback Toolbar
+    const playAllBtn = document.getElementById("playAllBtn");
+    const shufflePlayBtn = document.getElementById("shufflePlayBtn");
+    const reopenPlayerBtn = document.getElementById("reopenPlayerBtn");
+    const livePlaybackStatus = document.getElementById("livePlaybackStatus");
+    const livePlaybackText = document.getElementById("livePlaybackText");
+
+    // Playback State
+    let playbackQueue = [];
+    let shuffledQueue = [];
+    let queueIndex = 0;
+    let isContinuousPlayEnabled = true; // 默认开启连续播放 (Continuous Autoplay)
+    let isShuffleEnabled = false;       // 随机播放模式 (Random Shuffle)
+    let isPlaybackPlaying = false;
+    let isTransitioningVideo = false;
+    let errorSkipTimeout = null;
+    let ytPlayer = null;
+    let isPlayerReady = false;
+
+    // ------------------------------------------------------------------------
+    // YouTube IFrame API Setup & Handshake
+    // ------------------------------------------------------------------------
+    (function loadYouTubeApi() {
+      if (!window.YT) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName("script")[0];
+        if (firstScriptTag && firstScriptTag.parentNode) {
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        } else {
+          document.head.appendChild(tag);
+        }
+      }
+    })();
+
+    window.onYouTubeIframeAPIReady = function() {
+      initYouTubePlayer();
+    };
+
+    function initYouTubePlayer() {
+      if (ytPlayer || !window.YT || !window.YT.Player || !videoPlayerIframe) return;
+      try {
+        ytPlayer = new YT.Player("videoPlayerIframe", {
+          events: {
+            "onReady": () => { isPlayerReady = true; },
+            "onStateChange": onYtPlayerStateChange,
+            "onError": onYtPlayerError
+          }
+        });
+      } catch (e) {
+        console.warn("YouTube API init:", e);
+      }
+    }
+
+    function onYtPlayerStateChange(event) {
+      if (event.data === (window.YT && window.YT.PlayerState ? YT.PlayerState.ENDED : 0)) {
+        handleVideoEnded();
+      } else if (event.data === (window.YT && window.YT.PlayerState ? YT.PlayerState.PLAYING : 1)) {
+        updatePlayPauseState(true);
+      } else if (event.data === (window.YT && window.YT.PlayerState ? YT.PlayerState.PAUSED : 2)) {
+        updatePlayPauseState(false);
+      }
+    }
+
+    function onYtPlayerError(event) {
+      handleVideoError(event ? event.data : 0);
+    }
+
+    // Direct postMessage listener as fallback / parallel guarantee
+    window.addEventListener("message", (event) => {
+      if (typeof event.origin === "string" &&
+          !event.origin.includes("youtube.com") &&
+          !event.origin.includes("youtube-nocookie.com")) {
+        return;
+      }
+      let data = event.data;
+      if (typeof data === "string") {
+        try {
+          data = JSON.parse(data);
+        } catch (e) {
+          return;
+        }
+      }
+      if (!data) return;
+
+      if (data.event === "onStateChange") {
+        if (data.info === 0) { // ENDED
+          handleVideoEnded();
+        } else if (data.info === 1) { // PLAYING
+          updatePlayPauseState(true);
+        } else if (data.info === 2) { // PAUSED
+          updatePlayPauseState(false);
+        }
+      } else if (data.event === "onError") {
+        handleVideoError(data.info);
+      }
+    });
+
+    videoPlayerIframe.addEventListener("load", () => {
+      try {
+        videoPlayerIframe.contentWindow.postMessage('{"event":"listening"}', '*');
+      } catch (e) {}
+      initYouTubePlayer();
+    });
+
+    // ------------------------------------------------------------------------
+    // Playlist & Shuffle Engine
+    // ------------------------------------------------------------------------
+    function getCurrentPlaylistItems() {
+      let filtered = musicCollection.filter(piece => {
+        const matchesPeriod = currentPeriodFilter === "all" || (piece.period || "").toLowerCase() === currentPeriodFilter.toLowerCase();
+        if (!matchesPeriod) return false;
+
+        if (!currentSearchTerm) return true;
+        const q = currentSearchTerm.toLowerCase();
+        const tEn = getLocalized(piece.title, "en").toLowerCase();
+        const tZh = getLocalized(piece.title, "zh").toLowerCase();
+        const orig = (piece.originalTitle || "").toLowerCase();
+        const cEn = getLocalized(piece.composer, "en").toLowerCase();
+        const cZh = getLocalized(piece.composer, "zh").toLowerCase();
+        const dEn = getLocalized(piece.description, "en").toLowerCase();
+        const dZh = getLocalized(piece.description, "zh").toLowerCase();
+        const yr = (piece.year || "").toLowerCase();
+
+        return tEn.includes(q) || tZh.includes(q) || orig.includes(q) ||
+               cEn.includes(q) || cZh.includes(q) || dEn.includes(q) || dZh.includes(q) || yr.includes(q);
+      });
+
+      if (currentSortMode === "period") {
+        filtered.sort((a, b) => (a.period || "").localeCompare(b.period || ""));
+      } else if (currentSortMode === "composer") {
+        filtered.sort((a, b) => getLocalized(a.composer, currentLang).localeCompare(getLocalized(b.composer, currentLang), currentLang === "zh" ? "zh-CN" : "en"));
+      } else if (currentSortMode === "title") {
+        filtered.sort((a, b) => getLocalized(a.title, currentLang).localeCompare(getLocalized(b.title, currentLang), currentLang === "zh" ? "zh-CN" : "en"));
+      }
+
+      return filtered.length > 0 ? filtered : musicCollection;
+    }
+
+    function buildShuffledQueue(items, startPiece = null) {
+      let arr = [...items];
+      // Fisher-Yates shuffle
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      if (startPiece) {
+        const idx = arr.findIndex(p => p.id === startPiece.id);
+        if (idx > -1) {
+          arr.splice(idx, 1);
+        }
+        arr.unshift(startPiece);
+      }
+      return arr;
+    }
+
+    function startContinuousPlayback({ shuffle = false, targetPiece = null, startIndex = 0 } = {}) {
+      playbackQueue = getCurrentPlaylistItems();
+      if (playbackQueue.length === 0) {
+        playbackQueue = [...musicCollection];
+      }
+
+      isContinuousPlayEnabled = true;
+      isShuffleEnabled = !!shuffle;
+
+      if (isShuffleEnabled) {
+        shuffledQueue = buildShuffledQueue(playbackQueue, targetPiece);
+        queueIndex = 0;
+      } else {
+        if (targetPiece) {
+          const idx = playbackQueue.findIndex(p => p.id === targetPiece.id);
+          queueIndex = idx >= 0 ? idx : 0;
+        } else {
+          queueIndex = Math.max(0, Math.min(startIndex, playbackQueue.length - 1));
+        }
+      }
+
+      const currentList = isShuffleEnabled ? shuffledQueue : playbackQueue;
+      const pieceToPlay = currentList[queueIndex] || targetPiece || playbackQueue[0];
+
+      if (pieceToPlay) {
+        playPiece(pieceToPlay);
+        const dict = I18N[currentLang];
+        showToast(isShuffleEnabled ? dict.toastShuffleOn : dict.toastPlayAllStart);
+      }
+    }
+
+    function playPiece(piece) {
+      if (!piece) return;
       activeVideoPiece = piece;
+      if (errorSkipTimeout) clearTimeout(errorSkipTimeout);
+
       const ytId = extractYouTubeId(piece.youtubeUrl);
       const title = getLocalized(piece.title, currentLang);
       const composer = getLocalized(piece.composer, currentLang);
       const periodKey = (piece.period || "other").toLowerCase();
       const periodLabel = I18N[currentLang].periodLabels[periodKey] || piece.period || "Classical";
 
+      // Sync metadata in modal
       videoModalTitle.textContent = title;
       videoModalPeriodBadge.textContent = periodLabel;
       videoModalPeriodBadge.className = `period-badge-inline ${periodKey}`;
-
       videoMetaPieceTitle.textContent = `${title} ${piece.originalTitle ? `· ${piece.originalTitle}` : ''}`;
       videoMetaComposer.textContent = `${composer} ${piece.year ? `(${piece.year})` : ''}`;
       videoModalDirectYtLink.href = piece.youtubeUrl;
 
       // Close Details modal if open
-      if (detailsModal.classList.contains("active")) {
+      if (detailsModal && detailsModal.classList.contains("active")) {
         closeDetailsModal();
       }
 
-      // In-page embed with autoplay
-      if (ytId) {
-        videoPlayerIframe.src = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&enablejsapi=1&rel=0`;
+      // Load Video via YouTube API or direct src fallback
+      const originParam = window.location.origin && window.location.origin.startsWith("http")
+        ? `&origin=${encodeURIComponent(window.location.origin)}`
+        : "";
+      const targetEmbedUrl = ytId 
+        ? `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&enablejsapi=1&rel=0&playsinline=1${originParam}`
+        : "";
+
+      if (ytPlayer && isPlayerReady && typeof ytPlayer.loadVideoById === "function" && ytId) {
+        try {
+          ytPlayer.loadVideoById({ videoId: ytId, suggestedQuality: 'default' });
+        } catch (e) {
+          videoPlayerIframe.src = targetEmbedUrl;
+        }
       } else {
-        videoPlayerIframe.src = "";
+        videoPlayerIframe.src = targetEmbedUrl;
       }
 
-      videoPlayerModal.classList.add("active");
-      document.body.style.overflow = "hidden";
+      // Update UI Controls
+      updatePlayerUIControls();
+      renderQueueDrawer();
+      updatePlayPauseState(true);
+      updateLivePlaybackBanner(true);
+
+      // Open Modal view if not already active
+      if (!videoPlayerModal.classList.contains("active")) {
+        videoPlayerModal.classList.add("active");
+        if (!videoPlayerModal.classList.contains("minimized")) {
+          document.body.style.overflow = "hidden";
+        }
+      }
+    }
+
+    function playNextPiece() {
+      const currentList = isShuffleEnabled ? shuffledQueue : playbackQueue;
+      if (!currentList || currentList.length === 0) return;
+
+      if (isShuffleEnabled) {
+        queueIndex++;
+        if (queueIndex >= shuffledQueue.length) {
+          // Reached end of current shuffle: reshuffle so music continues infinitely
+          const lastPiece = shuffledQueue[shuffledQueue.length - 1];
+          shuffledQueue = buildShuffledQueue(playbackQueue);
+          if (shuffledQueue.length > 1 && shuffledQueue[0].id === lastPiece.id) {
+            [shuffledQueue[0], shuffledQueue[1]] = [shuffledQueue[1], shuffledQueue[0]];
+          }
+          queueIndex = 0;
+        }
+        playPiece(shuffledQueue[queueIndex]);
+      } else {
+        queueIndex = (queueIndex + 1) % playbackQueue.length;
+        playPiece(playbackQueue[queueIndex]);
+      }
+    }
+
+    function playPrevPiece() {
+      const currentList = isShuffleEnabled ? shuffledQueue : playbackQueue;
+      if (!currentList || currentList.length === 0) return;
+
+      if (isShuffleEnabled) {
+        queueIndex = (queueIndex - 1 + shuffledQueue.length) % shuffledQueue.length;
+        playPiece(shuffledQueue[queueIndex]);
+      } else {
+        queueIndex = (queueIndex - 1 + playbackQueue.length) % playbackQueue.length;
+        playPiece(playbackQueue[queueIndex]);
+      }
+    }
+
+    function handleVideoEnded() {
+      if (isTransitioningVideo) return;
+      isTransitioningVideo = true;
+      setTimeout(() => { isTransitioningVideo = false; }, 1200);
+
+      if (isContinuousPlayEnabled) {
+        playNextPiece();
+      } else {
+        updatePlayPauseState(false);
+      }
+    }
+
+    function handleVideoError(code) {
+      console.warn("YouTube video playback error code:", code);
+      if (errorSkipTimeout) clearTimeout(errorSkipTimeout);
+      if (isContinuousPlayEnabled) {
+        const dict = I18N[currentLang];
+        showToast(dict.videoErrorSkipping);
+        errorSkipTimeout = setTimeout(() => {
+          playNextPiece();
+        }, 2200);
+      }
+    }
+
+    function togglePlayPause() {
+      if (isPlaybackPlaying) {
+        if (ytPlayer && typeof ytPlayer.pauseVideo === "function") {
+          ytPlayer.pauseVideo();
+        } else {
+          try {
+            videoPlayerIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          } catch (e) {}
+        }
+        updatePlayPauseState(false);
+      } else {
+        if (ytPlayer && typeof ytPlayer.playVideo === "function") {
+          ytPlayer.playVideo();
+        } else {
+          try {
+            videoPlayerIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          } catch (e) {}
+        }
+        updatePlayPauseState(true);
+      }
+    }
+
+    function updatePlayPauseState(isPlaying) {
+      isPlaybackPlaying = isPlaying;
+      if (isPlaying) {
+        if (modalPlayIcon) modalPlayIcon.style.display = "none";
+        if (modalPauseIcon) modalPauseIcon.style.display = "block";
+        if (modalPlayPauseLabel) modalPlayPauseLabel.textContent = currentLang === "zh" ? "暂停" : "Pause";
+      } else {
+        if (modalPlayIcon) modalPlayIcon.style.display = "block";
+        if (modalPauseIcon) modalPauseIcon.style.display = "none";
+        if (modalPlayPauseLabel) modalPlayPauseLabel.textContent = currentLang === "zh" ? "播放" : "Play";
+      }
+    }
+
+    function toggleShuffleMode() {
+      isShuffleEnabled = !isShuffleEnabled;
+      const dict = I18N[currentLang];
+      if (isShuffleEnabled) {
+        shuffledQueue = buildShuffledQueue(playbackQueue.length > 0 ? playbackQueue : getCurrentPlaylistItems(), activeVideoPiece);
+        queueIndex = 0;
+        showToast(dict.toastShuffleOn);
+      } else {
+        if (activeVideoPiece) {
+          const idx = playbackQueue.findIndex(p => p.id === activeVideoPiece.id);
+          queueIndex = idx >= 0 ? idx : 0;
+        }
+        showToast(dict.toastShuffleOff);
+      }
+      updatePlayerUIControls();
+      renderQueueDrawer();
+    }
+
+    function toggleContinuousMode() {
+      isContinuousPlayEnabled = !isContinuousPlayEnabled;
+      const dict = I18N[currentLang];
+      showToast(isContinuousPlayEnabled ? dict.toastContinuousOn : dict.toastContinuousOff);
+      updatePlayerUIControls();
+    }
+
+    function toggleQueueDrawer() {
+      if (!modalQueueDrawer) return;
+      const isHidden = modalQueueDrawer.style.display === "none";
+      modalQueueDrawer.style.display = isHidden ? "flex" : "none";
+      if (modalQueueToggleBtn) {
+        modalQueueToggleBtn.classList.toggle("active", isHidden);
+      }
+      if (isHidden) {
+        renderQueueDrawer();
+      }
+    }
+
+    function renderQueueDrawer() {
+      if (!modalQueueList) return;
+      const currentList = isShuffleEnabled ? shuffledQueue : playbackQueue;
+      if (!currentList || currentList.length === 0) {
+        modalQueueList.innerHTML = `<div style="padding:10px; color:var(--text-muted); font-size:0.8125rem;">Empty queue</div>`;
+        return;
+      }
+
+      modalQueueList.innerHTML = "";
+      currentList.forEach((piece, idx) => {
+        const isCurrent = idx === queueIndex;
+        const item = document.createElement("div");
+        item.className = `queue-item ${isCurrent ? 'current' : ''}`;
+        const title = getLocalized(piece.title, currentLang);
+        const composer = getLocalized(piece.composer, currentLang);
+        const periodKey = (piece.period || "other").toLowerCase();
+
+        item.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px; min-width:0; flex:1;">
+            <span style="font-weight:600; opacity:0.7; font-size:0.75rem; width:22px;">${idx + 1}.</span>
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:${isCurrent ? '600' : '400'};">${escapeHtml(title)}</span>
+            <span style="font-size:0.75rem; opacity:0.6; white-space:nowrap;">· ${escapeHtml(composer)}</span>
+          </div>
+          <span class="period-badge-inline ${periodKey}" style="font-size:0.65rem; padding:1px 6px;">${escapeHtml(periodKey)}</span>
+        `;
+
+        item.addEventListener("click", () => {
+          queueIndex = idx;
+          playPiece(piece);
+        });
+
+        modalQueueList.appendChild(item);
+      });
+    }
+
+    function updatePlayerUIControls() {
+      const dict = I18N[currentLang];
+      const currentList = isShuffleEnabled ? shuffledQueue : playbackQueue;
+      const total = currentList.length || musicCollection.length;
+      const currNum = queueIndex + 1;
+
+      // Position badge
+      if (modalQueuePosition) {
+        modalQueuePosition.textContent = dict.trackOf.replace("{curr}", currNum).replace("{total}", total);
+      }
+
+      // Up Next text
+      if (modalUpNextText) {
+        const nextIdx = (queueIndex + 1) % currentList.length;
+        const nextPiece = currentList[nextIdx];
+        if (nextPiece && isContinuousPlayEnabled) {
+          const nextTitle = getLocalized(nextPiece.title, currentLang);
+          const nextComposer = getLocalized(nextPiece.composer, currentLang);
+          modalUpNextText.textContent = `${dict.upNextPrefix}${nextTitle} (${nextComposer})`;
+        } else {
+          modalUpNextText.textContent = dict.upNextEnd;
+        }
+      }
+
+      // Shuffle toggle button
+      if (modalShuffleToggleBtn) {
+        modalShuffleToggleBtn.classList.toggle("active", isShuffleEnabled);
+        const label = document.getElementById("i18n-shuffle-toggle");
+        if (label) {
+          label.textContent = isShuffleEnabled ? dict.shuffleToggleOn : dict.shuffleToggleOff;
+        }
+      }
+
+      // Continuous toggle button
+      if (modalContinuousToggleBtn) {
+        modalContinuousToggleBtn.classList.toggle("active", isContinuousPlayEnabled);
+        const label = document.getElementById("i18n-continuous-toggle");
+        if (label) {
+          label.textContent = isContinuousPlayEnabled ? dict.continuousToggleOn : dict.continuousToggleOff;
+        }
+      }
+    }
+
+    function updateLivePlaybackBanner(isActive) {
+      if (!livePlaybackStatus) return;
+      if (isActive && activeVideoPiece) {
+        livePlaybackStatus.style.display = "inline-flex";
+        const title = getLocalized(activeVideoPiece.title, currentLang);
+        const composer = getLocalized(activeVideoPiece.composer, currentLang);
+        if (livePlaybackText) {
+          livePlaybackText.textContent = `${title} · ${composer}`;
+        }
+      } else {
+        livePlaybackStatus.style.display = "none";
+      }
+    }
+
+    function toggleMinimizeModal(forceMin) {
+      const willMin = typeof forceMin === "boolean" ? forceMin : !videoPlayerModal.classList.contains("minimized");
+      const dict = I18N[currentLang];
+
+      if (willMin) {
+        videoPlayerModal.classList.add("minimized");
+        document.body.style.overflow = "";
+        if (minIcon) minIcon.style.display = "none";
+        if (expandIcon) expandIcon.style.display = "block";
+        if (modalMinExpandBtn) modalMinExpandBtn.title = dict.expandTooltip || "Expand player";
+        showToast(dict.toastMinimized);
+      } else {
+        videoPlayerModal.classList.remove("minimized");
+        document.body.style.overflow = "hidden";
+        if (minIcon) minIcon.style.display = "block";
+        if (expandIcon) expandIcon.style.display = "none";
+        if (modalMinExpandBtn) modalMinExpandBtn.title = dict.minimizeTooltip || "Minimize player";
+      }
+    }
+
+    function openVideoModal(piece) {
+      startContinuousPlayback({ targetPiece: piece, shuffle: isShuffleEnabled });
     }
 
     function closeVideoModal() {
+      if (errorSkipTimeout) clearTimeout(errorSkipTimeout);
       videoPlayerModal.classList.remove("active");
+      videoPlayerModal.classList.remove("minimized");
       videoPlayerIframe.src = "";
       document.body.style.overflow = "";
       activeVideoPiece = null;
+      isPlaybackPlaying = false;
+      updatePlayPauseState(false);
+      updateLivePlaybackBanner(false);
     }
 
+    // Modal Events
     closeVideoModalBtn.addEventListener("click", closeVideoModal);
     videoPlayerModal.addEventListener("click", (e) => {
-      if (e.target === videoPlayerModal) closeVideoModal();
+      // Clicking the modal backdrop outside dialog smoothly minimizes to floating player
+      if (e.target === videoPlayerModal) {
+        toggleMinimizeModal(true);
+      }
     });
+
+    if (modalMinExpandBtn) {
+      modalMinExpandBtn.addEventListener("click", () => toggleMinimizeModal());
+    }
+
+    if (modalPrevBtn) modalPrevBtn.addEventListener("click", playPrevPiece);
+    if (modalPlayPauseBtn) modalPlayPauseBtn.addEventListener("click", togglePlayPause);
+    if (modalNextBtn) modalNextBtn.addEventListener("click", playNextPiece);
+    if (modalShuffleToggleBtn) modalShuffleToggleBtn.addEventListener("click", toggleShuffleMode);
+    if (modalContinuousToggleBtn) modalContinuousToggleBtn.addEventListener("click", toggleContinuousMode);
+    if (modalQueueToggleBtn) modalQueueToggleBtn.addEventListener("click", toggleQueueDrawer);
+    if (modalReshuffleBtn) {
+      modalReshuffleBtn.addEventListener("click", () => {
+        shuffledQueue = buildShuffledQueue(playbackQueue, activeVideoPiece);
+        queueIndex = 0;
+        isShuffleEnabled = true;
+        updatePlayerUIControls();
+        renderQueueDrawer();
+        showToast(I18N[currentLang].toastShuffleOn);
+      });
+    }
+
+    // Main Page Toolbar Events
+    if (playAllBtn) {
+      playAllBtn.addEventListener("click", () => {
+        startContinuousPlayback({ shuffle: false });
+      });
+    }
+
+    if (shufflePlayBtn) {
+      shufflePlayBtn.addEventListener("click", () => {
+        startContinuousPlayback({ shuffle: true });
+      });
+    }
+
+    if (reopenPlayerBtn) {
+      reopenPlayerBtn.addEventListener("click", () => {
+        toggleMinimizeModal(false);
+      });
+    }
 
     videoModalViewDetailsBtn.addEventListener("click", () => {
       const piece = activeVideoPiece;
@@ -2972,7 +4000,7 @@
       const piece = activeDetailsPiece;
       closeDetailsModal();
       if (piece) {
-        openVideoModal(piece);
+        startContinuousPlayback({ targetPiece: piece, shuffle: isShuffleEnabled });
       }
     });
 
@@ -3245,13 +4273,33 @@
       }, 3000);
     }
 
-    // 全局快捷键 ESC
+    // 全局快捷键 (Global Shortcuts)
     window.addEventListener("keydown", (e) => {
+      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : "";
+      const isInput = activeTag === "input" || activeTag === "textarea" || activeTag === "select";
+
       if (e.key === "Escape") {
-        if (videoPlayerModal && videoPlayerModal.classList.contains("active")) closeVideoModal();
+        if (videoPlayerModal && videoPlayerModal.classList.contains("active")) {
+          if (videoPlayerModal.classList.contains("minimized")) {
+            closeVideoModal();
+          } else {
+            toggleMinimizeModal(true);
+          }
+        }
         if (detailsModal && detailsModal.classList.contains("active")) closeDetailsModal();
         if (addModal && addModal.classList.contains("active")) closeAddModal();
         if (exportModal && exportModal.classList.contains("active")) closeExportModal();
+      } else if (!isInput && videoPlayerModal && videoPlayerModal.classList.contains("active")) {
+        if (e.key === " " || e.code === "Space") {
+          e.preventDefault();
+          togglePlayPause();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          playNextPiece();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          playPrevPiece();
+        }
       }
     });
 

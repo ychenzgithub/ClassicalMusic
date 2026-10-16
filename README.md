@@ -20,19 +20,27 @@ An elegant, bilingual classical music showcase webpage with 55 curated masterwor
    - Click `🌐 中文` / `🌐 English` in the top right navigation bar to toggle between languages anytime.
    - Preference is saved automatically in `localStorage`.
 
-3. **Embedded Video Playback & Dedicated Details Modal**:
-   - **Clicking the Card Image or Play Button**: Automatically launches the dedicated **Embedded Video Player Modal** (`#videoPlayerModal`) and autoplays the performance in 16:9 HD with concert-hall ambiance.
+3. **Continuous Playback & Random Shuffle (顺序连播与随机连播)**:
+   - **Play All (Continuous)**: Starts continuous autoplay across the entire collection or currently filtered era/search results.
+   - **Shuffle Play (Random Sequence)**: Shuffles the sequence randomly using the Fisher-Yates algorithm for infinite discovery without immediate repeats, automatically reshuffling when the queue finishes.
+   - **Full In-Modal Controls**: Previous (`⏮`), Play/Pause (`▶ / ⏸`), Next (`⏭`), Shuffle toggle (`🔀`), Continuous toggle (`🔁`), and an expandable Playlist Queue drawer (`☰ Queue`) to inspect or jump to any piece.
+   - **Floating Mini-Player (Picture-in-Picture / Minimize)**: Click the Minimize button (`🗗`) or click the modal backdrop to dock the player into an elegant floating window in the bottom-right corner. The video and music continue playing seamlessly without reload while you freely scroll, search, and explore program notes!
+   - **Auto-Advance & Error Recovery**: When a video completes, the next piece automatically plays. If a video encounters an embed restriction, the player alerts the listener and advances to the next masterwork.
+   - **Keyboard Media Shortcuts**: `Space` (Play/Pause), `ArrowRight` (Next Piece), `ArrowLeft` (Previous Piece), `Escape` (Minimize/Close).
+
+4. **Embedded Video Playback & Dedicated Details Modal**:
+   - **Clicking the Card Image or Play Button**: Automatically launches playback and continuously advances through the catalog (in sequential or shuffled order according to your preference).
    - **Clicking 'Details'**: Exclusively opens the dedicated **Piece Details & Appreciation Modal** (`#detailsModal`) featuring rich program notes, historical context, movements/catalog numbers, composer biography, and artistic appreciation—**without** auto-playing any video.
    - **Seamless Cross-Navigation**: From the Details modal, you can click *「▶ Play Video (Embedded)」* to start listening; from the Video modal, you can click *「Full Details & Notes」* to read the background story.
    - **Direct External YouTube Link**: Each card and modal includes a direct link (`YouTube ↗`) for watching on YouTube in a new tab.
-    - **Unrestricted Playback**: On GitHub Pages ([Live Site](https://ychenzgithub.github.io/ClassicalMusic/)) and local HTTP server (e.g., `python3 -m http.server`), embedded playback works with zero browser restrictions.
+   - **Unrestricted Playback**: On GitHub Pages ([Live Site](https://ychenzgithub.github.io/ClassicalMusic/)) and local HTTP server (e.g., `python3 -m http.server`), embedded playback works with zero browser restrictions.
 
-4. **Refined Visual Design & Themes**:
+5. **Refined Visual Design & Themes**:
    - Google Fonts (`Cinzel` & `Inter`) paired with clean system font fallbacks.
    - One-click Dark/Light theme toggle (midnight slate & gold or warm concert hall parchment).
    - Fluid responsive CSS grid with period badges and automatic thumbnail fallbacks.
 
-5. **Search, Filter & Content Management**:
+6. **Search, Filter & Content Management**:
    - Live search across English titles, Chinese titles, composer names, eras, and notes.
    - Filter chips: *All*, *Baroque*, *Classical*, *Romantic*, *Impressionist*, *Modern*.
    - Add new pieces graphically via the **「Add Piece」** modal or manage the raw JSON data.
