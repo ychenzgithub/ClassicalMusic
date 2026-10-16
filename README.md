@@ -25,7 +25,7 @@ An elegant, bilingual classical music showcase webpage with 55 curated masterwor
    - **Clicking 'Details'**: Exclusively opens the dedicated **Piece Details & Appreciation Modal** (`#detailsModal`) featuring rich program notes, historical context, movements/catalog numbers, composer biography, and artistic appreciation—**without** auto-playing any video.
    - **Seamless Cross-Navigation**: From the Details modal, you can click *「▶ Play Video (Embedded)」* to start listening; from the Video modal, you can click *「Full Details & Notes」* to read the background story.
    - **Direct External YouTube Link**: Each card and modal includes a direct link (`YouTube ↗`) for watching on YouTube in a new tab.
-   - **Unrestricted Playback**: On GitHub Pages ([Live Site](https://ychenzgithub.github.io/ClassicalMusic/)) and local server ([start_server.command](./start_server.command)), embedded playback works with zero browser restrictions.
+    - **Unrestricted Playback**: On GitHub Pages ([Live Site](https://ychenzgithub.github.io/ClassicalMusic/)) and local HTTP server (e.g., `python3 -m http.server`), embedded playback works with zero browser restrictions.
 
 4. **Refined Visual Design & Themes**:
    - Google Fonts (`Cinzel` & `Inter`) paired with clean system font fallbacks.
@@ -40,6 +40,4 @@ An elegant, bilingual classical music showcase webpage with 55 curated masterwor
 ## 📁 File Structure
 
 - [index.html](./index.html) - Main webpage (self-contained HTML/CSS/JavaScript, 55 masterworks).
-- [start_server.command](./start_server.command) - macOS 1-click launcher to run locally at `http://localhost:8000` for unrestricted in-page embedded playback.
-- [index.html.bak](./index.html.bak) - Backup of original 2018 file.
 - [README.md](./README.md) - Documentation and guide.
